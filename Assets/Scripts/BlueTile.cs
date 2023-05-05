@@ -2,9 +2,10 @@
 
 public class BlueTile : MonoBehaviour, IActivatedTile
 {
+    public static int BlueTilesInLevel;
     public void Activate()
     {
-        ObjectiveManager.Instance.ProgressObjective();
+        BlueTilesInLevel--;
         var levelTile = GetComponent<LevelTile>();
         levelTile.tileType = TileType.Standard;
         levelTile.UpdateGraphics();

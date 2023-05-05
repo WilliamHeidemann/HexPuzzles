@@ -17,9 +17,9 @@ public class ObjectiveManager : MonoBehaviour
     [SerializeField] private Sprite blackStar;
     [SerializeField] private Sprite goldStar;
     public static ObjectiveManager Instance;
-    public bool LevelComplete => _objectivesRequiredForLevel == _completedObjectivesForLevel;
+    public bool LevelComplete => _objectivesRequiredForLevel == CompletedObjectivesForLevel;
+    private int CompletedObjectivesForLevel => _objectivesRequiredForLevel - BlueTile.BlueTilesInLevel;
     private int _objectivesRequiredForLevel;
-    private int _completedObjectivesForLevel;
 
     private void Awake()
     {
@@ -31,15 +31,14 @@ public class ObjectiveManager : MonoBehaviour
 
     private void SetObjective(GridScriptableObject level)
     {
-        _completedObjectivesForLevel = 0;
         _objectivesRequiredForLevel = level.tileData.Count(tile => tile.tileType == TileType.Blue);
-        objectiveText.text = $"{_completedObjectivesForLevel}/{_objectivesRequiredForLevel}";
+        BlueTile.BlueTilesInLevel = _objectivesRequiredForLevel;
+        objectiveText.text = $"{CompletedObjectivesForLevel}/{_objectivesRequiredForLevel}";
     }
     
-    public void ProgressObjective()
+    public void UpdateProgression()
     {
-        _completedObjectivesForLevel += 1;
-        objectiveText.text = $"{_completedObjectivesForLevel}/{_objectivesRequiredForLevel}";
+        objectiveText.text = $"{CompletedObjectivesForLevel}/{_objectivesRequiredForLevel}";
         if (LevelComplete)
         {
             ShowWinScreen();

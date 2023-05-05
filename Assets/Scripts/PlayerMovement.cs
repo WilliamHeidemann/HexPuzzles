@@ -37,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
         current = tile;
         if (tile.TryGetComponent<IActivatedTile>(out var activatedTile)) activatedTile.Activate();
         StepCounter.Instance.IncrementStepCount();
+        ObjectiveManager.Instance.UpdateProgression();
     }
 
     public void Teleport(LevelTile tile)
