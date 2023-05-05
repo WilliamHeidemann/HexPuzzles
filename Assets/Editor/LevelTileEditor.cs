@@ -12,7 +12,14 @@ public class LevelTileEditor : Editor
         _tile = (LevelTile)target;
         UpdateTileComponent();
     }
-    
+
+    public override void OnInspectorGUI()
+    {
+        base.OnInspectorGUI();
+        _tile = (LevelTile)target;
+        UpdateTileComponent();
+    }
+
     private void UpdateTileComponent()
     {
         switch (_tile.tileType)
@@ -39,59 +46,23 @@ public class LevelTileEditor : Editor
 
     private void UpdateTileComponentContainingNothing()
     {
-        var blueTile = _tile.GetComponent<BlueTile>();
-        if (blueTile is not null)
+        var activatedTiles = _tile.GetComponents<IActivatedTile>();
+        foreach (var tile in activatedTiles)
         {
-            EditorApplication.delayCall += () => DestroyImmediate(blueTile);
-        }
-        
-        var teleportTile = _tile.GetComponent<TeleportTile>();
-        if (teleportTile is not null)
-        {
-            EditorApplication.delayCall += () => DestroyImmediate(teleportTile);
-        }
-        
-        var bonusStepsTile = _tile.GetComponent<BonusStepsTile>();
-        if (bonusStepsTile is not null)
-        {
-            EditorApplication.delayCall += () => DestroyImmediate(bonusStepsTile);
+            EditorApplication.delayCall += () => DestroyImmediate((Component)tile);
         }
     }
 
     private void UpdateTileComponentContaining<T>() where T : Component
     {
-        var typeToKeep = _tile.GetComponent(typeof(T));
-        
-        if (typeToKeep is not BlueTile)
+        var activatedTiles = _tile.GetComponents<IActivatedTile>();
+        foreach (var tile in activatedTiles)
         {
-            var blueTile = _tile.GetComponent<BlueTile>();
-            if (blueTile is not null)
+            if (tile is not T)
             {
-                EditorApplication.delayCall += () => DestroyImmediate(blueTile);
+                EditorApplication.delayCall += () => DestroyImmediate((Component)tile);
             }
         }
-
-        if (typeToKeep is not TeleportTile)
-        {
-            var teleportTile = _tile.GetComponent<TeleportTile>();
-            if (teleportTile != null)
-            {
-                EditorApplication.delayCall += () => DestroyImmediate(teleportTile);
-            }
-        }
-        
-        if (typeToKeep is not BonusStepsTile)
-        {
-            var bonusStepsTile = _tile.GetComponent<BonusStepsTile>();
-            if (bonusStepsTile != null)
-            {
-                EditorApplication.delayCall += () => DestroyImmediate(bonusStepsTile);
-            }
-        }
-
-        if (typeToKeep is null)
-        {
-            _tile.gameObject.AddComponent<T>();
-        }
+        if (_tile.GetComponent<T>() is null) _tile.gameObject.AddComponent<T>();
     }
 }
