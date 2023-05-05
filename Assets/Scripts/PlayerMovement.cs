@@ -29,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void MoveRequest(LevelTile tile)
     {
+        if (ObjectiveManager.Instance.LevelComplete) return;
         if (!InRange(current, tile, 1)) return;
         if (tile.tileType == TileType.Empty) return;
         if (tile == current) return;

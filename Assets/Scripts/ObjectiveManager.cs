@@ -41,13 +41,13 @@ public class ObjectiveManager : MonoBehaviour
         objectiveText.text = $"{CompletedObjectivesForLevel}/{_objectivesRequiredForLevel}";
         if (LevelComplete)
         {
+            // Something that stops the player from moving further
             ShowWinScreen();
         }
     }
 
     private void ShowWinScreen()
     {
-        // Something that stops the player from moving further
         endGameScreen.SetActive(true);
         winScreen.SetActive(true);
         ShowStars();
