@@ -6,42 +6,60 @@ using UnityEngine;
 [CustomEditor(typeof(LevelSpawner))]
 public class LevelSpawnerEditor : Editor
 {
+    private LevelSpawner _script;
+    
     public override void OnInspectorGUI()
     {
         base.OnInspectorGUI();
-        var script = (LevelSpawner)target;
+        _script = (LevelSpawner)target;
         if (GUILayout.Button("Reset Grid"))
         {
-            script.SpawnHexGrid();
+            _script.SpawnHexGrid();
         }
         
         GUILayout.BeginHorizontal();
-        var shouldUpdate = script.assetToUpdate != null;
+        var shouldUpdate = _script.assetToUpdate != null;
         var saveOrUpdate = shouldUpdate ? "Update Asset" : "Save to Assets";
-        script.assetToUpdate = (GridScriptableObject)EditorGUILayout.ObjectField("", script.assetToUpdate, typeof(GridScriptableObject), true);
+        _script.assetToUpdate = (GridScriptableObject)EditorGUILayout.ObjectField("", _script.assetToUpdate, typeof(GridScriptableObject), true);
         if (GUILayout.Button(saveOrUpdate))
         {
             if (shouldUpdate)
             {
-                script.UpdateAsset();
-                script.assetToLoad = script.assetToUpdate;
-                script.LoadAsset();
+                UpdateAsset();
+                _script.assetToLoad = _script.assetToUpdate;
+                _script.LoadAsset();
             }
             else
             {
-                script.SaveToAssets();
-                script.assetToLoad = script.assetToUpdate;
+                SaveToAssets();
+                _script.assetToLoad = _script.assetToUpdate;
             }
         }
         GUILayout.EndHorizontal();
 
         GUILayout.BeginHorizontal();
-        script.assetToLoad = (GridScriptableObject)EditorGUILayout.ObjectField("", script.assetToLoad, typeof(GridScriptableObject), true);
+        _script.assetToLoad = (GridScriptableObject)EditorGUILayout.ObjectField("", _script.assetToLoad, typeof(GridScriptableObject), true);
         if (GUILayout.Button("Load Asset"))
         {
-            script.LoadAsset();
-            script.assetToUpdate = script.assetToLoad;
+            _script.LoadAsset();
+            _script.assetToUpdate = _script.assetToLoad;
         }
         GUILayout.EndHorizontal();
+    }
+
+    private void SaveToAssets()
+    {
+        var asset = CreateInstance<GridScriptableObject>();
+        asset.tileData = _script.AssetDataList();
+        const string path = "Assets/New Grid.asset";
+        AssetDatabase.CreateAsset(asset, path);
+        AssetDatabase.SaveAssets();
+    }
+
+    private void UpdateAsset()
+    {
+        _script.assetToUpdate.tileData = _script.AssetDataList();
+        EditorUtility.SetDirty(_script.assetToUpdate);
+        AssetDatabase.SaveAssets();
     }
 }

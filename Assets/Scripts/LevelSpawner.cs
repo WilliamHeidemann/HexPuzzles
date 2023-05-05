@@ -1,8 +1,6 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor;
 using UnityEngine;
 
 public class LevelSpawner : MonoBehaviour
@@ -22,23 +20,7 @@ public class LevelSpawner : MonoBehaviour
         var axialHexes = GenerateAxialHexes();
         InstantiateGrid(axialHexes);
     }
-    
-    public void SaveToAssets()
-    {
-        var asset = ScriptableObject.CreateInstance<GridScriptableObject>();
-        asset.tileData = AssetDataList();
-        const string path = "Assets/New Grid.asset";
-        AssetDatabase.CreateAsset(asset, path);
-        AssetDatabase.SaveAssets();
-    }
-    
-    public void UpdateAsset()
-    {
-        assetToUpdate.tileData = AssetDataList();
-        EditorUtility.SetDirty(assetToUpdate);
-        AssetDatabase.SaveAssets();
-    }
-    
+
     public void LoadAsset()
     {
         if (assetToLoad == null) return;
@@ -60,7 +42,7 @@ public class LevelSpawner : MonoBehaviour
         }
     }
 
-    private List<AxialHex> AssetDataList()
+    public List<AxialHex> AssetDataList()
     {
         var tiles = container.GetComponentsInChildren<LevelTile>();
         var structs = tiles.Where(tile => tile.tileType != TileType.Empty).Select(tile => new AxialHex
