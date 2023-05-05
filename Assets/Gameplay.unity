@@ -2129,7 +2129,7 @@ MonoBehaviour:
   q: 1
   r: -3
   axialHexData:
-    tileType: 4
+    tileType: 0
     Q: 1
     R: -3
     teleportQ: 0
@@ -11039,7 +11039,7 @@ MonoBehaviour:
   q: 3
   r: -4
   axialHexData:
-    tileType: 0
+    tileType: 1
     Q: 3
     R: -4
     teleportQ: 0
@@ -25772,7 +25772,7 @@ MonoBehaviour:
   q: 2
   r: -4
   axialHexData:
-    tileType: 0
+    tileType: 1
     Q: 2
     R: -4
     teleportQ: 0
@@ -39583,7 +39583,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ea0ca8588c5e9114fb945485d301489e, type: 2}
   - {fileID: 11400000, guid: 2a39cdd5812b66c408592e0f264a172e, type: 2}
   - {fileID: 11400000, guid: c8b4ea96c0d0f8144a547859caffb8cd, type: 2}
-  levelIndex: 3
+  levelIndex: 0
 --- !u!1 &987453652
 GameObject:
   m_ObjectHideFlags: 0
@@ -52680,7 +52680,7 @@ MonoBehaviour:
   q: 2
   r: -3
   axialHexData:
-    tileType: 1
+    tileType: 0
     Q: 2
     R: -3
     teleportQ: 0
@@ -64417,7 +64417,7 @@ MonoBehaviour:
   q: 1
   r: -4
   axialHexData:
-    tileType: 0
+    tileType: 4
     Q: 1
     R: -4
     teleportQ: 0

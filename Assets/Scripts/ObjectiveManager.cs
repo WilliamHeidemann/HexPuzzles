@@ -16,6 +16,7 @@ public class ObjectiveManager : MonoBehaviour
     [SerializeField] private Image star3;
     [SerializeField] private Sprite blackStar;
     [SerializeField] private Sprite goldStar;
+    private string _levelName;
     public static ObjectiveManager Instance;
     public bool LevelComplete => _objectivesRequiredForLevel == CompletedObjectivesForLevel;
     private int CompletedObjectivesForLevel => _objectivesRequiredForLevel - BlueTile.BlueTilesInLevel;
@@ -34,14 +35,15 @@ public class ObjectiveManager : MonoBehaviour
         _objectivesRequiredForLevel = level.tileData.Count(tile => tile.tileType == TileType.Blue);
         BlueTile.BlueTilesInLevel = _objectivesRequiredForLevel;
         objectiveText.text = $"{CompletedObjectivesForLevel}/{_objectivesRequiredForLevel}";
+        _levelName = level.name;
+        // print("Previous best: " + PlayerPrefs.GetInt(_levelName));
     }
     
-    public void UpdateProgression()
+    public void ProgressionCheck()
     {
         objectiveText.text = $"{CompletedObjectivesForLevel}/{_objectivesRequiredForLevel}";
         if (LevelComplete)
         {
-            // Something that stops the player from moving further
             ShowWinScreen();
         }
     }
@@ -65,6 +67,7 @@ public class ObjectiveManager : MonoBehaviour
         star1.sprite = goldStar;
         star2.sprite = starsAwarded >= 2 ? goldStar : blackStar;
         star3.sprite = starsAwarded >= 3 ? goldStar : blackStar;
+        // PlayerPrefs.SetInt(_levelName, starsAwarded);
     }
 
     public void HideWinScreen()
