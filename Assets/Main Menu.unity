@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3b451bb53fbb54aa004b6339e18385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: {fileID: 0}
+  levelAssignedToButton: {fileID: 0}
   _currentLevelAsset: {fileID: 11400000, guid: b4ec084e307f21f47b85e7b04feb75e2, type: 2}
 --- !u!114 &1290346
 MonoBehaviour:
@@ -618,7 +618,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3b451bb53fbb54aa004b6339e18385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: {fileID: 0}
+  levelAssignedToButton: {fileID: 0}
   _currentLevelAsset: {fileID: 11400000, guid: b4ec084e307f21f47b85e7b04feb75e2, type: 2}
 --- !u!114 &64893516
 MonoBehaviour:
@@ -770,7 +770,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3b451bb53fbb54aa004b6339e18385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: {fileID: 0}
+  levelAssignedToButton: {fileID: 0}
   _currentLevelAsset: {fileID: 11400000, guid: b4ec084e307f21f47b85e7b04feb75e2, type: 2}
 --- !u!114 &67540278
 MonoBehaviour:
@@ -2526,7 +2526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3b451bb53fbb54aa004b6339e18385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: {fileID: 0}
+  levelAssignedToButton: {fileID: 0}
   _currentLevelAsset: {fileID: 11400000, guid: b4ec084e307f21f47b85e7b04feb75e2, type: 2}
 --- !u!114 &558127339
 MonoBehaviour:
@@ -2678,7 +2678,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3b451bb53fbb54aa004b6339e18385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: {fileID: 0}
+  levelAssignedToButton: {fileID: 0}
   _currentLevelAsset: {fileID: 11400000, guid: b4ec084e307f21f47b85e7b04feb75e2, type: 2}
 --- !u!114 &678825936
 MonoBehaviour:
@@ -3041,7 +3041,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3b451bb53fbb54aa004b6339e18385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: {fileID: 0}
+  levelAssignedToButton: {fileID: 0}
   _currentLevelAsset: {fileID: 11400000, guid: b4ec084e307f21f47b85e7b04feb75e2, type: 2}
 --- !u!114 &799146834
 MonoBehaviour:
@@ -4816,7 +4816,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3b451bb53fbb54aa004b6339e18385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: {fileID: 0}
+  levelAssignedToButton: {fileID: 0}
   _currentLevelAsset: {fileID: 11400000, guid: b4ec084e307f21f47b85e7b04feb75e2, type: 2}
 --- !u!114 &1412428582
 MonoBehaviour:
@@ -5483,7 +5483,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3b451bb53fbb54aa004b6339e18385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: {fileID: 0}
+  levelAssignedToButton: {fileID: 0}
   _currentLevelAsset: {fileID: 11400000, guid: b4ec084e307f21f47b85e7b04feb75e2, type: 2}
 --- !u!114 &1640599888
 MonoBehaviour:
@@ -5846,7 +5846,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3b451bb53fbb54aa004b6339e18385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: {fileID: 0}
+  levelAssignedToButton: {fileID: 0}
   _currentLevelAsset: {fileID: 11400000, guid: b4ec084e307f21f47b85e7b04feb75e2, type: 2}
 --- !u!114 &1923815723
 MonoBehaviour:
@@ -5998,7 +5998,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3b451bb53fbb54aa004b6339e18385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: {fileID: 0}
+  levelAssignedToButton: {fileID: 0}
   _currentLevelAsset: {fileID: 11400000, guid: b4ec084e307f21f47b85e7b04feb75e2, type: 2}
 --- !u!114 &1969787855
 MonoBehaviour:
@@ -6319,7 +6319,7 @@ GameObject:
   - component: {fileID: 1996033554}
   - component: {fileID: 1996033557}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Button (0)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6455,7 +6455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3b451bb53fbb54aa004b6339e18385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: {fileID: 0}
+  levelAssignedToButton: {fileID: 0}
   _currentLevelAsset: {fileID: 11400000, guid: b4ec084e307f21f47b85e7b04feb75e2, type: 2}
 --- !u!1 &1998932348
 GameObject:
@@ -6513,7 +6513,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3b451bb53fbb54aa004b6339e18385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: {fileID: 0}
+  levelAssignedToButton: {fileID: 0}
   _currentLevelAsset: {fileID: 11400000, guid: b4ec084e307f21f47b85e7b04feb75e2, type: 2}
 --- !u!114 &1998932351
 MonoBehaviour:

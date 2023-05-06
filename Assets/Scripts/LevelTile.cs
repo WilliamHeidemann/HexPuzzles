@@ -20,11 +20,11 @@ public class LevelTile : MonoBehaviour
     public int s => -q-r;
     public AxialHex axialHexData;
     private SkinnedMeshRenderer MeshRenderer => GetComponentInChildren<SkinnedMeshRenderer>();
-    public Material emptyMaterial;
-    public Material standardMaterial;
-    public Material blueMaterial;
-    public Material teleportMaterial;
-    public Material bonusStepMaterial;
+    [SerializeField] private Material emptyMaterial;
+    [SerializeField] private Material standardMaterial;
+    [SerializeField] private Material blueMaterial;
+    [SerializeField] private Material teleportMaterial;
+    [SerializeField] private Material bonusStepMaterial;
 
     private void OnValidate()
     {

@@ -1672,7 +1672,6 @@ GameObject:
   - component: {fileID: 51377795}
   - component: {fileID: 51377794}
   - component: {fileID: 51377793}
-  - component: {fileID: 51377796}
   m_Layer: 0
   m_Name: Q(-7) R(0)
   m_TagString: Untagged
@@ -1729,7 +1728,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 62e0f6285c17eb7428cf1e48fb109c04, type: 2}
+  - {fileID: 2100000, guid: 633654028755cb84eb1c316e71fc71c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1775,7 +1774,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221d025ef7699694f90ffb2cfa41e65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileType: 2
+  tileType: 0
   q: -7
   r: 0
   axialHexData:
@@ -1789,18 +1788,6 @@ MonoBehaviour:
   blueMaterial: {fileID: 2100000, guid: 62e0f6285c17eb7428cf1e48fb109c04, type: 2}
   teleportMaterial: {fileID: 2100000, guid: 64f31b88dd1dfc54baa1e392442e1951, type: 2}
   bonusStepMaterial: {fileID: 2100000, guid: ffd1a4bda183cb84980d1ec09cac444d, type: 2}
---- !u!114 &51377796
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 51377791}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12b32780fe3b48dabb12bf0e0f3aeccd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &51460422
 GameObject:
   m_ObjectHideFlags: 0
@@ -3013,7 +3000,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 59e93d432dd003f42865e2a22d1361d7, type: 2}
+  - {fileID: 2100000, guid: 633654028755cb84eb1c316e71fc71c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3059,7 +3046,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221d025ef7699694f90ffb2cfa41e65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileType: 1
+  tileType: 0
   q: 2
   r: -2
   axialHexData:
@@ -3553,7 +3540,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 59e93d432dd003f42865e2a22d1361d7, type: 2}
+  - {fileID: 2100000, guid: 633654028755cb84eb1c316e71fc71c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3599,7 +3586,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221d025ef7699694f90ffb2cfa41e65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileType: 1
+  tileType: 0
   q: -4
   r: -1
   axialHexData:
@@ -4047,7 +4034,7 @@ MonoBehaviour:
   q: -2
   r: 1
   axialHexData:
-    tileType: 0
+    tileType: 1
     Q: -2
     R: 1
     teleportQ: 0
@@ -6081,7 +6068,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 633654028755cb84eb1c316e71fc71c0, type: 2}
+  - {fileID: 2100000, guid: 59e93d432dd003f42865e2a22d1361d7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6127,11 +6114,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221d025ef7699694f90ffb2cfa41e65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileType: 0
+  tileType: 1
   q: -1
   r: 3
   axialHexData:
-    tileType: 0
+    tileType: 1
     Q: -1
     R: 3
     teleportQ: 0
@@ -6271,7 +6258,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 59e93d432dd003f42865e2a22d1361d7, type: 2}
+  - {fileID: 2100000, guid: 633654028755cb84eb1c316e71fc71c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6317,7 +6304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221d025ef7699694f90ffb2cfa41e65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileType: 1
+  tileType: 0
   q: -6
   r: 1
   axialHexData:
@@ -9594,7 +9581,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 59e93d432dd003f42865e2a22d1361d7, type: 2}
+  - {fileID: 2100000, guid: 633654028755cb84eb1c316e71fc71c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9640,7 +9627,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221d025ef7699694f90ffb2cfa41e65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileType: 1
+  tileType: 0
   q: 8
   r: -8
   axialHexData:
@@ -10264,7 +10251,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 633654028755cb84eb1c316e71fc71c0, type: 2}
+  - {fileID: 2100000, guid: 59e93d432dd003f42865e2a22d1361d7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10310,7 +10297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221d025ef7699694f90ffb2cfa41e65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileType: 0
+  tileType: 1
   q: 0
   r: -1
   axialHexData:
@@ -10615,7 +10602,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 59e93d432dd003f42865e2a22d1361d7, type: 2}
+  - {fileID: 2100000, guid: 633654028755cb84eb1c316e71fc71c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10661,7 +10648,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221d025ef7699694f90ffb2cfa41e65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileType: 1
+  tileType: 0
   q: -3
   r: -1
   axialHexData:
@@ -12500,7 +12487,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 59e93d432dd003f42865e2a22d1361d7, type: 2}
+  - {fileID: 2100000, guid: 633654028755cb84eb1c316e71fc71c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12546,7 +12533,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221d025ef7699694f90ffb2cfa41e65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileType: 1
+  tileType: 0
   q: 0
   r: 5
   axialHexData:
@@ -12902,7 +12889,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 59e93d432dd003f42865e2a22d1361d7, type: 2}
+  - {fileID: 2100000, guid: 633654028755cb84eb1c316e71fc71c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12948,7 +12935,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221d025ef7699694f90ffb2cfa41e65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileType: 1
+  tileType: 0
   q: 4
   r: -4
   axialHexData:
@@ -13080,7 +13067,7 @@ MonoBehaviour:
   q: 0
   r: 1
   axialHexData:
-    tileType: 0
+    tileType: 1
     Q: 0
     R: 1
     teleportQ: 0
@@ -13861,7 +13848,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 59e93d432dd003f42865e2a22d1361d7, type: 2}
+  - {fileID: 2100000, guid: 633654028755cb84eb1c316e71fc71c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -13907,7 +13894,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221d025ef7699694f90ffb2cfa41e65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileType: 1
+  tileType: 0
   q: -3
   r: 1
   axialHexData:
@@ -15552,7 +15539,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 59e93d432dd003f42865e2a22d1361d7, type: 2}
+  - {fileID: 2100000, guid: 633654028755cb84eb1c316e71fc71c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -15598,7 +15585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221d025ef7699694f90ffb2cfa41e65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileType: 1
+  tileType: 0
   q: 3
   r: -3
   axialHexData:
@@ -20488,7 +20475,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 59e93d432dd003f42865e2a22d1361d7, type: 2}
+  - {fileID: 2100000, guid: 633654028755cb84eb1c316e71fc71c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -20534,7 +20521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221d025ef7699694f90ffb2cfa41e65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileType: 1
+  tileType: 0
   q: 1
   r: -1
   axialHexData:
@@ -20840,7 +20827,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 59e93d432dd003f42865e2a22d1361d7, type: 2}
+  - {fileID: 2100000, guid: 633654028755cb84eb1c316e71fc71c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -20886,7 +20873,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221d025ef7699694f90ffb2cfa41e65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileType: 1
+  tileType: 0
   q: -7
   r: 1
   axialHexData:
@@ -21984,7 +21971,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 59e93d432dd003f42865e2a22d1361d7, type: 2}
+  - {fileID: 2100000, guid: 633654028755cb84eb1c316e71fc71c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -22030,7 +22017,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221d025ef7699694f90ffb2cfa41e65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileType: 1
+  tileType: 0
   q: 7
   r: -7
   axialHexData:
@@ -24960,8 +24947,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilePrefab: {fileID: -4729243777317031718, guid: 3bac027ee57520144ad0ecbb69dde9a9, type: 3}
-  assetToUpdate: {fileID: 11400000, guid: d26878ebef608b74d9d852dc8848c3a4, type: 2}
-  assetToLoad: {fileID: 11400000, guid: d26878ebef608b74d9d852dc8848c3a4, type: 2}
+  assetToUpdate: {fileID: 11400000, guid: 19975ea3aa9b1624da1598c33a34414a, type: 2}
+  assetToLoad: {fileID: 11400000, guid: 19975ea3aa9b1624da1598c33a34414a, type: 2}
   container: {fileID: 997128120}
   spacing: 0.2
   layers: 10
@@ -28387,7 +28374,6 @@ GameObject:
   - component: {fileID: 751310999}
   - component: {fileID: 751310998}
   - component: {fileID: 751310997}
-  - component: {fileID: 751311000}
   m_Layer: 0
   m_Name: Q(3) R(0)
   m_TagString: Untagged
@@ -28444,7 +28430,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 64f31b88dd1dfc54baa1e392442e1951, type: 2}
+  - {fileID: 2100000, guid: 633654028755cb84eb1c316e71fc71c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -28490,7 +28476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221d025ef7699694f90ffb2cfa41e65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileType: 3
+  tileType: 0
   q: 3
   r: 0
   axialHexData:
@@ -28504,19 +28490,6 @@ MonoBehaviour:
   blueMaterial: {fileID: 2100000, guid: 62e0f6285c17eb7428cf1e48fb109c04, type: 2}
   teleportMaterial: {fileID: 2100000, guid: 64f31b88dd1dfc54baa1e392442e1951, type: 2}
   bonusStepMaterial: {fileID: 2100000, guid: ffd1a4bda183cb84980d1ec09cac444d, type: 2}
---- !u!114 &751311000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 751310995}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9160247d552841b0ad39bdbf24405faf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  connectedTile: {fileID: 1008779089}
 --- !u!1 &751827637
 GameObject:
   m_ObjectHideFlags: 0
@@ -29062,7 +29035,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 59e93d432dd003f42865e2a22d1361d7, type: 2}
+  - {fileID: 2100000, guid: 633654028755cb84eb1c316e71fc71c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -29108,7 +29081,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221d025ef7699694f90ffb2cfa41e65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileType: 1
+  tileType: 0
   q: 5
   r: -5
   axialHexData:
@@ -36600,7 +36573,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 633654028755cb84eb1c316e71fc71c0, type: 2}
+  - {fileID: 2100000, guid: 59e93d432dd003f42865e2a22d1361d7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -36646,11 +36619,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221d025ef7699694f90ffb2cfa41e65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileType: 0
+  tileType: 1
   q: -2
   r: 2
   axialHexData:
-    tileType: 0
+    tileType: 1
     Q: -2
     R: 2
     teleportQ: 0
@@ -37309,7 +37282,6 @@ GameObject:
   - component: {fileID: 886477404}
   - component: {fileID: 886477403}
   - component: {fileID: 886477402}
-  - component: {fileID: 886477405}
   m_Layer: 0
   m_Name: Q(0) R(6)
   m_TagString: Untagged
@@ -37366,7 +37338,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 64f31b88dd1dfc54baa1e392442e1951, type: 2}
+  - {fileID: 2100000, guid: 633654028755cb84eb1c316e71fc71c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -37412,7 +37384,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221d025ef7699694f90ffb2cfa41e65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileType: 3
+  tileType: 0
   q: 0
   r: 6
   axialHexData:
@@ -37426,19 +37398,6 @@ MonoBehaviour:
   blueMaterial: {fileID: 2100000, guid: 62e0f6285c17eb7428cf1e48fb109c04, type: 2}
   teleportMaterial: {fileID: 2100000, guid: 64f31b88dd1dfc54baa1e392442e1951, type: 2}
   bonusStepMaterial: {fileID: 2100000, guid: ffd1a4bda183cb84980d1ec09cac444d, type: 2}
---- !u!114 &886477405
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 886477400}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9160247d552841b0ad39bdbf24405faf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  connectedTile: {fileID: 1197270284}
 --- !u!1 &887646770
 GameObject:
   m_ObjectHideFlags: 0
@@ -38590,7 +38549,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 633654028755cb84eb1c316e71fc71c0, type: 2}
+  - {fileID: 2100000, guid: 59e93d432dd003f42865e2a22d1361d7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -38636,11 +38595,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221d025ef7699694f90ffb2cfa41e65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileType: 0
+  tileType: 1
   q: 1
   r: 1
   axialHexData:
-    tileType: 0
+    tileType: 1
     Q: 1
     R: 1
     teleportQ: 0
@@ -39355,7 +39314,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 59e93d432dd003f42865e2a22d1361d7, type: 2}
+  - {fileID: 2100000, guid: 633654028755cb84eb1c316e71fc71c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -39401,7 +39360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221d025ef7699694f90ffb2cfa41e65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileType: 1
+  tileType: 0
   q: -5
   r: 0
   axialHexData:
@@ -40313,7 +40272,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 633654028755cb84eb1c316e71fc71c0, type: 2}
+  - {fileID: 2100000, guid: 59e93d432dd003f42865e2a22d1361d7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -40359,11 +40318,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221d025ef7699694f90ffb2cfa41e65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileType: 0
+  tileType: 1
   q: -1
   r: 2
   axialHexData:
-    tileType: 0
+    tileType: 1
     Q: -1
     R: 2
     teleportQ: 0
@@ -41940,7 +41899,6 @@ GameObject:
   - component: {fileID: 1008779089}
   - component: {fileID: 1008779088}
   - component: {fileID: 1008779087}
-  - component: {fileID: 1008779090}
   m_Layer: 0
   m_Name: Q(-2) R(0)
   m_TagString: Untagged
@@ -41997,7 +41955,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 64f31b88dd1dfc54baa1e392442e1951, type: 2}
+  - {fileID: 2100000, guid: 59e93d432dd003f42865e2a22d1361d7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -42043,11 +42001,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221d025ef7699694f90ffb2cfa41e65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileType: 3
+  tileType: 1
   q: -2
   r: 0
   axialHexData:
-    tileType: 0
+    tileType: 1
     Q: -2
     R: 0
     teleportQ: 0
@@ -42057,19 +42015,6 @@ MonoBehaviour:
   blueMaterial: {fileID: 2100000, guid: 62e0f6285c17eb7428cf1e48fb109c04, type: 2}
   teleportMaterial: {fileID: 2100000, guid: 64f31b88dd1dfc54baa1e392442e1951, type: 2}
   bonusStepMaterial: {fileID: 2100000, guid: ffd1a4bda183cb84980d1ec09cac444d, type: 2}
---- !u!114 &1008779090
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1008779085}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9160247d552841b0ad39bdbf24405faf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  connectedTile: {fileID: 751310999}
 --- !u!1 &1008948825
 GameObject:
   m_ObjectHideFlags: 0
@@ -44226,7 +44171,7 @@ MonoBehaviour:
   q: 2
   r: 0
   axialHexData:
-    tileType: 0
+    tileType: 1
     Q: 2
     R: 0
     teleportQ: 0
@@ -45546,7 +45491,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 633654028755cb84eb1c316e71fc71c0, type: 2}
+  - {fileID: 2100000, guid: 59e93d432dd003f42865e2a22d1361d7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -45592,11 +45537,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221d025ef7699694f90ffb2cfa41e65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileType: 0
+  tileType: 1
   q: -1
   r: 1
   axialHexData:
-    tileType: 0
+    tileType: 1
     Q: -1
     R: 1
     teleportQ: 0
@@ -45898,7 +45843,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 59e93d432dd003f42865e2a22d1361d7, type: 2}
+  - {fileID: 2100000, guid: 633654028755cb84eb1c316e71fc71c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -45944,7 +45889,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221d025ef7699694f90ffb2cfa41e65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileType: 1
+  tileType: 0
   q: 0
   r: 3
   axialHexData:
@@ -47883,7 +47828,6 @@ GameObject:
   - component: {fileID: 1197270284}
   - component: {fileID: 1197270283}
   - component: {fileID: 1197270282}
-  - component: {fileID: 1197270285}
   m_Layer: 0
   m_Name: Q(-4) R(0)
   m_TagString: Untagged
@@ -47940,7 +47884,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 64f31b88dd1dfc54baa1e392442e1951, type: 2}
+  - {fileID: 2100000, guid: 633654028755cb84eb1c316e71fc71c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -47986,7 +47930,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221d025ef7699694f90ffb2cfa41e65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileType: 3
+  tileType: 0
   q: -4
   r: 0
   axialHexData:
@@ -48000,19 +47944,6 @@ MonoBehaviour:
   blueMaterial: {fileID: 2100000, guid: 62e0f6285c17eb7428cf1e48fb109c04, type: 2}
   teleportMaterial: {fileID: 2100000, guid: 64f31b88dd1dfc54baa1e392442e1951, type: 2}
   bonusStepMaterial: {fileID: 2100000, guid: ffd1a4bda183cb84980d1ec09cac444d, type: 2}
---- !u!114 &1197270285
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1197270280}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9160247d552841b0ad39bdbf24405faf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  connectedTile: {fileID: 886477404}
 --- !u!1 &1200317647
 GameObject:
   m_ObjectHideFlags: 0
@@ -49149,7 +49080,6 @@ GameObject:
   - component: {fileID: 1237658927}
   - component: {fileID: 1237658926}
   - component: {fileID: 1237658925}
-  - component: {fileID: 1237658928}
   m_Layer: 0
   m_Name: Q(9) R(-9)
   m_TagString: Untagged
@@ -49206,7 +49136,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 64f31b88dd1dfc54baa1e392442e1951, type: 2}
+  - {fileID: 2100000, guid: 633654028755cb84eb1c316e71fc71c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -49252,7 +49182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221d025ef7699694f90ffb2cfa41e65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileType: 3
+  tileType: 0
   q: 9
   r: -9
   axialHexData:
@@ -49266,19 +49196,6 @@ MonoBehaviour:
   blueMaterial: {fileID: 2100000, guid: 62e0f6285c17eb7428cf1e48fb109c04, type: 2}
   teleportMaterial: {fileID: 2100000, guid: 64f31b88dd1dfc54baa1e392442e1951, type: 2}
   bonusStepMaterial: {fileID: 2100000, guid: ffd1a4bda183cb84980d1ec09cac444d, type: 2}
---- !u!114 &1237658928
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1237658923}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9160247d552841b0ad39bdbf24405faf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  connectedTile: {fileID: 1817512914}
 --- !u!1 &1238525625
 GameObject:
   m_ObjectHideFlags: 0
@@ -49601,7 +49518,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 59e93d432dd003f42865e2a22d1361d7, type: 2}
+  - {fileID: 2100000, guid: 633654028755cb84eb1c316e71fc71c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -49647,7 +49564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221d025ef7699694f90ffb2cfa41e65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileType: 1
+  tileType: 0
   q: 6
   r: -6
   axialHexData:
@@ -50981,6 +50898,7 @@ GameObject:
   - component: {fileID: 1292708011}
   - component: {fileID: 1292708010}
   - component: {fileID: 1292708009}
+  - component: {fileID: 1292708012}
   m_Layer: 0
   m_Name: Q(-2) R(4)
   m_TagString: Untagged
@@ -51037,7 +50955,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 633654028755cb84eb1c316e71fc71c0, type: 2}
+  - {fileID: 2100000, guid: 62e0f6285c17eb7428cf1e48fb109c04, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -51083,11 +51001,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221d025ef7699694f90ffb2cfa41e65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileType: 0
+  tileType: 2
   q: -2
   r: 4
   axialHexData:
-    tileType: 0
+    tileType: 2
     Q: -2
     R: 4
     teleportQ: 0
@@ -51097,6 +51015,18 @@ MonoBehaviour:
   blueMaterial: {fileID: 2100000, guid: 62e0f6285c17eb7428cf1e48fb109c04, type: 2}
   teleportMaterial: {fileID: 2100000, guid: 64f31b88dd1dfc54baa1e392442e1951, type: 2}
   bonusStepMaterial: {fileID: 2100000, guid: ffd1a4bda183cb84980d1ec09cac444d, type: 2}
+--- !u!114 &1292708012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1292708007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12b32780fe3b48dabb12bf0e0f3aeccd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1298265823
 GameObject:
   m_ObjectHideFlags: 0
@@ -60839,7 +60769,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 59e93d432dd003f42865e2a22d1361d7, type: 2}
+  - {fileID: 2100000, guid: 633654028755cb84eb1c316e71fc71c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -60885,7 +60815,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221d025ef7699694f90ffb2cfa41e65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileType: 1
+  tileType: 0
   q: 0
   r: 4
   axialHexData:
@@ -66764,7 +66694,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 59e93d432dd003f42865e2a22d1361d7, type: 2}
+  - {fileID: 2100000, guid: 633654028755cb84eb1c316e71fc71c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -66810,7 +66740,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221d025ef7699694f90ffb2cfa41e65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileType: 1
+  tileType: 0
   q: -3
   r: 0
   axialHexData:
@@ -69263,7 +69193,6 @@ GameObject:
   - component: {fileID: 1817512914}
   - component: {fileID: 1817512913}
   - component: {fileID: 1817512912}
-  - component: {fileID: 1817512915}
   m_Layer: 0
   m_Name: Q(-6) R(0)
   m_TagString: Untagged
@@ -69320,7 +69249,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 64f31b88dd1dfc54baa1e392442e1951, type: 2}
+  - {fileID: 2100000, guid: 633654028755cb84eb1c316e71fc71c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -69366,7 +69295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221d025ef7699694f90ffb2cfa41e65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileType: 3
+  tileType: 0
   q: -6
   r: 0
   axialHexData:
@@ -69380,19 +69309,6 @@ MonoBehaviour:
   blueMaterial: {fileID: 2100000, guid: 62e0f6285c17eb7428cf1e48fb109c04, type: 2}
   teleportMaterial: {fileID: 2100000, guid: 64f31b88dd1dfc54baa1e392442e1951, type: 2}
   bonusStepMaterial: {fileID: 2100000, guid: ffd1a4bda183cb84980d1ec09cac444d, type: 2}
---- !u!114 &1817512915
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1817512910}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9160247d552841b0ad39bdbf24405faf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  connectedTile: {fileID: 1237658927}
 --- !u!1 &1821034321
 GameObject:
   m_ObjectHideFlags: 0
@@ -69605,7 +69521,7 @@ MonoBehaviour:
   q: 0
   r: 2
   axialHexData:
-    tileType: 0
+    tileType: 1
     Q: 0
     R: 2
     teleportQ: 0
@@ -74929,7 +74845,7 @@ MonoBehaviour:
   q: 0
   r: 0
   axialHexData:
-    tileType: 0
+    tileType: 1
     Q: 0
     R: 0
     teleportQ: 0
@@ -79319,7 +79235,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 633654028755cb84eb1c316e71fc71c0, type: 2}
+  - {fileID: 2100000, guid: 59e93d432dd003f42865e2a22d1361d7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -79365,11 +79281,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221d025ef7699694f90ffb2cfa41e65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileType: 0
+  tileType: 1
   q: -2
   r: 3
   axialHexData:
-    tileType: 0
+    tileType: 1
     Q: -2
     R: 3
     teleportQ: 0
@@ -80103,7 +80019,7 @@ MonoBehaviour:
   q: -1
   r: 0
   axialHexData:
-    tileType: 0
+    tileType: 1
     Q: -1
     R: 0
     teleportQ: 0
@@ -80357,7 +80273,7 @@ MonoBehaviour:
   q: 1
   r: 0
   axialHexData:
-    tileType: 0
+    tileType: 1
     Q: 1
     R: 0
     teleportQ: 0
