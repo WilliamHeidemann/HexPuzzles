@@ -3,35 +3,34 @@ using UnityEngine;
 
 public class LevelLoader : MonoBehaviour
 {
-    [SerializeField] private LevelSpawner levelSpawner;
-    [SerializeField] private LevelOrder levels;
-    [SerializeField] private int levelIndex;
-    private GridScriptableObject CurrentLevel => levels.orderedLevels[levelIndex];
-
+    [SerializeField] private LevelOrder levelOrder;
+    [SerializeField] private CurrentLevelData currentLevel;
     public delegate void EnterLevelDelegate(GridScriptableObject level);
     public static event EnterLevelDelegate EnterLevelEvent;
-
     private void Start()
     {
-        EnterLevel(CurrentLevel);
+        EnterLevel(currentLevel.value);
     }
 
     private void EnterLevel(GridScriptableObject level)
     {
-        levelSpawner.assetToLoad = level;
-        levelSpawner.LoadAsset();
         EnterLevelEvent?.Invoke(level);
     }
 
     public void RetryLevel()
     {
-        EnterLevel(CurrentLevel);
+        EnterLevel(currentLevel.value);
     }
     
     public void NextLevel()
     {
-        levelIndex++;
-        if (levelIndex >= levels.orderedLevels.Count) return;
-        EnterLevel(CurrentLevel);
+        if (currentLevel.value == levelOrder.orderedLevels[^1]) return;
+        var found = false;
+        foreach (var level in levelOrder.orderedLevels)
+        {
+            if (found) currentLevel.value = level;
+            if (level == currentLevel.value) found = true;
+        }
+        EnterLevel(currentLevel.value);
     }
 }

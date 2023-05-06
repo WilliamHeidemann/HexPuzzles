@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -13,6 +14,12 @@ public class LevelSpawner : MonoBehaviour
     private float SideLength => 1f + spacing;
     private float Median => SideLength / 1.155f;
 
+    private void Awake()
+    {
+        LevelLoader.EnterLevelEvent += level => assetToLoad = level;
+        LevelLoader.EnterLevelEvent += LoadAsset;
+    }
+
     public void SpawnHexGrid()
     {
         RemoveOldGrid();
@@ -20,9 +27,9 @@ public class LevelSpawner : MonoBehaviour
         InstantiateGrid(axialHexes);
     }
 
-    public void LoadAsset()
+    public void LoadAsset(GridScriptableObject level)
     {
-        if (assetToLoad == null) return;
+        if (level == null) return;
         var hexTiles = container.GetComponentsInChildren<LevelTile>();
         foreach (var levelTile in hexTiles)
         {
@@ -34,7 +41,7 @@ public class LevelSpawner : MonoBehaviour
             });
         }
         
-        foreach (var tileStruct in assetToLoad.tileData)
+        foreach (var tileStruct in level.tileData)
         {
             var hexTile = hexTiles.FirstOrDefault(hexTile => hexTile.q == tileStruct.Q && hexTile.r == tileStruct.R);
             if (hexTile != null) hexTile.ApplyTileStruct(tileStruct);

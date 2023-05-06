@@ -40799,9 +40799,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1fcfc990b6349559cd87ae7771b5abb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelSpawner: {fileID: 662165230}
-  levels: {fileID: 11400000, guid: 28ebbbbc8b58d2b4fbaa1b007492f44c, type: 2}
-  levelIndex: 0
+  levelOrder: {fileID: 11400000, guid: 28ebbbbc8b58d2b4fbaa1b007492f44c, type: 2}
+  currentLevel: {fileID: 11400000, guid: b4ec084e307f21f47b85e7b04feb75e2, type: 2}
 --- !u!1 &988150853
 GameObject:
   m_ObjectHideFlags: 0

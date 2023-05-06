@@ -27,7 +27,7 @@ public class LevelSpawnerEditor : Editor
             {
                 UpdateAsset();
                 _script.assetToLoad = _script.assetToUpdate;
-                _script.LoadAsset();
+                _script.LoadAsset(_script.assetToLoad);
             }
             else
             {
@@ -41,7 +41,7 @@ public class LevelSpawnerEditor : Editor
         _script.assetToLoad = (GridScriptableObject)EditorGUILayout.ObjectField("", _script.assetToLoad, typeof(GridScriptableObject), true);
         if (GUILayout.Button("Load Asset"))
         {
-            _script.LoadAsset();
+            _script.LoadAsset(_script.assetToLoad);
             _script.assetToUpdate = _script.assetToLoad;
         }
         GUILayout.EndHorizontal();
