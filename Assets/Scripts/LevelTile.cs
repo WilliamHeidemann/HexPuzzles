@@ -33,36 +33,20 @@ public class LevelTile : MonoBehaviour
 
     public void UpdateGraphics()
     {
-        switch (tileType)
+        MeshRenderer.material = tileType switch
         {
-            case TileType.Empty:
-                ApplyMaterial(emptyMaterial);
-                break;
-            case TileType.Standard:
-                ApplyMaterial(standardMaterial);
-                break;
-            case TileType.Blue:
-                ApplyMaterial(blueMaterial);
-                break;
-            case TileType.Teleport:
-                ApplyMaterial(teleportMaterial);
-                break;
-            case TileType.BonusSteps:
-                ApplyMaterial(bonusStepMaterial);
-                break;
-            default:
-                throw new ArgumentOutOfRangeException();
-        }
-    }
-
-    private void ApplyMaterial(Material material)
-    {
-        MeshRenderer.material = material;
+            TileType.Empty => emptyMaterial,
+            TileType.Standard => standardMaterial,
+            TileType.Blue => blueMaterial,
+            TileType.Teleport => teleportMaterial,
+            TileType.BonusSteps => bonusStepMaterial,
+            _ => throw new ArgumentOutOfRangeException()
+        };
     }
 
     public void TurnTransparent()
     {
-        ApplyMaterial(emptyMaterial);
+        MeshRenderer.material = emptyMaterial;
     }
 
     public void ApplyTileStruct(AxialHex axialHex)

@@ -8,7 +8,6 @@ public class LevelButton : MonoBehaviour
     public int levelIndexToLoad;
     public void LoadLevel()
     {
-        LevelLoader.StartingLevelToLoad = levelIndexToLoad;
         SceneManager.LoadScene("Gameplay");
     }
 }

@@ -40801,7 +40801,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelSpawner: {fileID: 662165230}
   levels: {fileID: 11400000, guid: 28ebbbbc8b58d2b4fbaa1b007492f44c, type: 2}
-  levelIndex: 10
+  levelIndex: 0
 --- !u!1 &988150853
 GameObject:
   m_ObjectHideFlags: 0

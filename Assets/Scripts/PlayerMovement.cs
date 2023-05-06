@@ -27,10 +27,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void MoveRequest(LevelTile tile)
     {
-        if (ObjectiveManager.Instance.LevelComplete) return;
-        if (!InRange(current, tile, 1)) return;
-        if (tile.tileType == TileType.Empty) return;
-        if (tile == current) return;
+        if (IsInvalid(tile)) return;
         PlayerMovementAnimation.Instance.AddMovementCommand(tile.transform.position + Vector3.up);
         _previous = current;
         current = tile;
@@ -39,7 +36,16 @@ public class PlayerMovement : MonoBehaviour
         ObjectiveManager.Instance.ProgressionCheck();
     }
 
-    public void Teleport(LevelTile tile)
+    private bool IsInvalid(LevelTile tile)
+    {
+        if (ObjectiveManager.Instance.LevelComplete) return true;
+        if (!InRange(current, tile, 1)) return true;
+        if (tile.tileType == TileType.Empty) return true;
+        if (tile == current) return true;
+        return false;
+    }
+
+    public void TeleportRequest(LevelTile tile)
     {
         PlayerMovementAnimation.Instance.AddMovementCommand(tile.transform.position + Vector3.up);
         // Replace with fade?

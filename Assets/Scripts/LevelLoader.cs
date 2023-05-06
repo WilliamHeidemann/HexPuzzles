@@ -7,14 +7,12 @@ public class LevelLoader : MonoBehaviour
     [SerializeField] private LevelOrder levels;
     [SerializeField] private int levelIndex;
     private GridScriptableObject CurrentLevel => levels.orderedLevels[levelIndex];
-    public static int StartingLevelToLoad = 10;
 
     public delegate void EnterLevelDelegate(GridScriptableObject level);
     public static event EnterLevelDelegate EnterLevelEvent;
 
     private void Start()
     {
-        levelIndex = StartingLevelToLoad;
         EnterLevel(CurrentLevel);
     }
 
