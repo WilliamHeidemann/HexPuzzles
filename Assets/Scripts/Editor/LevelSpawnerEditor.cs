@@ -14,6 +14,11 @@ public class LevelSpawnerEditor : Editor
         _script = (LevelSpawner)target;
         if (GUILayout.Button("Reset Grid"))
         {
+            if (_script.assetToLoad != null && _script.assetToUpdate != null)
+            {
+                Debug.LogAssertion("An asset is still in the update or load field. Remove those before calling Reset Grid.");
+                return;
+            }
             _script.SpawnHexGrid();
         }
         
@@ -60,7 +65,7 @@ public class LevelSpawnerEditor : Editor
     {
         if (_script.assetToUpdate.updatingAllowed == false)
         {
-            Debug.LogWarning("Level has been locked from updating. Has the correct asset been selected for update?");
+            Debug.LogAssertion("Level has been locked from updating. Has the correct asset been selected for update?");
             return;
         }
         _script.assetToUpdate.tileData = _script.AssetDataList();
