@@ -179,7 +179,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3b451bb53fbb54aa004b6339e18385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelIndexToLoad: 0
+  level: {fileID: 0}
+  _currentLevelAsset: {fileID: 11400000, guid: b4ec084e307f21f47b85e7b04feb75e2, type: 2}
 --- !u!114 &1290346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -617,7 +618,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3b451bb53fbb54aa004b6339e18385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelIndexToLoad: 0
+  level: {fileID: 0}
+  _currentLevelAsset: {fileID: 11400000, guid: b4ec084e307f21f47b85e7b04feb75e2, type: 2}
 --- !u!114 &64893516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -768,7 +770,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3b451bb53fbb54aa004b6339e18385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelIndexToLoad: 0
+  level: {fileID: 0}
+  _currentLevelAsset: {fileID: 11400000, guid: b4ec084e307f21f47b85e7b04feb75e2, type: 2}
 --- !u!114 &67540278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2523,7 +2526,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3b451bb53fbb54aa004b6339e18385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelIndexToLoad: 0
+  level: {fileID: 0}
+  _currentLevelAsset: {fileID: 11400000, guid: b4ec084e307f21f47b85e7b04feb75e2, type: 2}
 --- !u!114 &558127339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2674,7 +2678,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3b451bb53fbb54aa004b6339e18385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelIndexToLoad: 0
+  level: {fileID: 0}
+  _currentLevelAsset: {fileID: 11400000, guid: b4ec084e307f21f47b85e7b04feb75e2, type: 2}
 --- !u!114 &678825936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3036,7 +3041,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3b451bb53fbb54aa004b6339e18385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelIndexToLoad: 0
+  level: {fileID: 0}
+  _currentLevelAsset: {fileID: 11400000, guid: b4ec084e307f21f47b85e7b04feb75e2, type: 2}
 --- !u!114 &799146834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4810,7 +4816,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3b451bb53fbb54aa004b6339e18385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelIndexToLoad: 0
+  level: {fileID: 0}
+  _currentLevelAsset: {fileID: 11400000, guid: b4ec084e307f21f47b85e7b04feb75e2, type: 2}
 --- !u!114 &1412428582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5476,7 +5483,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3b451bb53fbb54aa004b6339e18385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelIndexToLoad: 0
+  level: {fileID: 0}
+  _currentLevelAsset: {fileID: 11400000, guid: b4ec084e307f21f47b85e7b04feb75e2, type: 2}
 --- !u!114 &1640599888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5838,7 +5846,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3b451bb53fbb54aa004b6339e18385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelIndexToLoad: 0
+  level: {fileID: 0}
+  _currentLevelAsset: {fileID: 11400000, guid: b4ec084e307f21f47b85e7b04feb75e2, type: 2}
 --- !u!114 &1923815723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5989,7 +5998,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3b451bb53fbb54aa004b6339e18385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelIndexToLoad: 0
+  level: {fileID: 0}
+  _currentLevelAsset: {fileID: 11400000, guid: b4ec084e307f21f47b85e7b04feb75e2, type: 2}
 --- !u!114 &1969787855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6445,7 +6455,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3b451bb53fbb54aa004b6339e18385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelIndexToLoad: 0
+  level: {fileID: 0}
+  _currentLevelAsset: {fileID: 11400000, guid: b4ec084e307f21f47b85e7b04feb75e2, type: 2}
 --- !u!1 &1998932348
 GameObject:
   m_ObjectHideFlags: 0
@@ -6502,7 +6513,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3b451bb53fbb54aa004b6339e18385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelIndexToLoad: 0
+  level: {fileID: 0}
+  _currentLevelAsset: {fileID: 11400000, guid: b4ec084e307f21f47b85e7b04feb75e2, type: 2}
 --- !u!114 &1998932351
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -21,7 +21,7 @@ public class LevelSelector : MonoBehaviour
         {
             var button = transform.GetChild(i);
             button.GetComponentInChildren<TextMeshProUGUI>().text = (i + 1).ToString();
-            button.GetComponent<LevelButton>().levelIndexToLoad = i;
+            button.GetComponent<LevelButton>().levelAssignedToButton = levelOrder.orderedLevels[i];
             AddStars(button, i);
         }
     }

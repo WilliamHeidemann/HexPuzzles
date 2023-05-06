@@ -4,7 +4,7 @@ using UnityEngine;
 public class LevelLoader : MonoBehaviour
 {
     [SerializeField] private LevelOrder levelOrder;
-    [SerializeField] private CurrentLevelData currentLevel;
+    [SerializeField] private CurrentLevelAsset currentLevel;
     public delegate void EnterLevelDelegate(GridScriptableObject level);
     public static event EnterLevelDelegate EnterLevelEvent;
     private void Start()
