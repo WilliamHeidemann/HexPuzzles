@@ -41,7 +41,9 @@ public class PlayerMovement : MonoBehaviour
 
     public void Teleport(LevelTile tile)
     {
-        PlayerMovementAnimation.Instance.AddMovementCommand(tile.transform.position + Vector3.up); // Replace with fade?
+        PlayerMovementAnimation.Instance.AddMovementCommand(tile.transform.position + Vector3.up);
+        // Replace with fade?
+        // Display all tiles while flying?
         current = tile;
     }
     

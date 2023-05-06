@@ -33,7 +33,6 @@ public class ObjectiveManager : MonoBehaviour
         BlueTile.BlueTilesInLevel = _objectivesRequiredForLevel;
         objectiveText.text = $"{CompletedObjectivesForLevel}/{_objectivesRequiredForLevel}";
         _levelName = level.name;
-        // print("Previous best: " + PlayerPrefs.GetInt(_levelName));
     }
     
     public void ProgressionCheck()
@@ -64,7 +63,9 @@ public class ObjectiveManager : MonoBehaviour
         star1.sprite = goldStar;
         star2.sprite = starsAwarded >= 2 ? goldStar : blackStar;
         star3.sprite = starsAwarded >= 3 ? goldStar : blackStar;
-        // PlayerPrefs.SetInt(_levelName, starsAwarded);
+        var previousBest = PlayerPrefs.GetInt(_levelName);
+        var best = Mathf.Max(starsAwarded, previousBest);
+        PlayerPrefs.SetInt(_levelName, best);
     }
 
     public void HideWinScreen()

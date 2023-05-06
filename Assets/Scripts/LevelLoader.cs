@@ -4,15 +4,17 @@ using UnityEngine;
 public class LevelLoader : MonoBehaviour
 {
     [SerializeField] private LevelSpawner levelSpawner;
-    [SerializeField] private List<GridScriptableObject> levels;
+    [SerializeField] private LevelOrder levels;
     [SerializeField] private int levelIndex;
-    private GridScriptableObject CurrentLevel => levels[levelIndex];
+    private GridScriptableObject CurrentLevel => levels.orderedLevels[levelIndex];
+    public static int StartingLevelToLoad = 10;
 
     public delegate void EnterLevelDelegate(GridScriptableObject level);
     public static event EnterLevelDelegate EnterLevelEvent;
 
     private void Start()
     {
+        levelIndex = StartingLevelToLoad;
         EnterLevel(CurrentLevel);
     }
 
@@ -31,7 +33,7 @@ public class LevelLoader : MonoBehaviour
     public void NextLevel()
     {
         levelIndex++;
-        if (levelIndex >= levels.Count) return;
+        if (levelIndex >= levels.orderedLevels.Count) return;
         EnterLevel(CurrentLevel);
     }
 }

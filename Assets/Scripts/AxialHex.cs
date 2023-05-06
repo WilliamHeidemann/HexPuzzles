@@ -9,5 +9,4 @@ public struct AxialHex
     public int S => -Q-R;
     public int teleportQ;
     public int teleportR;
-    public (int,int) TeleportTile;
 }
