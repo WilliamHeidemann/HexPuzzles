@@ -25,12 +25,8 @@ public class LevelLoader : MonoBehaviour
     public void NextLevel()
     {
         if (currentLevel.value == levelOrder.orderedLevels[^1]) return;
-        var found = false;
-        foreach (var level in levelOrder.orderedLevels)
-        {
-            if (found) currentLevel.value = level;
-            if (level == currentLevel.value) found = true;
-        }
+        var currentIndex = levelOrder.orderedLevels.IndexOf(currentLevel.value);
+        currentLevel.value = levelOrder.orderedLevels[currentIndex + 1];
         EnterLevel(currentLevel.value);
     }
 }
