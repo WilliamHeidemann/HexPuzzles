@@ -9,7 +9,8 @@ public enum TileType
     Standard,
     Blue,
     Teleport,
-    BonusSteps
+    BonusSteps,
+    Jump
 }
 
 public class LevelTile : MonoBehaviour
@@ -25,6 +26,7 @@ public class LevelTile : MonoBehaviour
     [SerializeField] private Material blueMaterial;
     [SerializeField] private Material teleportMaterial;
     [SerializeField] private Material bonusStepMaterial;
+    [SerializeField] private Material jumpMaterial;
 
     private void OnValidate()
     {
@@ -40,6 +42,7 @@ public class LevelTile : MonoBehaviour
             TileType.Blue => blueMaterial,
             TileType.Teleport => teleportMaterial,
             TileType.BonusSteps => bonusStepMaterial,
+            TileType.Jump => jumpMaterial,
             _ => throw new ArgumentOutOfRangeException()
         };
     }
@@ -83,6 +86,9 @@ public class LevelTile : MonoBehaviour
                 break;
             case TileType.BonusSteps:
                 if (GetComponent<BonusStepsTile>() == null) gameObject.AddComponent<BonusStepsTile>();
+                break;
+            case TileType.Jump:
+                if (GetComponent<JumpTile>() == null) gameObject.AddComponent<JumpTile>();
                 break;
             default:
                 throw new ArgumentOutOfRangeException();

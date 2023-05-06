@@ -61,6 +61,7 @@ MonoBehaviour:
   blueMaterial: {fileID: 2100000, guid: 62e0f6285c17eb7428cf1e48fb109c04, type: 2}
   teleportMaterial: {fileID: 2100000, guid: 64f31b88dd1dfc54baa1e392442e1951, type: 2}
   bonusStepMaterial: {fileID: 2100000, guid: ffd1a4bda183cb84980d1ec09cac444d, type: 2}
+  jumpMaterial: {fileID: 2100000, guid: 55ad4cc8d6aae3449abbee7f9f532b10, type: 2}
 --- !u!137 &4241770806431782710
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0

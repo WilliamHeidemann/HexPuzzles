@@ -39,6 +39,9 @@ public class LevelTileEditor : Editor
             case TileType.BonusSteps:
                 UpdateTileComponentContaining<BonusStepsTile>();
                 break;
+            case TileType.Jump:
+                UpdateTileComponentContaining<JumpTile>();
+                break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
