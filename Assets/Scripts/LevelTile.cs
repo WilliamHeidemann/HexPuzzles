@@ -69,9 +69,11 @@ public class LevelTile : MonoBehaviour
 
     private void ApplyTileBehaviour(TileType type)
     {
-        DestroyImmediate(GetComponent<BlueTile>());
-        DestroyImmediate(GetComponent<TeleportTile>());
-        DestroyImmediate(GetComponent<BonusStepsTile>());
+        foreach (var activatedTile in GetComponents<IActivatedTile>())
+        {
+            DestroyImmediate((Component)activatedTile);
+        }
+        
         switch (type)
         {
             case TileType.Empty:
