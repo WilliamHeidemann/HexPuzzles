@@ -1,9 +1,9 @@
 ﻿using System;
 using UnityEngine;
 
-public class SwitchTile : TileComponentBase, IEventTriggerTile
+public class OneTimeUseTile : TileComponentBase, IEventTriggerTile, IActivatedTile
 {
-    public bool on;
+    private bool _steppedOn;
     
     private void Awake()
     {
@@ -14,17 +14,18 @@ public class SwitchTile : TileComponentBase, IEventTriggerTile
     {
         PlayerMovement.PlayerMoved -= Trigger;
     }
-    
-    private void OnValidate()
-    {
-        GetComponent<LevelTile>().UpdateGraphics();
-    }
 
+    public void Activate()
+    {
+        _steppedOn = true;
+    }
+    
     public void Trigger()
     {
+        if (!_steppedOn) return;
         var levelTile = GetComponent<LevelTile>();
-        if (PlayerMovement.Instance.current == levelTile) return;
-        on = !on;
+        levelTile.tileType = TileType.Empty;
         levelTile.UpdateGraphics();
+        Destroy(this);
     }
 }

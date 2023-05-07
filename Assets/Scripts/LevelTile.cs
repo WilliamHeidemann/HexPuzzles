@@ -11,7 +11,8 @@ public enum TileType
     Teleport,
     BonusSteps,
     Jump,
-    Switch
+    Switch,
+    OneTimeUse
 }
 
 public class LevelTile : MonoBehaviour
@@ -30,6 +31,7 @@ public class LevelTile : MonoBehaviour
     [SerializeField] private Material jumpMaterial;
     [SerializeField] private Material switchOnMaterial;
     [SerializeField] private Material switchOffMaterial;
+    [SerializeField] private Material oneTimeUseMaterial;
 
     private void OnValidate()
     {
@@ -47,6 +49,7 @@ public class LevelTile : MonoBehaviour
             TileType.BonusSteps => bonusStepMaterial,
             TileType.Jump => jumpMaterial,
             TileType.Switch => SwitchMaterial(),
+            TileType.OneTimeUse => oneTimeUseMaterial,
             _ => throw new ArgumentOutOfRangeException()
         };
     }
@@ -112,6 +115,7 @@ public class LevelTile : MonoBehaviour
             TileType.BonusSteps => typeof(BonusStepsTile),
             TileType.Jump => typeof(JumpTile),
             TileType.Switch => typeof(SwitchTile),
+            TileType.OneTimeUse => typeof(OneTimeUseTile),
             _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
         };
     }

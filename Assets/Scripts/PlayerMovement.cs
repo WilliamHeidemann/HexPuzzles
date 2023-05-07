@@ -36,8 +36,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (IsInvalid(tile)) return;
         SendToNewTile(tile);
-        if (tile.TryGetComponent<IActivatedTile>(out var activatedTile)) activatedTile.Activate();
         PlayerMoved?.Invoke();
+        if (tile.TryGetComponent<IActivatedTile>(out var activatedTile)) activatedTile.Activate();
         StepCounter.Instance.IncrementStepCount();
         ObjectiveManager.Instance.ProgressionCheck();
     }
