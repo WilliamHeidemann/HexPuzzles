@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,6 +18,11 @@ public class StepCounter : MonoBehaviour
         if (Instance != null) Destroy(this);
         Instance = this;
         LevelLoader.EnterLevelEvent += RefreshDisplaySteps;
+    }
+
+    private void OnDestroy()
+    {
+        LevelLoader.EnterLevelEvent -= RefreshDisplaySteps;
     }
 
     private void RefreshDisplaySteps(GridScriptableObject level)

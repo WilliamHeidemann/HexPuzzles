@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -13,11 +14,12 @@ public class PlayerMovementAnimation : MonoBehaviour
     {
         if (Instance != null) Destroy(this);
         Instance = this;
+        LevelLoader.EnterLevelEvent += ClearMoveCommands;
     }
 
-    private void Start()
+    private void OnDestroy()
     {
-        LevelLoader.EnterLevelEvent += ClearMoveCommands;
+        LevelLoader.EnterLevelEvent -= ClearMoveCommands;
     }
 
     private void Update()

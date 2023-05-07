@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using TMPro;
 using UnityEngine;
@@ -25,6 +26,12 @@ public class ObjectiveManager : MonoBehaviour
         Instance = this;
         LevelLoader.EnterLevelEvent += SetObjective;
         LevelLoader.EnterLevelEvent += HideMenu;
+    }
+
+    private void OnDestroy()
+    {
+        LevelLoader.EnterLevelEvent -= SetObjective;
+        LevelLoader.EnterLevelEvent -= HideMenu;
     }
 
     private void SetObjective(GridScriptableObject level)

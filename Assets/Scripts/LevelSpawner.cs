@@ -16,8 +16,19 @@ public class LevelSpawner : MonoBehaviour
 
     private void Awake()
     {
-        LevelLoader.EnterLevelEvent += level => assetToLoad = level;
+        LevelLoader.EnterLevelEvent += SetAssetToLoad;
         LevelLoader.EnterLevelEvent += LoadAsset;
+    }
+
+    private void OnDestroy()
+    {
+        LevelLoader.EnterLevelEvent -= SetAssetToLoad;
+        LevelLoader.EnterLevelEvent -= LoadAsset;
+    }
+
+    private void SetAssetToLoad(GridScriptableObject level)
+    {
+        assetToLoad = level;
     }
 
     public void SpawnHexGrid()

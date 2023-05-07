@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -15,6 +16,11 @@ public class PlayerMovement : MonoBehaviour
         if (Instance != null) Destroy(this);
         Instance = this;
         LevelLoader.EnterLevelEvent += CenterPlayer;
+    }
+
+    private void OnDestroy()
+    {
+        LevelLoader.EnterLevelEvent -= CenterPlayer;
     }
 
     private void CenterPlayer(GridScriptableObject level)
