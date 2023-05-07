@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using UnityEngine;
 
-public class JumpTile : MonoBehaviour, IActivatedTile
+public class JumpTile : TileComponentBase, IActivatedTile
 {
     private const int JumpLength = 2;
     

@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public class SwitchTile : MonoBehaviour, IEventTriggerTile
+public class SwitchTile : TileComponentBase, IEventTriggerTile
 {
     private LevelTile _levelTile;
     

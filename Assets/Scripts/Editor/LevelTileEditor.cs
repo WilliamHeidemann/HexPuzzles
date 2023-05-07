@@ -7,11 +7,6 @@ using UnityEngine;
 public class LevelTileEditor : Editor
 {
     private LevelTile _tile;
-    public void OnValidate()
-    {
-        _tile = (LevelTile)target;
-        UpdateTileComponent();
-    }
 
     public override void OnInspectorGUI()
     {
@@ -22,50 +17,14 @@ public class LevelTileEditor : Editor
 
     private void UpdateTileComponent()
     {
-        switch (_tile.tileType)
+        var componentToKeep = _tile.GetTileComponent(_tile.tileType);
+        var tileComponents = _tile.GetComponents<TileComponentBase>();
+        foreach (var component in tileComponents)
         {
-            case TileType.Empty:
-                UpdateTileComponentContainingNothing();
-                break;
-            case TileType.Standard:
-                UpdateTileComponentContainingNothing();
-                break;
-            case TileType.Blue:
-                UpdateTileComponentContaining<BlueTile>();
-                break;
-            case TileType.Teleport:
-                UpdateTileComponentContaining<TeleportTile>();
-                break;
-            case TileType.BonusSteps:
-                UpdateTileComponentContaining<BonusStepsTile>();
-                break;
-            case TileType.Jump:
-                UpdateTileComponentContaining<JumpTile>();
-                break;
-            default:
-                throw new ArgumentOutOfRangeException();
-        }
-    }
-
-    private void UpdateTileComponentContainingNothing()
-    {
-        var activatedTiles = _tile.GetComponents<IActivatedTile>();
-        foreach (var tile in activatedTiles)
-        {
-            EditorApplication.delayCall += () => DestroyImmediate((Component)tile);
-        }
-    }
-
-    private void UpdateTileComponentContaining<T>() where T : Component
-    {
-        var activatedTiles = _tile.GetComponents<IActivatedTile>();
-        foreach (var tile in activatedTiles)
-        {
-            if (tile is not T)
+            if (component != componentToKeep)
             {
-                EditorApplication.delayCall += () => DestroyImmediate((Component)tile);
+                EditorApplication.delayCall += () => DestroyImmediate(component);
             }
         }
-        if (_tile.GetComponent<T>() is null) _tile.gameObject.AddComponent<T>();
     }
 }

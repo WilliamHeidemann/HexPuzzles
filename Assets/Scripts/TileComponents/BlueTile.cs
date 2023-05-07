@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class BlueTile : MonoBehaviour, IActivatedTile
+public class BlueTile : TileComponentBase, IActivatedTile
 {
     public static int BlueTilesInLevel;
     public void Activate()

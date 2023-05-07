@@ -27,6 +27,8 @@ public class LevelTile : MonoBehaviour
     [SerializeField] private Material teleportMaterial;
     [SerializeField] private Material bonusStepMaterial;
     [SerializeField] private Material jumpMaterial;
+    [SerializeField] private Material switchOnMaterial;
+    [SerializeField] private Material switchOffMaterial;
 
     private void OnValidate()
     {
@@ -69,32 +71,35 @@ public class LevelTile : MonoBehaviour
 
     private void ApplyTileBehaviour(TileType type)
     {
-        foreach (var activatedTile in GetComponents<IActivatedTile>())
+        foreach (var tileComponent in GetComponents<TileComponentBase>())
         {
-            DestroyImmediate((Component)activatedTile);
+            DestroyImmediate(tileComponent);
         }
-        
-        switch (type)
+        GetTileComponent(type);
+    }
+
+    public TileComponentBase GetTileComponent(TileType type)
+    {
+        var convertedType = TypeConversion(type);
+        if (TryGetComponent(convertedType, out var component))
         {
-            case TileType.Empty:
-                break;
-            case TileType.Standard:
-                break;
-            case TileType.Blue:
-                if (GetComponent<BlueTile>() == null) gameObject.AddComponent<BlueTile>();
-                break;
-            case TileType.Teleport:
-                if (GetComponent<TeleportTile>() == null) gameObject.AddComponent<TeleportTile>();
-                break;
-            case TileType.BonusSteps:
-                if (GetComponent<BonusStepsTile>() == null) gameObject.AddComponent<BonusStepsTile>();
-                break;
-            case TileType.Jump:
-                if (GetComponent<JumpTile>() == null) gameObject.AddComponent<JumpTile>();
-                break;
-            default:
-                throw new ArgumentOutOfRangeException();
+            return (TileComponentBase)component;
         }
+        return (TileComponentBase)gameObject.AddComponent(convertedType);
+    }
+
+    private static Type TypeConversion(TileType type)
+    {
+        return type switch
+        {
+            TileType.Empty => typeof(TileComponentBase),
+            TileType.Standard => typeof(TileComponentBase),
+            TileType.Blue => typeof(BlueTile),
+            TileType.Teleport => typeof(TeleportTile),
+            TileType.BonusSteps => typeof(BonusStepsTile),
+            TileType.Jump => typeof(JumpTile),
+            _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
+        };
     }
 
     private void OnMouseUpAsButton()

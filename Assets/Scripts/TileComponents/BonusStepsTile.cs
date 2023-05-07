@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class BonusStepsTile : MonoBehaviour, IActivatedTile
+public class BonusStepsTile : TileComponentBase, IActivatedTile
 {
     public void Activate()
     {
