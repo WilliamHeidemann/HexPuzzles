@@ -54,16 +54,8 @@ public class LevelTile : MonoBehaviour
         };
     }
 
-    private Material SwitchMaterial()
-    {
-        var switchTile = (SwitchTile)GetTileComponent(TileType.Switch);
-        return switchTile.on ? switchOnMaterial : switchOffMaterial;
-    }
-
-    public void TurnTransparent()
-    {
-        MeshRenderer.material = emptyMaterial;
-    }
+    private Material SwitchMaterial() => GetComponent<SwitchTile>().on ? switchOnMaterial : switchOffMaterial;
+    public void TurnTransparent() => MeshRenderer.material = emptyMaterial;
 
     public void ApplyTileStruct(AxialHex axialHex)
     {
@@ -73,11 +65,7 @@ public class LevelTile : MonoBehaviour
         r = axialHex.R;
         ApplyTileBehaviour(axialHex.tileType);
         if (axialHex.tileType == TileType.Teleport) ConnectTeleportTile(axialHex);
-        if (axialHex.tileType == TileType.Switch)
-        {
-            var switchTile = (SwitchTile)GetTileComponent(TileType.Switch);
-            switchTile.on = axialHex.switchOn;
-        }
+        if (axialHex.tileType == TileType.Switch) GetComponent<SwitchTile>().on = axialHex.switchOn;
         UpdateGraphics();
     }
 
