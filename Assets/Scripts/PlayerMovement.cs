@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public static PlayerMovement Instance;
+    public static event Action PlayerMoved;
     private static IEnumerable<LevelTile> LevelTiles => FindObjectsOfType<LevelTile>();
     private const int ViewDistance = 2;
     [HideInInspector] public LevelTile previous;
