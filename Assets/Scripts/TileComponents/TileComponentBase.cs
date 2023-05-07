@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class TileComponentBase : MonoBehaviour
+public abstract class TileComponentBase : MonoBehaviour
 {
     
 }

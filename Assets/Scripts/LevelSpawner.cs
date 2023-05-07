@@ -68,10 +68,13 @@ public class LevelSpawner : MonoBehaviour
             Q = tile.q,
             R = tile.r,
             teleportQ = TeleportAxialConnection(tile).Item1,
-            teleportR = TeleportAxialConnection(tile).Item2
+            teleportR = TeleportAxialConnection(tile).Item2,
+            switchOn = SwitchOnOrOff(tile)
         });
         return structs.ToList();
     }
+
+    private bool SwitchOnOrOff(LevelTile tile) => tile.TryGetComponent<SwitchTile>(out var switchTile) && switchTile.on;
 
     private (int, int) TeleportAxialConnection(LevelTile tile)
     {

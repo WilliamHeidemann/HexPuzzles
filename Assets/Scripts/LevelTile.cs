@@ -10,7 +10,8 @@ public enum TileType
     Blue,
     Teleport,
     BonusSteps,
-    Jump
+    Jump,
+    Switch
 }
 
 public class LevelTile : MonoBehaviour
@@ -45,8 +46,15 @@ public class LevelTile : MonoBehaviour
             TileType.Teleport => teleportMaterial,
             TileType.BonusSteps => bonusStepMaterial,
             TileType.Jump => jumpMaterial,
+            TileType.Switch => SwitchMaterial(),
             _ => throw new ArgumentOutOfRangeException()
         };
+    }
+
+    private Material SwitchMaterial()
+    {
+        var switchTile = (SwitchTile)GetTileComponent(TileType.Switch);
+        return switchTile.on ? switchOnMaterial : switchOffMaterial;
     }
 
     public void TurnTransparent()
@@ -62,6 +70,11 @@ public class LevelTile : MonoBehaviour
         r = axialHex.R;
         ApplyTileBehaviour(axialHex.tileType);
         if (axialHex.tileType == TileType.Teleport) ConnectTeleportTile(axialHex);
+        if (axialHex.tileType == TileType.Switch)
+        {
+            var switchTile = (SwitchTile)GetTileComponent(TileType.Switch);
+            switchTile.on = axialHex.switchOn;
+        }
         UpdateGraphics();
     }
 
@@ -92,12 +105,13 @@ public class LevelTile : MonoBehaviour
     {
         return type switch
         {
-            TileType.Empty => typeof(TileComponentBase),
-            TileType.Standard => typeof(TileComponentBase),
+            TileType.Empty => typeof(UselessTile),
+            TileType.Standard => typeof(UselessTile),
             TileType.Blue => typeof(BlueTile),
             TileType.Teleport => typeof(TeleportTile),
             TileType.BonusSteps => typeof(BonusStepsTile),
             TileType.Jump => typeof(JumpTile),
+            TileType.Switch => typeof(SwitchTile),
             _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
         };
     }

@@ -37,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
         if (IsInvalid(tile)) return;
         SendToNewTile(tile);
         if (tile.TryGetComponent<IActivatedTile>(out var activatedTile)) activatedTile.Activate();
+        PlayerMoved?.Invoke();
         StepCounter.Instance.IncrementStepCount();
         ObjectiveManager.Instance.ProgressionCheck();
     }
@@ -54,6 +55,7 @@ public class PlayerMovement : MonoBehaviour
         if (ObjectiveManager.Instance.LevelComplete) return true;
         if (!InRange(current, tile, 1)) return true;
         if (tile.tileType == TileType.Empty) return true;
+        if (tile.tileType == TileType.Switch && !tile.GetComponent<SwitchTile>().on) return true;
         if (tile == current) return true;
         return false;
     }

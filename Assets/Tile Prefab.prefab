@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -4729243777317031718}
   - component: {fileID: 4241770806431782710}
   - component: {fileID: 7525132536039958937}
+  - component: {fileID: 2831852364829268321}
   m_Layer: 0
   m_Name: Tile Prefab
   m_TagString: Untagged
@@ -56,12 +57,15 @@ MonoBehaviour:
     R: 0
     teleportQ: 0
     teleportR: 0
+    switchOn: 0
   emptyMaterial: {fileID: 2100000, guid: 633654028755cb84eb1c316e71fc71c0, type: 2}
   standardMaterial: {fileID: 2100000, guid: 59e93d432dd003f42865e2a22d1361d7, type: 2}
   blueMaterial: {fileID: 2100000, guid: 62e0f6285c17eb7428cf1e48fb109c04, type: 2}
   teleportMaterial: {fileID: 2100000, guid: 64f31b88dd1dfc54baa1e392442e1951, type: 2}
   bonusStepMaterial: {fileID: 2100000, guid: ffd1a4bda183cb84980d1ec09cac444d, type: 2}
   jumpMaterial: {fileID: 2100000, guid: 55ad4cc8d6aae3449abbee7f9f532b10, type: 2}
+  switchOnMaterial: {fileID: 2100000, guid: 00c8461095c949a4eba460e3204d938a, type: 2}
+  switchOffMaterial: {fileID: 2100000, guid: b558e781c5dcd2a4ba1e8d4af1d6fd42, type: 2}
 --- !u!137 &4241770806431782710
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
@@ -129,6 +133,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.7320508, y: 0.50000066, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2831852364829268321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3299446568310929054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18310b9abf57412da1bc33cf209a1e7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4660436718609053424
 GameObject:
   m_ObjectHideFlags: 0
