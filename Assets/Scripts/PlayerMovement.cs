@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
     public void MoveRequest(LevelTile tile)
     {
         if (IsInvalid(tile)) return;
-        SendToNewTile(tile);
+        SendToNewTile(tile, MoveType.Walk);
         PlayerMoved?.Invoke();
         if (tile.TryGetComponent<IActivatedTile>(out var activatedTile)) activatedTile.Activate();
         StepCounter.Instance.IncrementStepCount();
@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void TeleportRequest(LevelTile tile)
     {
-        SendToNewTile(tile);
+        SendToNewTile(tile, MoveType.Teleport);
         ObjectiveManager.Instance.ProgressionCheck();
         // Replace with fade?
         // Display all tiles while flying?
@@ -60,11 +60,11 @@ public class PlayerMovement : MonoBehaviour
         return false;
     }
 
-    private void SendToNewTile(LevelTile tile)
+    private void SendToNewTile(LevelTile tile, MoveType moveType)
     {
         previous = current;
         current = tile;
-        PlayerMovementAnimation.Instance.AddMovementCommand(tile.transform.position + Vector3.up);
+        PlayerMovementAnimation.Instance.AddMovementCommand(tile.transform.position + Vector3.up, moveType);
     }
     
     public void DisplayTilesInRange()
