@@ -54,7 +54,12 @@ public class LevelTile : MonoBehaviour
         };
     }
 
-    private Material SwitchMaterial() => GetComponent<SwitchTile>().on ? switchOnMaterial : switchOffMaterial;
+    private Material SwitchMaterial()
+    {
+        var switchTile = (SwitchTile)GetTileComponent(TileType.Switch);
+        return switchTile.on ? switchOnMaterial : switchOffMaterial;
+    } 
+    
     public void TurnTransparent() => MeshRenderer.material = emptyMaterial;
 
     public void ApplyTileStruct(AxialHex axialHex)
