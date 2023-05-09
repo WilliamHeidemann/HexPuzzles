@@ -63,6 +63,7 @@ public class PlayerMovement : MonoBehaviour
     
     private static bool IsInvalid(MoveCommand command)
     {
+        if (StepCounter.Instance.IsOutOfSteps) return true;
         if (ObjectiveManager.Instance.LevelComplete) return true;
         if (command.Tile.tileType == TileType.Empty) return true;
         if (command.Tile.tileType == TileType.Switch && !command.Tile.GetComponent<SwitchTile>().on) return true;

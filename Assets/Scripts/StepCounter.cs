@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class StepCounter : MonoBehaviour
 {
     public static StepCounter Instance;
+    public bool IsOutOfSteps => RemainingSteps == 0;
     [SerializeField] private GameObject EndGameScreen;
     [SerializeField] private TextMeshProUGUI stepCountText;
     private int _stepCount;
