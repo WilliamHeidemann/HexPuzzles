@@ -46,7 +46,7 @@ public class PlayerMovementAnimation : MonoBehaviour
             if (WithinRange)
             {
                 movementCommands.Remove(command);
-                PlayerMovement.Instance.MoveRequestCompleted(command);
+                PlayerMovement.MoveRequestCompleted(command);
             }
         }
         else
