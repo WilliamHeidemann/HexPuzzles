@@ -30,6 +30,11 @@ public class LevelSpawnerEditor : Editor
         {
             if (shouldUpdate)
             {
+                if (_script.assetToUpdate.updatingAllowed == false)
+                {
+                    Debug.LogAssertion("Level has been locked from updating. Has the correct asset been selected for update?");
+                    return;
+                }
                 UpdateAsset();
                 _script.assetToLoad = _script.assetToUpdate;
                 _script.LoadAsset(_script.assetToLoad);
@@ -63,11 +68,6 @@ public class LevelSpawnerEditor : Editor
 
     private void UpdateAsset()
     {
-        if (_script.assetToUpdate.updatingAllowed == false)
-        {
-            Debug.LogAssertion("Level has been locked from updating. Has the correct asset been selected for update?");
-            return;
-        }
         _script.assetToUpdate.tileData = _script.AssetDataList();
         EditorUtility.SetDirty(_script.assetToUpdate);
         AssetDatabase.SaveAssets();
