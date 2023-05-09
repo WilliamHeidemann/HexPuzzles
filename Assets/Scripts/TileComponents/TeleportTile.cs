@@ -5,6 +5,6 @@ public class TeleportTile : TileComponentBase, IActivatedTile
     public LevelTile connectedTile;
     public void Activate()
     {
-        PlayerMovement.Instance.TeleportRequest(connectedTile);
+        PlayerMovement.Instance.MoveRequest(new MoveCommand(connectedTile, MoveType.Teleport));
     }
 }

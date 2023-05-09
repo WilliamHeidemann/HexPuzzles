@@ -7,12 +7,12 @@ public class SwitchTile : TileComponentBase, IEventTriggerTile
     
     private void Awake()
     {
-        PlayerMovement.PlayerMoved += Trigger;
+        PlayerMovement.TriggerTileEvent += Trigger;
     }
 
     private void OnDestroy()
     {
-        PlayerMovement.PlayerMoved -= Trigger;
+        PlayerMovement.TriggerTileEvent -= Trigger;
     }
     
     private void OnValidate()

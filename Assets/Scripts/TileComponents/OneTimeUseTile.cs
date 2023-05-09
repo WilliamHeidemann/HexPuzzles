@@ -7,12 +7,12 @@ public class OneTimeUseTile : TileComponentBase, IEventTriggerTile, IActivatedTi
     
     private void Awake()
     {
-        PlayerMovement.PlayerMoved += Trigger;
+        PlayerMovement.TriggerTileEvent += Trigger;
     }
 
     private void OnDestroy()
     {
-        PlayerMovement.PlayerMoved -= Trigger;
+        PlayerMovement.TriggerTileEvent -= Trigger;
     }
 
     public void Activate()

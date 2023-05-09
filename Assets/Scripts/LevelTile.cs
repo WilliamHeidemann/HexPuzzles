@@ -115,6 +115,6 @@ public class LevelTile : MonoBehaviour
 
     private void OnMouseUpAsButton()
     {
-        PlayerMovement.Instance.MoveRequest(this);
+        PlayerMovement.Instance.MoveRequest(new MoveCommand(this, MoveType.Walk));
     }
 }

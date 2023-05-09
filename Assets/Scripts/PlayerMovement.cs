@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public static PlayerMovement Instance;
-    public static event Action PlayerMoved;
+    public static event Action TriggerTileEvent;
     private static IEnumerable<LevelTile> LevelTiles => FindObjectsOfType<LevelTile>();
     private const int ViewDistance = 2;
     [HideInInspector] public LevelTile previous;
@@ -31,43 +31,48 @@ public class PlayerMovement : MonoBehaviour
         DisplayTilesInRange();
         transform.position = current.transform.position + Vector3.up;
     }
-
-    public void MoveRequest(LevelTile tile)
+    
+    // Any type of move (walk, jump, teleport)
+    // Check tile is valid (player may click invalid tile. jump may incorrectly be placed)
+    // previous = current, current = tile
+    // Start translating towards tile and animate character (according to walk/jump/teleport)
+    // While traveling, display the tiles around the tiles moved over. Maybe find the shortest path with BFS.
+    // Once reached, Trigger tile events (walked there only)
+    // Once reached, Activate tile (walked/jumped there only)
+    // Once reached, Increment Step count (walked there only)
+    // Once reached, Check if game is over (irrelevant for teleport)
+    // Once reached, Display tiles in range
+    public void MoveRequest(MoveCommand command)
     {
-        if (IsInvalid(tile)) return;
-        SendToNewTile(tile, MoveType.Walk);
-        PlayerMoved?.Invoke();
-        if (tile.TryGetComponent<IActivatedTile>(out var activatedTile)) activatedTile.Activate();
-        StepCounter.Instance.IncrementStepCount();
-        ObjectiveManager.Instance.ProgressionCheck();
+        if (IsInvalid(command)) return;
+        previous = current;
+        current = command.Tile;
+        PlayerMovementAnimation.Instance.MoveTo(command);
     }
 
-    public void TeleportRequest(LevelTile tile)
+    public void MoveRequestCompleted(MoveCommand command)
     {
-        SendToNewTile(tile, MoveType.Teleport);
+        if (command.MoveType is MoveType.Walk) TriggerTileEvent?.Invoke();
+        if (command.MoveType is MoveType.Walk or MoveType.Jump)
+            if (command.Tile.TryGetComponent<IActivatedTile>(out var activatedTile)) 
+                activatedTile.Activate();
+        if (command.MoveType is MoveType.Walk) StepCounter.Instance.IncrementStepCount();
+        DisplayTilesInRange(); // Should take tile argument because current might change before, due to activate
         ObjectiveManager.Instance.ProgressionCheck();
-        // Replace with fade?
-        // Display all tiles while flying?
     }
     
-    private bool IsInvalid(LevelTile tile)
+    private bool IsInvalid(MoveCommand command)
     {
         if (ObjectiveManager.Instance.LevelComplete) return true;
-        if (!InRange(current, tile, 1)) return true;
-        if (tile.tileType == TileType.Empty) return true;
-        if (tile.tileType == TileType.Switch && !tile.GetComponent<SwitchTile>().on) return true;
-        if (tile == current) return true;
+        if (command.Tile.tileType == TileType.Empty) return true;
+        if (command.Tile.tileType == TileType.Switch && !command.Tile.GetComponent<SwitchTile>().on) return true;
+        if (command.Tile == current) return true;
+        if (command.MoveType is MoveType.Walk)
+            if (!InRange(current, command.Tile, 1)) return true;
         return false;
     }
 
-    private void SendToNewTile(LevelTile tile, MoveType moveType)
-    {
-        previous = current;
-        current = tile;
-        PlayerMovementAnimation.Instance.AddMovementCommand(tile.transform.position + Vector3.up, moveType);
-    }
-    
-    public void DisplayTilesInRange()
+    private void DisplayTilesInRange()
     {
         foreach (var tile in LevelTiles)
         {
