@@ -14,9 +14,57 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   optimalSteps: 0
   tileData:
+  - tileType: 3
+    Q: -1
+    R: 0
+    teleportQ: 10
+    teleportR: 0
+    switchOn: 0
+  - tileType: 1
+    Q: 0
+    R: -3
+    teleportQ: 0
+    teleportR: 0
+    switchOn: 0
+  - tileType: 1
+    Q: 0
+    R: -2
+    teleportQ: 0
+    teleportR: 0
+    switchOn: 0
+  - tileType: 1
+    Q: 0
+    R: -1
+    teleportQ: 0
+    teleportR: 0
+    switchOn: 0
   - tileType: 1
     Q: 0
     R: 0
+    teleportQ: 0
+    teleportR: 0
+    switchOn: 0
+  - tileType: 1
+    Q: 1
+    R: -4
+    teleportQ: 0
+    teleportR: 0
+    switchOn: 0
+  - tileType: 1
+    Q: 1
+    R: -3
+    teleportQ: 0
+    teleportR: 0
+    switchOn: 0
+  - tileType: 1
+    Q: 1
+    R: -2
+    teleportQ: 0
+    teleportR: 0
+    switchOn: 0
+  - tileType: 1
+    Q: 1
+    R: -1
     teleportQ: 0
     teleportR: 0
     switchOn: 0
@@ -26,9 +74,75 @@ MonoBehaviour:
     teleportQ: 0
     teleportR: 0
     switchOn: 0
+  - tileType: 1
+    Q: 2
+    R: -5
+    teleportQ: 0
+    teleportR: 0
+    switchOn: 0
+  - tileType: 1
+    Q: 2
+    R: -4
+    teleportQ: 0
+    teleportR: 0
+    switchOn: 0
+  - tileType: 1
+    Q: 2
+    R: -3
+    teleportQ: 0
+    teleportR: 0
+    switchOn: 0
+  - tileType: 1
+    Q: 2
+    R: -2
+    teleportQ: 0
+    teleportR: 0
+    switchOn: 0
+  - tileType: 1
+    Q: 3
+    R: -6
+    teleportQ: 0
+    teleportR: 0
+    switchOn: 0
+  - tileType: 1
+    Q: 3
+    R: -5
+    teleportQ: 0
+    teleportR: 0
+    switchOn: 0
+  - tileType: 1
+    Q: 3
+    R: -4
+    teleportQ: 0
+    teleportR: 0
+    switchOn: 0
+  - tileType: 1
+    Q: 3
+    R: -3
+    teleportQ: 0
+    teleportR: 0
+    switchOn: 0
   - tileType: 5
     Q: 3
     R: 0
+    teleportQ: 0
+    teleportR: 0
+    switchOn: 0
+  - tileType: 1
+    Q: 4
+    R: -6
+    teleportQ: 0
+    teleportR: 0
+    switchOn: 0
+  - tileType: 1
+    Q: 4
+    R: -5
+    teleportQ: 0
+    teleportR: 0
+    switchOn: 0
+  - tileType: 1
+    Q: 4
+    R: -4
     teleportQ: 0
     teleportR: 0
     switchOn: 0
@@ -38,10 +152,10 @@ MonoBehaviour:
     teleportQ: 0
     teleportR: 0
     switchOn: 0
-  - tileType: 1
+  - tileType: 3
     Q: 5
     R: 0
-    teleportQ: 0
+    teleportQ: 7
     teleportR: 0
     switchOn: 0
   - tileType: 1
@@ -50,10 +164,10 @@ MonoBehaviour:
     teleportQ: 0
     teleportR: 0
     switchOn: 0
-  - tileType: 1
+  - tileType: 3
     Q: 7
     R: 0
-    teleportQ: 0
+    teleportQ: 5
     teleportR: 0
     switchOn: 0
   - tileType: 1
@@ -66,6 +180,12 @@ MonoBehaviour:
     Q: 9
     R: 0
     teleportQ: 0
+    teleportR: 0
+    switchOn: 0
+  - tileType: 3
+    Q: 10
+    R: 0
+    teleportQ: -1
     teleportR: 0
     switchOn: 0
   updatingAllowed: 1

@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
     {
         previous = null;
         current = LevelTiles.First(tile => tile.q == 0 && tile.r == 0);
-        DisplayTilesInRange();
+        DisplayTilesInRange(current);
         transform.position = current.transform.position + Vector3.up;
     }
     
@@ -47,6 +47,11 @@ public class PlayerMovement : MonoBehaviour
         if (IsInvalid(command)) return;
         previous = current;
         current = command.Tile;
+        HideAllTiles();
+        // Display all tiles surrounding the tiles that are part of the shortest path from previous to current
+        // foreach tile in shortest path: DisplayTilesInRange(tile)
+        DisplayTilesInRange(previous);
+        DisplayTilesInRange(current);
         PlayerMovementAnimation.Instance.MoveTo(command);
     }
 
@@ -55,9 +60,8 @@ public class PlayerMovement : MonoBehaviour
         if (command.MoveType is MoveType.Walk) TriggerTileEvent?.Invoke();
         if (command.MoveType is MoveType.Walk or MoveType.Jump)
             if (command.Tile.TryGetComponent<IActivatedTile>(out var activatedTile)) 
-                activatedTile.Activate();
+                activatedTile.Activate(); // May update previous and current
         if (command.MoveType is MoveType.Walk) StepCounter.Instance.IncrementStepCount();
-        DisplayTilesInRange(); // Should take tile argument because current might change before, due to activate
         ObjectiveManager.Instance.ProgressionCheck();
     }
     
@@ -72,17 +76,21 @@ public class PlayerMovement : MonoBehaviour
         return false;
     }
 
-    private void DisplayTilesInRange()
+    private void HideAllTiles()
     {
         foreach (var tile in LevelTiles)
         {
-            if (InRange(current, tile, ViewDistance) || InRange(previous, tile, ViewDistance))
+            tile.TurnTransparent();
+        }
+    }
+    
+    private static void DisplayTilesInRange(LevelTile aroundTile)
+    {
+        foreach (var tile in LevelTiles)
+        {
+            if (InRange(aroundTile, tile, ViewDistance))
             {
                 tile.UpdateGraphics();
-            }
-            else
-            {
-                tile.TurnTransparent();
             }
         }
     }
