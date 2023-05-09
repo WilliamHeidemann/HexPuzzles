@@ -200,4 +200,4 @@ MonoBehaviour:
     teleportQ: 0
     teleportR: 0
     switchOn: 0
-  updatingAllowed: 1
+  updatingAllowed: 0
