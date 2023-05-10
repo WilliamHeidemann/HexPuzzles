@@ -36,7 +36,13 @@ public class RotatingTile : TileComponentBase, IActivatedTile, IEventTriggerTile
 
     private void Start()
     {
+        CreateSphere();
+    }
+
+    private void CreateSphere()
+    {
         sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere).transform;
+        sphere.parent = transform;
         PositionSphere();
     }
 
@@ -60,7 +66,7 @@ public class RotatingTile : TileComponentBase, IActivatedTile, IEventTriggerTile
         // Play animation
     }
     
-    private void PositionSphere() => sphere.position = Vector3.Lerp(transform.position, TilePointedTo.transform.position, 0.5f);
+    private void PositionSphere() => sphere.position = Vector3.Lerp(transform.position, TilePointedTo.transform.position, 0.3f);
 
     // Trigger happens before activate, so the player will walk into the tile, the tile will then rotate to a new place, 
     // and send the player there instead of where they intended when the first clicked the tile. 
