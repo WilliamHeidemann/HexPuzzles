@@ -19,7 +19,7 @@ public class JumpTile : TileComponentBase, IActivatedTile
         var targetR = currentR + (directionR * JumpLength);
 
         var targetTile = FindObjectsOfType<LevelTile>().First(tile => tile.q == targetQ && tile.r == targetR);
-        movement.MoveRequest(new MoveCommand(targetTile, MoveType.Jump));
+        movement.MoveRequest(new MoveCommand(targetTile, shouldTriggerTileEvent:false, shouldIncrementStepCount:false, shouldCheckRange:false));
     }
 
     private static int Bounded(int num) => num < 0 ? -1 : num > 0 ? 1 : 0;

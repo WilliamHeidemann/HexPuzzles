@@ -31,18 +31,7 @@ public class PlayerMovementAnimation : MonoBehaviour
         if (movementCommands.Any())
         {
             var command = movementCommands[0];
-            switch (command.MoveType)
-            {
-                case MoveType.Walk:
-                    transform.position = Vector3.MoveTowards(transform.position, command.Position, 5 * Time.deltaTime);
-                    break;
-                case MoveType.Jump:
-                    transform.position = Vector3.MoveTowards(transform.position, command.Position, 5 * Time.deltaTime);
-                    break;
-                case MoveType.Teleport:
-                    transform.position = Vector3.MoveTowards(transform.position, command.Position, 5 * Time.deltaTime);
-                    break;
-            }
+            transform.position = Vector3.MoveTowards(transform.position, command.Position, 5 * Time.deltaTime);
             if (WithinRange)
             {
                 movementCommands.Remove(command);

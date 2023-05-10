@@ -39,25 +39,19 @@ public class PlayerMovement : MonoBehaviour
         previous = current;
         current = command.Tile;
         HideAllTiles();
-        if (command.MoveType is MoveType.Teleport)
-        {
-            DisplayAllTiles();
-        }
-        else
-        {
-            DisplayTilesInRange(current);
-        }
+        if (command.ShouldDisplayAllTiles) DisplayAllTiles();
+        else DisplayTilesInRange(current);
         // Alternative: Foreach tile in shortest path from previous to current: DisplayTilesInRange(tile)
         PlayerMovementAnimation.Instance.MoveTo(command);
     }
     
     public static void MoveRequestCompleted(MoveCommand command)
     {
-        if (command.MoveType is MoveType.Walk) TriggerTileEvent?.Invoke();
-        if (command.MoveType is MoveType.Walk or MoveType.Jump)
+        if (command.ShouldTriggerTileEvent) TriggerTileEvent?.Invoke();
+        if (command.ShouldActivateTile)
             if (command.Tile.TryGetComponent<IActivatedTile>(out var activatedTile)) 
                 activatedTile.Activate();
-        if (command.MoveType is MoveType.Walk) StepCounter.Instance.IncrementStepCount();
+        if (command.ShouldIncrementStepCount) StepCounter.Instance.IncrementStepCount();
         ObjectiveManager.Instance.ProgressionCheck();
     }
     
@@ -68,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
         if (command.Tile.tileType == TileType.Empty) return true;
         if (command.Tile.tileType == TileType.Switch && !command.Tile.GetComponent<SwitchTile>().on) return true;
         if (command.Tile == Instance.current) return true;
-        if (command.MoveType is MoveType.Walk)
+        if (command.ShouldCheckRange)
             if (!InRange(Instance.current, command.Tile, 1)) return true;
         return false;
     }

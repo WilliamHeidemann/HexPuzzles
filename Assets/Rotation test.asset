@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f572a65b7008a44ea90cde18292faf5, type: 3}
   m_Name: Rotation test
   m_EditorClassIdentifier: 
-  optimalSteps: 5
+  optimalSteps: 1000
   tileData:
   - tileType: 1
     Q: -1
@@ -27,6 +27,12 @@ MonoBehaviour:
     teleportR: 0
     switchOn: 0
   - tileType: 2
+    Q: 0
+    R: -3
+    teleportQ: 0
+    teleportR: 0
+    switchOn: 0
+  - tileType: 1
     Q: 0
     R: -2
     teleportQ: 0
