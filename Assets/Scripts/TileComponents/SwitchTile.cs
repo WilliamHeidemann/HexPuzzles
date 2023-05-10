@@ -20,7 +20,8 @@ public class SwitchTile : TileComponentBase, IEventTriggerTile
         GetComponent<LevelTile>().UpdateGraphics();
     }
 
-    public void Trigger()
+    public void Trigger() => Switch();
+    private void Switch()
     {
         var levelTile = GetComponent<LevelTile>();
         if (PlayerMovement.Instance.current == levelTile) return;

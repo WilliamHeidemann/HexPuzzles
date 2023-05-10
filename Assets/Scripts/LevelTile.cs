@@ -12,7 +12,8 @@ public enum TileType
     BonusSteps,
     Jump,
     Switch,
-    OneTimeUse
+    OneTimeUse,
+    Rotating
 }
 
 public class LevelTile : MonoBehaviour
@@ -32,7 +33,8 @@ public class LevelTile : MonoBehaviour
     [SerializeField] private Material switchOnMaterial;
     [SerializeField] private Material switchOffMaterial;
     [SerializeField] private Material oneTimeUseMaterial;
-
+    [SerializeField] private Material rotatingMaterial;
+    
     private void OnValidate()
     {
         UpdateGraphics();
@@ -50,6 +52,7 @@ public class LevelTile : MonoBehaviour
             TileType.Jump => jumpMaterial,
             TileType.Switch => SwitchMaterial(),
             TileType.OneTimeUse => oneTimeUseMaterial,
+            TileType.Rotating => rotatingMaterial,
             _ => throw new ArgumentOutOfRangeException()
         };
     }
@@ -109,12 +112,14 @@ public class LevelTile : MonoBehaviour
             TileType.Jump => typeof(JumpTile),
             TileType.Switch => typeof(SwitchTile),
             TileType.OneTimeUse => typeof(OneTimeUseTile),
+            TileType.Rotating => typeof(RotatingTile),
             _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
         };
     }
 
     private void OnMouseUpAsButton()
     {
+        print("Tile clicked");
         PlayerMovement.Instance.MoveRequest(new MoveCommand(this, MoveType.Walk));
     }
 }

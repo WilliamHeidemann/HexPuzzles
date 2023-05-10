@@ -67,6 +67,7 @@ MonoBehaviour:
   switchOnMaterial: {fileID: 2100000, guid: 00c8461095c949a4eba460e3204d938a, type: 2}
   switchOffMaterial: {fileID: 2100000, guid: b558e781c5dcd2a4ba1e8d4af1d6fd42, type: 2}
   oneTimeUseMaterial: {fileID: 2100000, guid: 4217f104526b9824183d3f217a3b5624, type: 2}
+  rotatingMaterial: {fileID: 2100000, guid: b7a1745db1d88b64096de8956653203d, type: 2}
 --- !u!137 &4241770806431782710
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
