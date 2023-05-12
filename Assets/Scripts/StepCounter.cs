@@ -57,7 +57,7 @@ public class StepCounter : MonoBehaviour
     public int StarsToAward()
     {
         if (_stepCount <= _optimalSteps) return 3; // Optimal or better path found
-        if (_stepCount > _optimalSteps && _stepCount < _optimalSteps * 1.2f) return 2; // Within 20% best solution found
+        if (_stepCount <= _optimalSteps + 2) return 2; // Within 2 steps of solution
         return 1; // Level completed
     }
 }
