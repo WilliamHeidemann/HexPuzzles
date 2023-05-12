@@ -1,0 +1,179 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f572a65b7008a44ea90cde18292faf5, type: 3}
+  m_Name: Pier 32
+  m_EditorClassIdentifier: 
+  optimalSteps: 19
+  tileData:
+  - tileType: 2
+    Q: -9
+    R: -1
+    teleportQ: 0
+    teleportR: 0
+    switchOn: 0
+  - tileType: 2
+    Q: -8
+    R: -2
+    teleportQ: 0
+    teleportR: 0
+    switchOn: 0
+  - tileType: 1
+    Q: -8
+    R: -1
+    teleportQ: 0
+    teleportR: 0
+    switchOn: 0
+  - tileType: 7
+    Q: -8
+    R: 0
+    teleportQ: 0
+    teleportR: 0
+    switchOn: 0
+  - tileType: 6
+    Q: -8
+    R: 1
+    teleportQ: 0
+    teleportR: 0
+    switchOn: 1
+  - tileType: 6
+    Q: -8
+    R: 8
+    teleportQ: 0
+    teleportR: 0
+    switchOn: 0
+  - tileType: 2
+    Q: -8
+    R: 9
+    teleportQ: 0
+    teleportR: 0
+    switchOn: 0
+  - tileType: 7
+    Q: -7
+    R: -1
+    teleportQ: 0
+    teleportR: 0
+    switchOn: 0
+  - tileType: 1
+    Q: -7
+    R: 1
+    teleportQ: 0
+    teleportR: 0
+    switchOn: 0
+  - tileType: 1
+    Q: -7
+    R: 6
+    teleportQ: 0
+    teleportR: 0
+    switchOn: 0
+  - tileType: 7
+    Q: -7
+    R: 7
+    teleportQ: 0
+    teleportR: 0
+    switchOn: 0
+  - tileType: 6
+    Q: -7
+    R: 8
+    teleportQ: 0
+    teleportR: 0
+    switchOn: 0
+  - tileType: 6
+    Q: -6
+    R: -1
+    teleportQ: 0
+    teleportR: 0
+    switchOn: 0
+  - tileType: 1
+    Q: -6
+    R: 0
+    teleportQ: 0
+    teleportR: 0
+    switchOn: 0
+  - tileType: 7
+    Q: -6
+    R: 1
+    teleportQ: 0
+    teleportR: 0
+    switchOn: 0
+  - tileType: 5
+    Q: -6
+    R: 2
+    teleportQ: 0
+    teleportR: 0
+    switchOn: 0
+  - tileType: 5
+    Q: -6
+    R: 4
+    teleportQ: 0
+    teleportR: 0
+    switchOn: 0
+  - tileType: 7
+    Q: -6
+    R: 5
+    teleportQ: 0
+    teleportR: 0
+    switchOn: 0
+  - tileType: 1
+    Q: -6
+    R: 6
+    teleportQ: 0
+    teleportR: 0
+    switchOn: 0
+  - tileType: 5
+    Q: -5
+    R: 1
+    teleportQ: 0
+    teleportR: 0
+    switchOn: 0
+  - tileType: 5
+    Q: -5
+    R: 4
+    teleportQ: 0
+    teleportR: 0
+    switchOn: 0
+  - tileType: 5
+    Q: -3
+    R: 1
+    teleportQ: 0
+    teleportR: 0
+    switchOn: 0
+  - tileType: 5
+    Q: -3
+    R: 2
+    teleportQ: 0
+    teleportR: 0
+    switchOn: 0
+  - tileType: 7
+    Q: -2
+    R: 1
+    teleportQ: 0
+    teleportR: 0
+    switchOn: 0
+  - tileType: 1
+    Q: -1
+    R: 0
+    teleportQ: 0
+    teleportR: 0
+    switchOn: 0
+  - tileType: 1
+    Q: -1
+    R: 1
+    teleportQ: 0
+    teleportR: 0
+    switchOn: 0
+  - tileType: 1
+    Q: 0
+    R: 0
+    teleportQ: 0
+    teleportR: 0
+    switchOn: 0
+  updatingAllowed: 0
