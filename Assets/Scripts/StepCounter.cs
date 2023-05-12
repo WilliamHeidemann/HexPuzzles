@@ -30,7 +30,7 @@ public class StepCounter : MonoBehaviour
     {
         _stepCount = 0;
         _optimalSteps = level.optimalSteps;
-        _availableSteps = Mathf.RoundToInt(_optimalSteps * 1.5f);
+        _availableSteps = Mathf.RoundToInt(_optimalSteps * 1.25f);
         stepCountText.text = RemainingSteps.ToString();
     }
 
