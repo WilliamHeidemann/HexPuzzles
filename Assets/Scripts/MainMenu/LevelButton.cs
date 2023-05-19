@@ -9,6 +9,7 @@ public class LevelButton : MonoBehaviour
     public void LoadLevel()
     {
         _currentLevelAsset.value = levelAssignedToButton;
-        SceneManager.LoadScene("Gameplay");
+        ScreenFader.instance.FadeTo("Gameplay");
+        // SceneManager.LoadScene("Gameplay");
     }
 }
