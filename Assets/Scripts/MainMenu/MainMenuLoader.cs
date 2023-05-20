@@ -7,6 +7,6 @@ public class MainMenuLoader : MonoBehaviour
 {
     public void LoadMainMenu()
     {
-        SceneManager.LoadScene("Main Menu");
+        ScreenFader.instance.FadeTo("Main Menu");
     }
 }
