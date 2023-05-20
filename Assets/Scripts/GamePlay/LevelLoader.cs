@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class LevelLoader : MonoBehaviour
 {
-    [SerializeField] private LevelOrder levelOrder;
     [SerializeField] private CurrentLevelAsset currentLevel;
     public delegate void EnterLevelDelegate(GridScriptableObject level);
     public static event EnterLevelDelegate EnterLevelEvent;
@@ -12,8 +12,9 @@ public class LevelLoader : MonoBehaviour
         EnterLevel(currentLevel.value);
     }
 
-    private void EnterLevel(GridScriptableObject level)
+    public void EnterLevel(GridScriptableObject level)
     {
+        currentLevel.value = level;
         EnterLevelEvent?.Invoke(level);
     }
 
@@ -24,9 +25,7 @@ public class LevelLoader : MonoBehaviour
     
     public void NextLevel()
     {
-        if (currentLevel.value == levelOrder.orderedLevels[^1]) return;
-        var currentIndex = levelOrder.orderedLevels.IndexOf(currentLevel.value);
-        currentLevel.value = levelOrder.orderedLevels[currentIndex + 1];
-        EnterLevel(currentLevel.value);
+        var nextLevel = currentLevel.world.connectedLevels.First(level => level.LevelIsComplete == false);
+        EnterLevel(nextLevel);
     }
 }

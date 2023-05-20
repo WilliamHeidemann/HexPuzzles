@@ -52,13 +52,13 @@ public class PlayerMovement : MonoBehaviour
             if (command.Tile.TryGetComponent<IActivatedTile>(out var activatedTile)) 
                 activatedTile.Activate();
         if (command.ShouldIncrementStepCount) StepCounter.Instance.IncrementStepCount();
-        ObjectiveManager.Instance.ProgressionCheck();
+        ObjectiveManager.instance.ProgressionCheck();
     }
     
     private static bool IsInvalid(MoveCommand command)
     {
         if (StepCounter.Instance.IsOutOfSteps) return true;
-        if (ObjectiveManager.Instance.LevelComplete) return true;
+        if (ObjectiveManager.instance.LevelComplete) return true;
         if (command.Tile.tileType == TileType.Empty) return true;
         if (command.Tile.tileType == TileType.Switch && !command.Tile.GetComponent<SwitchTile>().on) return true;
         if (command.Tile == Instance.current) return true;

@@ -8,22 +8,25 @@ public class ObjectiveManager : MonoBehaviour
 {
     [SerializeField] private GameObject winScreen;
     [SerializeField] private GameObject endGameScreen;
+    [SerializeField] private GameObject nextWorldButton;
+    [SerializeField] private GameObject nextLevelButton;
     [SerializeField] private TextMeshProUGUI objectiveText;
     [SerializeField] private Image star1;
     [SerializeField] private Image star2;
     [SerializeField] private Image star3;
     [SerializeField] private Sprite blackStar;
     [SerializeField] private Sprite goldStar;
+    [SerializeField] private CurrentLevelAsset currentLevel;
     private string _levelName;
-    public static ObjectiveManager Instance;
+    public static ObjectiveManager instance;
     public bool LevelComplete => _objectivesRequiredForLevel == CompletedObjectivesForLevel;
     private int CompletedObjectivesForLevel => _objectivesRequiredForLevel - BlueTile.BlueTilesInLevel;
     private int _objectivesRequiredForLevel;
 
     private void Awake()
     {
-        if (Instance != null) Destroy(this);
-        Instance = this;
+        if (instance != null) Destroy(this);
+        instance = this;
         LevelLoader.EnterLevelEvent += SetObjective;
         LevelLoader.EnterLevelEvent += HideMenu;
     }
@@ -55,6 +58,9 @@ public class ObjectiveManager : MonoBehaviour
     {
         endGameScreen.SetActive(true);
         winScreen.SetActive(true);
+        if (currentLevel.world.connectedLevels.Any(level => level.LevelIsComplete == false)) 
+            nextLevelButton.SetActive(true);
+        else nextWorldButton.SetActive(true);
         ShowStars();
     }
 
@@ -62,6 +68,8 @@ public class ObjectiveManager : MonoBehaviour
     {
         endGameScreen.SetActive(false);
         winScreen.SetActive(false);
+        nextWorldButton.SetActive(false);
+        nextLevelButton.SetActive(false);
     }
     
     private void ShowStars()

@@ -12,8 +12,21 @@ public class LevelAssigner : MonoBehaviour
     private void Start() => AssignLevels();
     private void AssignLevels()
     {
-        centerButton.levelAssignedToButton = world.centerLevel;
-        for (int i = 0; i < 6; i++) 
-            outerButtons[i].levelAssignedToButton = world.connectedLevels[i];
+        if (world.centerLevel == null) centerButton.gameObject.SetActive(false);
+        else
+        {
+            centerButton.levelAssignedToButton = world.centerLevel;
+            centerButton.world = world;
+        }
+        
+        for (int i = 0; i < 6; i++)
+        {
+            if (world.connectedLevels[i] == null) outerButtons[i].gameObject.SetActive(false);
+            else
+            {
+                outerButtons[i].levelAssignedToButton = world.connectedLevels[i];
+                outerButtons[i].world = world;
+            }
+        }
     }
 }

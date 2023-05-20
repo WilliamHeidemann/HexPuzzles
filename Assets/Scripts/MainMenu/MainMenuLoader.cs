@@ -9,4 +9,9 @@ public class MainMenuLoader : MonoBehaviour
     {
         ScreenFader.instance.FadeTo("Main Menu");
     }
+    public void LoadNextWorld()
+    {
+        ScreenFader.instance.FadeTo("Main Menu");
+        MenuScroller.shouldScroll = true;
+    }
 }

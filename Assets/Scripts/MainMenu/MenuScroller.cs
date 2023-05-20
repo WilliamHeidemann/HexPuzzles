@@ -7,26 +7,34 @@ public class MenuScroller : MonoBehaviour
 {
     [SerializeField] private RectTransform worlds;
     [SerializeField] private TextMeshProUGUI worldNumber;
-    private static int _worldIndex;
+    private int _worldIndex;
     private int _worldCount;
     
     private float _target;
     private float _start;
     private float _animationTime;
 
+    public static bool shouldScroll;
+    
     private void Start()
     {
         _worldCount = worlds.childCount;
         _start = worlds.anchoredPosition.x;
         _target = worlds.anchoredPosition.x;
-    }
 
+        if (shouldScroll)
+        {
+            Scroll(true);
+            shouldScroll = false;
+        }
+    }
+    
     private void Update()
     {
         if (_animationTime > 1f) return;
+        _animationTime += Time.deltaTime * 2f;
         var position = Mathf.Lerp(_start, _target, _animationTime);
         worlds.anchoredPosition = new Vector2(position, 0f);
-        _animationTime += Time.deltaTime * 2f;
     }
 
     public void Scroll(bool goingRight)

@@ -38,7 +38,7 @@ public class StepCounter : MonoBehaviour
     {
         _stepCount++;
         stepCountText.text = RemainingSteps.ToString();
-        if (RemainingSteps == 0 && !ObjectiveManager.Instance.LevelComplete) EndGame();
+        if (RemainingSteps == 0 && !ObjectiveManager.instance.LevelComplete) EndGame();
     }
 
     public void GainBonusSteps(int amount)

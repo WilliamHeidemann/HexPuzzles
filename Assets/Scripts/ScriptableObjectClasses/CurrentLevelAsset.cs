@@ -6,4 +6,5 @@ using UnityEngine;
 public class CurrentLevelAsset : ScriptableObject
 {
     public GridScriptableObject value;
+    public World world;
 }
