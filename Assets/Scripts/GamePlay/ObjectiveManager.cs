@@ -58,10 +58,10 @@ public class ObjectiveManager : MonoBehaviour
     {
         endGameScreen.SetActive(true);
         winScreen.SetActive(true);
+        ShowStars();
         if (currentLevel.world.connectedLevels.Any(level => level.LevelIsComplete == false)) 
             nextLevelButton.SetActive(true);
         else nextWorldButton.SetActive(true);
-        ShowStars();
     }
 
     private void HideMenu(GridScriptableObject level)
