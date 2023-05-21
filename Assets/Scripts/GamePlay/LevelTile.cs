@@ -66,7 +66,7 @@ public class LevelTile : MonoBehaviour
     public void UpdateGraphics()
     {
         // Each can be commented out independently
-        UpdateModel();
+        // UpdateModel();
         UpdateMaterial();
     }
 

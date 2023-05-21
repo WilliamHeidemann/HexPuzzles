@@ -41,6 +41,26 @@ public class PlayerMovementAnimation : MonoBehaviour
     }
     private IEnumerator WalkTransition(MoveCommand command)
     {
+        var time = 0f;
+        var start = transform.position;
+        var target = command.Position;
+        var centerPivot = (start + target) * 0.5f;
+        centerPivot.y -= 0.1f;
+        start -= centerPivot;
+        target -= centerPivot;
+        while (!WithinRange)
+        {
+            time += Time.deltaTime * 3;
+            transform.position = Vector3.Slerp(start, target, time) + centerPivot;
+            yield return null;
+        }
+        movementCommands.Remove(command);
+        _transition = null;
+        PlayerMovement.MoveRequestCompleted(command);
+    }
+    
+    private IEnumerator JumpTransition(MoveCommand command)
+    {
         while (!WithinRange)
         {
             transform.position = Vector3.MoveTowards(transform.position, command.Position, 5 * Time.deltaTime);
