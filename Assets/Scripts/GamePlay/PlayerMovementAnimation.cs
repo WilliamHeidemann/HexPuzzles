@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -9,6 +10,7 @@ public class PlayerMovementAnimation : MonoBehaviour
     public static PlayerMovementAnimation Instance;
     private readonly List<MoveCommand> movementCommands = new();
     private bool WithinRange => Vector3.Distance(transform.position, movementCommands[0].Position) < 0.05f;
+    private Coroutine _transition;
     private void Awake()
     {
         if (Instance != null) Destroy(this);
@@ -28,20 +30,25 @@ public class PlayerMovementAnimation : MonoBehaviour
     
     private void Update()
     {
-        if (movementCommands.Any())
+        if (movementCommands.Any() && _transition == null)
         {
-            var command = movementCommands[0];
-            transform.position = Vector3.MoveTowards(transform.position, command.Position, 5 * Time.deltaTime);
-            if (WithinRange)
-            {
-                movementCommands.Remove(command);
-                PlayerMovement.MoveRequestCompleted(command);
-            }
+            _transition = StartCoroutine(WalkTransition(movementCommands[0]));
         }
         else
         {
-            // Play idle animation
+            // Play Idle Animation
         }
+    }
+    private IEnumerator WalkTransition(MoveCommand command)
+    {
+        while (!WithinRange)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, command.Position, 5 * Time.deltaTime);
+            yield return null;
+        }
+        movementCommands.Remove(command);
+        _transition = null;
+        PlayerMovement.MoveRequestCompleted(command);
     }
 
     private void ClearMoveCommands(GridScriptableObject level)
