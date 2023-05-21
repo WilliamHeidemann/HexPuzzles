@@ -58,18 +58,6 @@ public class PlayerMovementAnimation : MonoBehaviour
         _transition = null;
         PlayerMovement.MoveRequestCompleted(command);
     }
-    
-    private IEnumerator JumpTransition(MoveCommand command)
-    {
-        while (!WithinRange)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, command.Position, 5 * Time.deltaTime);
-            yield return null;
-        }
-        movementCommands.Remove(command);
-        _transition = null;
-        PlayerMovement.MoveRequestCompleted(command);
-    }
 
     private void ClearMoveCommands(GridScriptableObject level)
     {
