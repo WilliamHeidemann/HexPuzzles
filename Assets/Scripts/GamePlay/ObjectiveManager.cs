@@ -75,9 +75,14 @@ public class ObjectiveManager : MonoBehaviour
     private void ShowStars()
     {
         var starsAwarded = StepCounter.Instance.StarsToAward();
-        star1.sprite = goldStar;
-        star2.sprite = starsAwarded >= 2 ? goldStar : blackStar;
-        star3.sprite = starsAwarded >= 3 ? goldStar : blackStar;
+        // star1.sprite = goldStar;
+        // star2.sprite = starsAwarded >= 2 ? goldStar : blackStar;
+        // star3.sprite = starsAwarded >= 3 ? goldStar : blackStar;
+        UpdateScore(starsAwarded);
+    }
+
+    private void UpdateScore(int starsAwarded)
+    {
         var previousBest = PlayerPrefs.GetInt(_levelName);
         var best = Mathf.Max(starsAwarded, previousBest);
         PlayerPrefs.SetInt(_levelName, best);
