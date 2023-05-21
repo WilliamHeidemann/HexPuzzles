@@ -12,7 +12,7 @@ public class LevelLoader : MonoBehaviour
         EnterLevel(currentLevel.value);
     }
 
-    public void EnterLevel(GridScriptableObject level)
+    private void EnterLevel(GridScriptableObject level)
     {
         currentLevel.value = level;
         EnterLevelEvent?.Invoke(level);

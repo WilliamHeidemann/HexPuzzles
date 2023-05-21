@@ -11,13 +11,7 @@ public class ObjectiveManager : MonoBehaviour
     [SerializeField] private GameObject nextWorldButton;
     [SerializeField] private GameObject nextLevelButton;
     [SerializeField] private TextMeshProUGUI objectiveText;
-    [SerializeField] private Image star1;
-    [SerializeField] private Image star2;
-    [SerializeField] private Image star3;
-    [SerializeField] private Sprite blackStar;
-    [SerializeField] private Sprite goldStar;
     [SerializeField] private CurrentLevelAsset currentLevel;
-    private string _levelName;
     public static ObjectiveManager instance;
     public bool LevelComplete => _objectivesRequiredForLevel == CompletedObjectivesForLevel;
     private int CompletedObjectivesForLevel => _objectivesRequiredForLevel - BlueTile.BlueTilesInLevel;
@@ -42,7 +36,6 @@ public class ObjectiveManager : MonoBehaviour
         _objectivesRequiredForLevel = level.tileData.Count(tile => tile.tileType == TileType.Blue);
         BlueTile.BlueTilesInLevel = _objectivesRequiredForLevel;
         objectiveText.text = $"{CompletedObjectivesForLevel}/{_objectivesRequiredForLevel}";
-        _levelName = level.name;
     }
     
     public void ProgressionCheck()
@@ -75,17 +68,14 @@ public class ObjectiveManager : MonoBehaviour
     private void ShowStars()
     {
         var starsAwarded = StepCounter.Instance.StarsToAward();
-        // star1.sprite = goldStar;
-        // star2.sprite = starsAwarded >= 2 ? goldStar : blackStar;
-        // star3.sprite = starsAwarded >= 3 ? goldStar : blackStar;
         UpdateScore(starsAwarded);
     }
 
     private void UpdateScore(int starsAwarded)
     {
-        var previousBest = PlayerPrefs.GetInt(_levelName);
+        var previousBest = PlayerPrefs.GetInt(currentLevel.name);
         var best = Mathf.Max(starsAwarded, previousBest);
-        PlayerPrefs.SetInt(_levelName, best);
+        PlayerPrefs.SetInt(currentLevel.name, best);
     }
 
     public void HideWinScreen()

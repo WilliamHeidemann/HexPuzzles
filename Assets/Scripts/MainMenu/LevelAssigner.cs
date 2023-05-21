@@ -11,20 +11,16 @@ public class LevelAssigner : MonoBehaviour
     [SerializeField] private LevelButton[] outerButtons;
     [SerializeField] private Sprite goldStar;
     [SerializeField] private Sprite silverStar;
-    
     private void Start() => AssignLevels();
     private void AssignLevels()
     {
         if (world.centerLevel == null) centerButton.gameObject.SetActive(false);
         else
         {
-            centerButton.levelAssignedToButton = world.centerLevel;
             centerButton.world = world;
-            if (PlayerPrefs.GetInt(world.centerLevel.name) > 0) centerButton.transform.GetChild(0).GetComponent<Image>().color = Color.white;
-            else centerButton.transform.GetChild(0).GetComponent<Image>().color = Color.black;
-
-            centerButton.transform.GetChild(0).GetComponent<Image>().sprite =
-                PlayerPrefs.GetInt(world.centerLevel.name) == 3 ? goldStar : silverStar;
+            centerButton.levelAssignedToButton = world.centerLevel;
+            var image = GetImage(centerButton.transform);
+            SetStar(image, world.centerLevel.name);
         }
         
         for (int i = 0; i < 6; i++)
@@ -32,15 +28,18 @@ public class LevelAssigner : MonoBehaviour
             if (world.connectedLevels[i] == null) outerButtons[i].gameObject.SetActive(false);
             else
             {
-                outerButtons[i].levelAssignedToButton = world.connectedLevels[i];
                 outerButtons[i].world = world;
-                
-                if (PlayerPrefs.GetInt(world.connectedLevels[i].name) > 0) outerButtons[i].transform.GetChild(0).GetComponent<Image>().color = Color.white;
-                else outerButtons[i].transform.GetChild(0).GetComponent<Image>().color = Color.black;
-
-                outerButtons[i].transform.GetChild(0).GetComponent<Image>().sprite =
-                    PlayerPrefs.GetInt(world.connectedLevels[i].name) == 3 ? goldStar : silverStar;
+                outerButtons[i].levelAssignedToButton = world.connectedLevels[i];
+                var image = GetImage(outerButtons[i].transform);
+                SetStar(image, world.connectedLevels[i].name);
             }
         }
+    }
+    private static Image GetImage(Transform button) => button.GetChild(0).GetComponent<Image>();
+    private void SetStar(Image image, string levelName)
+    {
+        var award = PlayerPrefs.GetInt(levelName);
+        image.color = award > 0 ? Color.white : Color.black;
+        image.sprite = award == 3 ? goldStar : silverStar;
     }
 }
