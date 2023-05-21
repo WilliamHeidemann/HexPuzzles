@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e50b3c13d507e1f4dae8938235fe826e, type: 3}
   m_Name: Current Level
   m_EditorClassIdentifier: 
-  value: {fileID: 11400000, guid: d26878ebef608b74d9d852dc8848c3a4, type: 2}
+  value: {fileID: 11400000, guid: ce5a3a1ea470e54449bcc58a94cba8e2, type: 2}
   world: {fileID: 11400000, guid: 6f70f79b6c3315846b6bf83ae3a8c88b, type: 2}

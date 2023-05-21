@@ -20,7 +20,7 @@ public class MenuScroller : MonoBehaviour
     {
         _worldCount = worlds.childCount;
         _start = worlds.anchoredPosition.x;
-        _target = worlds.anchoredPosition.x;
+        _target = _start;
 
         if (shouldScroll)
         {
