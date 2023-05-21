@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 22068e422b5a4a2182dcd5672f656b6b, type: 3}
-  m_Name: World 1
+  m_Name: 1st World (Teleport)
   m_EditorClassIdentifier: 
   centerLevel: {fileID: 11400000, guid: 19975ea3aa9b1624da1598c33a34414a, type: 2}
   connectedLevels:
   - {fileID: 11400000, guid: ee89dc7d910b3234b855770840d35c0e, type: 2}
   - {fileID: 11400000, guid: a8ea42cc6049a7f4f9f6a6b4c88ca1b3, type: 2}
-  - {fileID: 11400000, guid: a0e3c0dfe50500d4a90b38db360d96f5, type: 2}
+  - {fileID: 11400000, guid: c8b4ea96c0d0f8144a547859caffb8cd, type: 2}
   - {fileID: 11400000, guid: 4a84870a27995eb49af291926d16f635, type: 2}
   - {fileID: 11400000, guid: d73941f5cbac10440aaee83616ca771b, type: 2}
   - {fileID: 11400000, guid: 20f142c10b6deb84e868bda18229047f, type: 2}
