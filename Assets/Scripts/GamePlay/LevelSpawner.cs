@@ -42,6 +42,7 @@ public class LevelSpawner : MonoBehaviour
     {
         if (level == null) return;
         var hexTiles = container.GetComponentsInChildren<LevelTile>();
+        // Clear Old Content
         foreach (var levelTile in hexTiles)
         {
             levelTile.ApplyTileStruct(new AxialHex
@@ -52,6 +53,7 @@ public class LevelSpawner : MonoBehaviour
             });
         }
         
+        // Add New Content
         foreach (var tileStruct in level.tileData)
         {
             var hexTile = hexTiles.FirstOrDefault(hexTile => hexTile.q == tileStruct.Q && hexTile.r == tileStruct.R);

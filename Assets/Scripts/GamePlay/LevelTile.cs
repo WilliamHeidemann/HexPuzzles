@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
@@ -35,12 +36,65 @@ public class LevelTile : MonoBehaviour
     [SerializeField] private Material oneTimeUseMaterial;
     [SerializeField] private Material rotatingMaterial;
     
+    [SerializeField] private GameObject standardModel;
+    [SerializeField] private GameObject blueModel;
+    [SerializeField] private GameObject teleportModel;
+    [SerializeField] private GameObject extraStepModel;
+    [SerializeField] private GameObject jumpModel;
+    [SerializeField] private GameObject oneTimeUnusedModel;
+    [SerializeField] private GameObject oneTimeUsedModel;
+    [SerializeField] private GameObject switchNoSpikeModel;
+    [SerializeField] private GameObject switchSpikesUpModel;
+    private List<GameObject> AllModels => new []
+    { 
+        standardModel,
+        blueModel,
+        teleportModel,
+        extraStepModel,
+        jumpModel,
+        oneTimeUnusedModel,
+        oneTimeUsedModel,
+        switchNoSpikeModel,
+        switchSpikesUpModel
+    }.ToList();
+    
     private void OnValidate()
     {
         UpdateGraphics();
     }
 
     public void UpdateGraphics()
+    {
+        // Each can be commented out independently
+        UpdateModel();
+        UpdateMaterial();
+    }
+
+    private void UpdateModel()
+    {
+        AllModels.ForEach(model => model.SetActive(false));
+        var model = tileType switch
+        {
+            TileType.Empty => null,
+            TileType.Standard => standardModel,
+            TileType.Blue => blueModel,
+            TileType.Teleport => teleportModel,
+            TileType.BonusSteps => extraStepModel,
+            TileType.Jump => jumpModel,
+            TileType.Switch => SwitchModel(),
+            TileType.OneTimeUse => oneTimeUnusedModel,
+            TileType.Rotating => null,
+            _ => throw new ArgumentOutOfRangeException()
+        };
+        if (model != null)
+        {
+            model.SetActive(true);
+            GetComponent<SkinnedMeshRenderer>().enabled = false;
+        }
+        else GetComponent<SkinnedMeshRenderer>().enabled = true;
+    }
+
+    private void UpdateMaterial()
     {
         MeshRenderer.material = tileType switch
         {
@@ -57,13 +111,23 @@ public class LevelTile : MonoBehaviour
         };
     }
 
+    private GameObject SwitchModel()
+    {
+        var switchTile = (SwitchTile)GetTileComponent(TileType.Switch);
+        return switchTile.on ? switchNoSpikeModel : switchSpikesUpModel;
+    }
+    
     private Material SwitchMaterial()
     {
         var switchTile = (SwitchTile)GetTileComponent(TileType.Switch);
         return switchTile.on ? switchOnMaterial : switchOffMaterial;
-    } 
+    }
     
-    public void TurnTransparent() => MeshRenderer.material = emptyMaterial;
+    public void TurnTransparent()
+    {
+        MeshRenderer.material = emptyMaterial;
+        AllModels.ForEach(model => model.SetActive(false));
+    }
 
     public void ApplyTileStruct(AxialHex axialHex)
     {
