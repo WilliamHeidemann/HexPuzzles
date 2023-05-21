@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22068e422b5a4a2182dcd5672f656b6b, type: 3}
   m_Name: 3rd World (Jump, Teleport)
   m_EditorClassIdentifier: 
-  centerLevel: {fileID: 0}
+  centerLevel: {fileID: 11400000, guid: d26878ebef608b74d9d852dc8848c3a4, type: 2}
   connectedLevels:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 7910518af84dbea4b8e540afca5559b2, type: 2}
   - {fileID: 11400000, guid: 6b476f6cb19a71b4bade7ccc7b738e24, type: 2}
   - {fileID: 11400000, guid: cad6316e2fa1b734f89c11eaf2b0ca6d, type: 2}
   - {fileID: 11400000, guid: d1744d45740a86b48911eea2f914a821, type: 2}
