@@ -51,7 +51,7 @@ public class ObjectiveManager : MonoBehaviour
     {
         endGameScreen.SetActive(true);
         winScreen.SetActive(true);
-        ShowStars();
+        ShowStar();
         if (currentLevel.world.connectedLevels.Any(level => level.LevelIsComplete == false)) 
             nextLevelButton.SetActive(true);
         else nextWorldButton.SetActive(true);
@@ -65,7 +65,7 @@ public class ObjectiveManager : MonoBehaviour
         nextLevelButton.SetActive(false);
     }
     
-    private void ShowStars()
+    private void ShowStar()
     {
         var starsAwarded = StepCounter.Instance.StarsToAward();
         UpdateScore(starsAwarded);
@@ -73,9 +73,9 @@ public class ObjectiveManager : MonoBehaviour
 
     private void UpdateScore(int starsAwarded)
     {
-        var previousBest = PlayerPrefs.GetInt(currentLevel.name);
+        var previousBest = PlayerPrefs.GetInt(currentLevel.value.name);
         var best = Mathf.Max(starsAwarded, previousBest);
-        PlayerPrefs.SetInt(currentLevel.name, best);
+        PlayerPrefs.SetInt(currentLevel.value.name, best);
     }
 
     public void HideWinScreen()

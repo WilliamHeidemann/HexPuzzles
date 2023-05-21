@@ -12,81 +12,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f572a65b7008a44ea90cde18292faf5, type: 3}
   m_Name: Pyramid
   m_EditorClassIdentifier: 
-  optimalSteps: 4
+  optimalSteps: 2
   tileData:
   - tileType: 1
-    Q: -2
+    Q: -1
     R: 0
     teleportQ: 0
     teleportR: 0
+    switchOn: 0
   - tileType: 1
-    Q: -2
+    Q: -1
     R: 1
     teleportQ: 0
     teleportR: 0
-  - tileType: 1
-    Q: -2
-    R: 2
-    teleportQ: 0
-    teleportR: 0
-  - tileType: 1
-    Q: -2
-    R: 3
-    teleportQ: 0
-    teleportR: 0
+    switchOn: 0
   - tileType: 2
-    Q: -2
-    R: 4
-    teleportQ: 0
-    teleportR: 0
-  - tileType: 1
-    Q: -1
-    R: 0
-    teleportQ: 0
-    teleportR: 0
-  - tileType: 1
-    Q: -1
-    R: 1
-    teleportQ: 0
-    teleportR: 0
-  - tileType: 1
     Q: -1
     R: 2
     teleportQ: 0
     teleportR: 0
-  - tileType: 1
-    Q: -1
-    R: 3
-    teleportQ: 0
-    teleportR: 0
+    switchOn: 0
   - tileType: 1
     Q: 0
     R: 0
     teleportQ: 0
     teleportR: 0
+    switchOn: 0
   - tileType: 1
     Q: 0
     R: 1
     teleportQ: 0
     teleportR: 0
-  - tileType: 1
-    Q: 0
-    R: 2
-    teleportQ: 0
-    teleportR: 0
+    switchOn: 0
   - tileType: 1
     Q: 1
     R: 0
     teleportQ: 0
     teleportR: 0
-  - tileType: 1
-    Q: 1
-    R: 1
-    teleportQ: 0
-    teleportR: 0
-  - tileType: 1
-    Q: 2
-    R: 0
-    teleportQ: 0
-    teleportR: 0
+    switchOn: 0
   updatingAllowed: 0
