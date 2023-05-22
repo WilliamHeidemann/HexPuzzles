@@ -20,7 +20,7 @@ public class MoveCommand
     public MoveCommand(LevelTile levelTile, bool shouldTriggerTileEvent = true, bool shouldActivateTile = true, bool shouldIncrementStepCount = true, bool shouldCheckRange = true, bool shouldDisplayAllTiles = false)
     {
         Tile = levelTile;
-        Position = levelTile.transform.position + Vector3.up;
+        Position = levelTile.transform.position + new Vector3(0f, 0.25f, 0f);
         ShouldTriggerTileEvent = shouldTriggerTileEvent;
         ShouldActivateTile = shouldActivateTile;
         ShouldIncrementStepCount = shouldIncrementStepCount;

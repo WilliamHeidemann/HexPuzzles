@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
         current = LevelTiles.First(tile => tile.q == 0 && tile.r == 0);
         HideAllTiles();
         DisplayTilesInRange(current);
-        transform.position = current.transform.position + Vector3.up;
+        transform.position = current.transform.position + new Vector3(0f, 0.25f, 0f);
     }
     
     public void MoveRequest(MoveCommand command)

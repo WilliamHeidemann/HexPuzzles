@@ -32,7 +32,8 @@ public class PlayerMovementAnimation : MonoBehaviour
     {
         if (movementCommands.Any() && _transition == null)
         {
-            _transition = StartCoroutine(WalkTransition(movementCommands[0]));
+            var command = movementCommands[0];
+            _transition = StartCoroutine(WalkTransition(command));
         }
         else
         {
@@ -41,17 +42,24 @@ public class PlayerMovementAnimation : MonoBehaviour
     }
     private IEnumerator WalkTransition(MoveCommand command)
     {
+        var blob = transform;
+
         var time = 0f;
-        var start = transform.position;
+        var start = blob.position;
         var target = command.Position;
         var centerPivot = (start + target) * 0.5f;
         centerPivot.y -= 0.1f;
         start -= centerPivot;
         target -= centerPivot;
+
+        var startRotation = blob.rotation;
+        var targetRotation = Quaternion.LookRotation(target - start);
+
         while (!WithinRange)
         {
             time += Time.deltaTime * 3;
             transform.position = Vector3.Slerp(start, target, time) + centerPivot;
+            blob.rotation = Quaternion.Slerp(startRotation, targetRotation, time);
             yield return null;
         }
         movementCommands.Remove(command);

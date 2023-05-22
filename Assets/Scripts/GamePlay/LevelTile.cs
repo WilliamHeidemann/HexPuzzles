@@ -37,7 +37,7 @@ public class LevelTile : MonoBehaviour
     [SerializeField] private Material rotatingMaterial;
     
     [SerializeField] private GameObject standardModel;
-    [SerializeField] private GameObject blueModel;
+    [SerializeField] private GameObject bouquet;
     [SerializeField] private GameObject teleportModel;
     [SerializeField] private GameObject extraStepModel;
     [SerializeField] private GameObject jumpModel;
@@ -48,7 +48,7 @@ public class LevelTile : MonoBehaviour
     private List<GameObject> AllModels => new []
     { 
         standardModel,
-        blueModel,
+        bouquet,
         teleportModel,
         extraStepModel,
         jumpModel,
@@ -66,20 +66,24 @@ public class LevelTile : MonoBehaviour
     public void UpdateGraphics()
     {
         // Each can be commented out independently
-        // UpdateModel();
+        AllModels.ForEach(model => model.SetActive(false));
         UpdateMaterial();
+        // UpdateModel();
+        if (tileType == TileType.Blue)
+        {
+            bouquet.SetActive(true);
+        }
     }
 
     private void UpdateModel()
     {
-        AllModels.ForEach(model => model.SetActive(false));
         var model = tileType switch
         {
             TileType.Empty => null,
             TileType.Standard => standardModel,
-            TileType.Blue => blueModel,
+            TileType.Blue => standardModel,
             TileType.Teleport => teleportModel,
-            TileType.BonusSteps => extraStepModel,
+            TileType.BonusSteps => standardModel,
             TileType.Jump => jumpModel,
             TileType.Switch => SwitchModel(),
             TileType.OneTimeUse => oneTimeUnusedModel,
@@ -89,13 +93,14 @@ public class LevelTile : MonoBehaviour
         if (model != null)
         {
             model.SetActive(true);
-            GetComponent<SkinnedMeshRenderer>().enabled = false;
         }
-        else GetComponent<SkinnedMeshRenderer>().enabled = true;
+
+        GetComponent<SkinnedMeshRenderer>().enabled = false;
     }
 
     private void UpdateMaterial()
     {
+        MeshRenderer.enabled = true;
         MeshRenderer.material = tileType switch
         {
             TileType.Empty => emptyMaterial,
