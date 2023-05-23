@@ -646,6 +646,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   worlds: {fileID: 515094549}
   worldNumber: {fileID: 710488153}
+  currentLevelAsset: {fileID: 11400000, guid: b4ec084e307f21f47b85e7b04feb75e2, type: 2}
 --- !u!1 &710488151
 GameObject:
   m_ObjectHideFlags: 0

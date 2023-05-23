@@ -7,14 +7,13 @@ public class MenuScroller : MonoBehaviour
 {
     [SerializeField] private RectTransform worlds;
     [SerializeField] private TextMeshProUGUI worldNumber;
+    [SerializeField] private CurrentLevelAsset currentLevelAsset;
     private int _worldIndex;
     private int _worldCount;
     
     private float _target;
     private float _start;
     private float _animationTime;
-
-    public static bool shouldScroll;
     
     private void Start()
     {
@@ -22,10 +21,9 @@ public class MenuScroller : MonoBehaviour
         _start = worlds.anchoredPosition.x;
         _target = _start;
 
-        if (shouldScroll)
+        for (int i = 0; i < currentLevelAsset.world.index + 1; i++)
         {
             Scroll(true);
-            shouldScroll = false;
         }
     }
     

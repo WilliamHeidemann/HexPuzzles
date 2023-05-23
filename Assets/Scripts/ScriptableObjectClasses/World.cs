@@ -6,4 +6,5 @@ public class World : ScriptableObject
 {
     public GridScriptableObject centerLevel;
     public GridScriptableObject[] connectedLevels;
+    public int index;
 }
