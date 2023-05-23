@@ -65,14 +65,10 @@ public class LevelTile : MonoBehaviour
 
     public void UpdateGraphics()
     {
-        // Each can be commented out independently
-        AllModels.ForEach(model => model.SetActive(false));
+        // AllModels.ForEach(model => model.SetActive(false));
         UpdateMaterial();
         // UpdateModel();
-        if (tileType == TileType.Blue)
-        {
-            bouquet.SetActive(true);
-        }
+        bouquet.SetActive(tileType == TileType.Blue);
     }
 
     private void UpdateModel()
