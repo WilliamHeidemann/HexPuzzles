@@ -18,7 +18,7 @@ public class MenuScroller : MonoBehaviour
     private void Start()
     {
         _worldCount = worlds.childCount;
-        _start = worlds.anchoredPosition.x;
+        _start = worlds.anchoredPosition.x * currentLevelAsset.world.index;
         _target = _start;
 
         for (int i = 0; i < currentLevelAsset.world.index + 1; i++)
