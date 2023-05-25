@@ -2,16 +2,17 @@ using System;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class ObjectiveManager : MonoBehaviour
 {
-    [SerializeField] private GameObject winScreen;
     [SerializeField] private GameObject endGameScreen;
     [SerializeField] private GameObject nextWorldButton;
     [SerializeField] private GameObject nextLevelButton;
     [SerializeField] private TextMeshProUGUI objectiveText;
     [SerializeField] private CurrentLevelAsset currentLevel;
+    [SerializeField] private GameObject starImage;
     public static ObjectiveManager instance;
     public bool LevelComplete => _objectivesRequiredForLevel == CompletedObjectivesForLevel;
     private int CompletedObjectivesForLevel => _objectivesRequiredForLevel - BlueTile.BlueTilesInLevel;
@@ -22,13 +23,11 @@ public class ObjectiveManager : MonoBehaviour
         if (instance != null) Destroy(this);
         instance = this;
         LevelLoader.EnterLevelEvent += SetObjective;
-        LevelLoader.EnterLevelEvent += HideMenu;
     }
 
     private void OnDestroy()
     {
         LevelLoader.EnterLevelEvent -= SetObjective;
-        LevelLoader.EnterLevelEvent -= HideMenu;
     }
 
     private void SetObjective(GridScriptableObject level)
@@ -41,45 +40,15 @@ public class ObjectiveManager : MonoBehaviour
     public void ProgressionCheck()
     {
         objectiveText.text = $"{CompletedObjectivesForLevel}/{_objectivesRequiredForLevel}";
-        if (LevelComplete)
-        {
-            ShowWinScreen();
-        }
+        if (LevelComplete) ShowWinScreen();
     }
 
     private void ShowWinScreen()
     {
         endGameScreen.SetActive(true);
-        winScreen.SetActive(true);
-        ShowStar();
-        if (currentLevel.world.connectedLevels.Any(level => level.LevelIsComplete == false)) 
-            nextLevelButton.SetActive(true);
-        else nextWorldButton.SetActive(true);
-    }
-
-    private void HideMenu(GridScriptableObject level)
-    {
-        endGameScreen.SetActive(false);
-        winScreen.SetActive(false);
-        nextWorldButton.SetActive(false);
-        nextLevelButton.SetActive(false);
-    }
-    
-    private void ShowStar()
-    {
-        var starsAwarded = StepCounter.Instance.StarsToAward();
-        UpdateScore(starsAwarded);
-    }
-
-    private void UpdateScore(int starsAwarded)
-    {
-        var previousBest = PlayerPrefs.GetInt(currentLevel.value.name);
-        var best = Mathf.Max(starsAwarded, previousBest);
-        PlayerPrefs.SetInt(currentLevel.value.name, best);
-    }
-
-    public void HideWinScreen()
-    {
-        winScreen.SetActive(false);
+        starImage.SetActive(true);
+        nextLevelButton.SetActive(true);
+        if (currentLevel.world.connectedLevels.All(level => level.LevelIsComplete)) 
+            nextWorldButton.SetActive(true);
     }
 }
