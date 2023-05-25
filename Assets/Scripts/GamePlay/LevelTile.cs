@@ -35,29 +35,10 @@ public class LevelTile : MonoBehaviour
     [SerializeField] private Material switchOffMaterial;
     [SerializeField] private Material oneTimeUseMaterial;
     [SerializeField] private Material rotatingMaterial;
+    [SerializeField] private Material waterMaterial;
     
-    [SerializeField] private GameObject standardModel;
     [SerializeField] private GameObject bouquet;
-    [SerializeField] private GameObject teleportModel;
-    [SerializeField] private GameObject extraStepModel;
-    [SerializeField] private GameObject jumpModel;
-    [SerializeField] private GameObject oneTimeUnusedModel;
-    [SerializeField] private GameObject oneTimeUsedModel;
-    [SerializeField] private GameObject switchNoSpikeModel;
-    [SerializeField] private GameObject switchSpikesUpModel;
-    private List<GameObject> AllModels => new []
-    { 
-        standardModel,
-        bouquet,
-        teleportModel,
-        extraStepModel,
-        jumpModel,
-        oneTimeUnusedModel,
-        oneTimeUsedModel,
-        switchNoSpikeModel,
-        switchSpikesUpModel
-    }.ToList();
-    
+    [SerializeField] private GameObject trampoline;
     private void OnValidate()
     {
         UpdateGraphics();
@@ -65,33 +46,9 @@ public class LevelTile : MonoBehaviour
 
     public void UpdateGraphics()
     {
-        // AllModels.ForEach(model => model.SetActive(false));
         UpdateMaterial();
-        // UpdateModel();
         bouquet.SetActive(tileType == TileType.Blue);
-    }
-
-    private void UpdateModel()
-    {
-        var model = tileType switch
-        {
-            TileType.Empty => null,
-            TileType.Standard => standardModel,
-            TileType.Blue => standardModel,
-            TileType.Teleport => teleportModel,
-            TileType.BonusSteps => standardModel,
-            TileType.Jump => jumpModel,
-            TileType.Switch => SwitchModel(),
-            TileType.OneTimeUse => oneTimeUnusedModel,
-            TileType.Rotating => null,
-            _ => throw new ArgumentOutOfRangeException()
-        };
-        if (model != null)
-        {
-            model.SetActive(true);
-        }
-
-        GetComponent<SkinnedMeshRenderer>().enabled = false;
+        trampoline.SetActive(tileType == TileType.Jump);
     }
 
     private void UpdateMaterial()
@@ -101,10 +58,10 @@ public class LevelTile : MonoBehaviour
         {
             TileType.Empty => emptyMaterial,
             TileType.Standard => standardMaterial,
-            TileType.Blue => blueMaterial,
+            TileType.Blue => waterMaterial,
             TileType.Teleport => teleportMaterial,
             TileType.BonusSteps => bonusStepMaterial,
-            TileType.Jump => jumpMaterial,
+            TileType.Jump => emptyMaterial,
             TileType.Switch => SwitchMaterial(),
             TileType.OneTimeUse => oneTimeUseMaterial,
             TileType.Rotating => rotatingMaterial,
@@ -112,12 +69,6 @@ public class LevelTile : MonoBehaviour
         };
     }
 
-    private GameObject SwitchModel()
-    {
-        var switchTile = (SwitchTile)GetTileComponent(TileType.Switch);
-        return switchTile.on ? switchNoSpikeModel : switchSpikesUpModel;
-    }
-    
     private Material SwitchMaterial()
     {
         var switchTile = (SwitchTile)GetTileComponent(TileType.Switch);
@@ -127,7 +78,6 @@ public class LevelTile : MonoBehaviour
     public void TurnTransparent()
     {
         MeshRenderer.material = emptyMaterial;
-        AllModels.ForEach(model => model.SetActive(false));
     }
 
     public void ApplyTileStruct(AxialHex axialHex)

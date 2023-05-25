@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
 public class LevelSpawner : MonoBehaviour
@@ -113,7 +114,9 @@ public class LevelSpawner : MonoBehaviour
             var qPos = qVector * axialHex.Q;
             var rPos = rVector * axialHex.R;
             var position = qPos + rPos;
-            var tile = Instantiate(tilePrefab, position, Quaternion.identity, container);
+            // var tile = Instantiate(tilePrefab, position, Quaternion.identity, container);
+            var tile = (LevelTile)PrefabUtility.InstantiatePrefab(tilePrefab, container);
+            tile.transform.position = position;
             tile.ApplyTileStruct(axialHex);
             tile.name = $"Q({axialHex.Q}) R({axialHex.R})";
         }
