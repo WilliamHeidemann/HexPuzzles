@@ -15,7 +15,7 @@ MonoBehaviour:
   centerLevel: {fileID: 11400000, guid: 4f5716eca23a0224da37dbbcbf795e9f, type: 2}
   connectedLevels:
   - {fileID: 11400000, guid: d16d90a1dd2ce5846bfc8b7d29de1b1e, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: ce5a3a1ea470e54449bcc58a94cba8e2, type: 2}
   - {fileID: 11400000, guid: 38d9774084e1c744aa842f986d0e39e5, type: 2}
   - {fileID: 11400000, guid: 28d0184eb964f1549bbed97a0ae4b014, type: 2}
   - {fileID: 0}

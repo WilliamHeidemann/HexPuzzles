@@ -53,7 +53,6 @@ public class LevelTile : MonoBehaviour
 
     private void UpdateMaterial()
     {
-        MeshRenderer.enabled = true;
         MeshRenderer.material = tileType switch
         {
             TileType.Empty => emptyMaterial,
@@ -78,6 +77,8 @@ public class LevelTile : MonoBehaviour
     public void TurnTransparent()
     {
         MeshRenderer.material = emptyMaterial;
+        bouquet.SetActive(false);
+        trampoline.SetActive(false);
     }
 
     public void ApplyTileStruct(AxialHex axialHex)
