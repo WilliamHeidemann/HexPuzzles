@@ -27,6 +27,7 @@ public class LevelLoader : MonoBehaviour
 
     public void RetryLevel()
     {
+        AdRunner.instance.RunAd();
         EnterLevel(currentLevel.value);
     }
     

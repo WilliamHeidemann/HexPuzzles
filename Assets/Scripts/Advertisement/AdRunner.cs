@@ -10,38 +10,37 @@ public class AdRunner : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowListe
     private const string iOSAdUnitId = "Interstitial_iOS";
     private string _adUnitId;
     
+    public static AdRunner instance;
+    [SerializeField] private bool shouldRunAds;
+    [SerializeField] private float secondsBeforeAdCanRunAgain;
+    private float _timeOfLastAd;
+
     void Awake()
     {
         // Get the Ad Unit ID for the current platform:
         _adUnitId = Application.platform == RuntimePlatform.IPhonePlayer
             ? iOSAdUnitId
             : AndroidAdUnitId;
+        instance = this;
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L)) LoadAd();
-        if (Input.GetKeyDown(KeyCode.S)) ShowAd();
+        // if (Input.GetKeyDown(KeyCode.L)) LoadAd();
+        // if (Input.GetKeyDown(KeyCode.S)) ShowAd();
     }
 
-    public void LoadAd()
+    public void RunAd()
     {
-        // IMPORTANT! Only load content AFTER initialization (in this example, initialization is handled in a different script).
-        Debug.Log("Loading Ad: " + _adUnitId);
+        if (!shouldRunAds) return;
+        if (_timeOfLastAd + secondsBeforeAdCanRunAgain > Time.time) return;
         Advertisement.Load(_adUnitId, this);
     }
-    
-    public void ShowAd()
-    {
-        // Note that if the ad content wasn't previously loaded, this method will fail
-        Debug.Log("Showing Ad: " + _adUnitId);
-        Advertisement.Show(_adUnitId, this);
-    }
-    
-    // Implement Load Listener and Show Listener interface methods: 
+
     public void OnUnityAdsAdLoaded(string adUnitId)
     {
-        // Optionally execute code if the Ad Unit successfully loads content.
+        _timeOfLastAd = Time.time;
+        Advertisement.Show(adUnitId, this);
     }
  
     public void OnUnityAdsFailedToLoad(string adUnitId, UnityAdsLoadError error, string message)

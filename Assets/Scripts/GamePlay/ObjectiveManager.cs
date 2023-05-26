@@ -48,7 +48,7 @@ public class ObjectiveManager : MonoBehaviour
         endGameScreen.SetActive(true);
         starImage.SetActive(true);
         nextLevelButton.SetActive(true);
-        if (currentLevel.world.connectedLevels.All(level => level.LevelIsComplete)) 
+        if (currentLevel.world.connectedLevels.Where(level => level != null).All(level => level.LevelIsComplete)) 
             nextWorldButton.SetActive(true);
     }
 }
