@@ -1,30 +1,32 @@
-﻿using System;
-using UnityEngine;
+﻿using GamePlay;
 
-public class SwitchTile : TileComponentBase, IEventTriggerTile
+namespace TileComponents
 {
-    public bool on;
+    public class SwitchTile : TileComponentBase, IEventTriggerTile
+    {
+        public bool on;
     
-    private void Awake()
-    {
-        PlayerMovement.TriggerTileEvent += Trigger;
-    }
+        private void Awake()
+        {
+            PlayerMovement.TriggerTileEvent += Trigger;
+        }
 
-    private void OnDestroy()
-    {
-        PlayerMovement.TriggerTileEvent -= Trigger;
-    }
+        private void OnDestroy()
+        {
+            PlayerMovement.TriggerTileEvent -= Trigger;
+        }
     
-    private void OnValidate()
-    {
-        GetComponent<LevelTile>().UpdateGraphics();
-    }
+        private void OnValidate()
+        {
+            GetComponent<LevelTile>().UpdateGraphics();
+        }
 
-    public void Trigger()
-    {
-        var levelTile = GetComponent<LevelTile>();
-        if (PlayerMovement.Instance.current == levelTile) return;
-        on = !on;
-        levelTile.UpdateGraphics();
+        public void Trigger()
+        {
+            var levelTile = GetComponent<LevelTile>();
+            if (PlayerMovement.Instance.current == levelTile) return;
+            on = !on;
+            levelTile.UpdateGraphics();
+        }
     }
 }

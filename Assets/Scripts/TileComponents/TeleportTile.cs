@@ -1,16 +1,19 @@
-﻿using System;
+﻿using GamePlay;
 using UnityEngine;
 
-public class TeleportTile : TileComponentBase, IActivatedTile
+namespace TileComponents
 {
-    public LevelTile connectedTile;
-    public void Activate()
+    public class TeleportTile : TileComponentBase, IActivatedTile
     {
-        PlayerMovement.Instance.MoveRequest(new MoveCommand(connectedTile, shouldTriggerTileEvent: false, shouldActivateTile: false, shouldIncrementStepCount: false, shouldCheckRange:false, shouldDisplayAllTiles: true));
-    }
+        public LevelTile connectedTile;
+        public void Activate()
+        {
+            PlayerMovement.Instance.MoveRequest(new MoveCommand(connectedTile, shouldTriggerTileEvent: false, shouldActivateTile: false, shouldIncrementStepCount: false, shouldCheckRange:false, shouldDisplayAllTiles: true));
+        }
 
-    private void OnDrawGizmos()
-    {
-        Debug.DrawLine(transform.position, connectedTile.transform.position, Color.black);
+        private void OnDrawGizmos()
+        {
+            Debug.DrawLine(transform.position, connectedTile.transform.position, Color.black);
+        }
     }
 }

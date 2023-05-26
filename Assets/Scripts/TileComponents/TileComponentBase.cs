@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 
-public abstract class TileComponentBase : MonoBehaviour
+namespace TileComponents
 {
+    public abstract class TileComponentBase : MonoBehaviour
+    {
     
+    }
 }

@@ -1,16 +1,19 @@
+using ScriptableObjectClasses;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class LevelButton : MonoBehaviour
+namespace MainMenu
 {
-    [HideInInspector] public GridScriptableObject levelAssignedToButton;
-    [HideInInspector] public World world;
-    [SerializeField] private CurrentLevelAsset currentLevelAsset;
-
-    public void LoadLevel()
+    public class LevelButton : MonoBehaviour
     {
-        currentLevelAsset.value = levelAssignedToButton;
-        currentLevelAsset.world = world;
-        ScreenFader.instance.FadeTo("Gameplay");
+        [HideInInspector] public GridScriptableObject levelAssignedToButton;
+        [HideInInspector] public World world;
+        [SerializeField] private CurrentLevelAsset currentLevelAsset;
+
+        public void LoadLevel()
+        {
+            currentLevelAsset.value = levelAssignedToButton;
+            currentLevelAsset.world = world;
+            ScreenFader.instance.FadeTo("Gameplay");
+        }
     }
 }

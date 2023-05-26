@@ -1,4 +1,6 @@
-﻿using UnityEditor;
+﻿using GamePlay;
+using TileComponents;
+using UnityEditor;
 using UnityEngine;
 
 [CustomEditor(typeof(TeleportTile))]

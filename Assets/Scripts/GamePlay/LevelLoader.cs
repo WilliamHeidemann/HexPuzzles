@@ -1,40 +1,43 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
+using AdvertisementLogic;
+using ScriptableObjectClasses;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class LevelLoader : MonoBehaviour
+namespace GamePlay
 {
-    [SerializeField] private CurrentLevelAsset currentLevel;
-    public delegate void EnterLevelDelegate(GridScriptableObject level);
-    public static event EnterLevelDelegate EnterLevelEvent;
-    private void Start()
+    public class LevelLoader : MonoBehaviour
     {
-        EnterLevel(currentLevel.value);
-    }
+        [SerializeField] private CurrentLevelAsset currentLevel;
+        public delegate void EnterLevelDelegate(GridScriptableObject level);
+        public static event EnterLevelDelegate EnterLevelEvent;
+        private void Start()
+        {
+            EnterLevel(currentLevel.value);
+        }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.F)) NextLevel();
-    }
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.F)) NextLevel();
+        }
 
-    private void EnterLevel(GridScriptableObject level)
-    {
-        currentLevel.value = level;
-        EnterLevelEvent?.Invoke(level);
-    }
+        private void EnterLevel(GridScriptableObject level)
+        {
+            currentLevel.value = level;
+            EnterLevelEvent?.Invoke(level);
+        }
 
-    public void RetryLevel()
-    {
-        AdRunner.instance.RunAd();
-        EnterLevel(currentLevel.value);
-    }
+        public void RetryLevel()
+        {
+            AdRunner.instance.RunAd();
+            EnterLevel(currentLevel.value);
+        }
     
-    public void NextLevel()
-    {
-        var nextLevel = currentLevel.world.connectedLevels.FirstOrDefault(level => level.LevelIsComplete == false);
-        if (nextLevel == null) nextLevel = currentLevel.world.connectedLevels.Where(level => level != currentLevel.value).ToArray()[Random.Range(0, 5)];
-        EnterLevel(nextLevel);
+        public void NextLevel()
+        {
+            var nextLevel = currentLevel.world.connectedLevels.FirstOrDefault(level => level.LevelIsComplete == false);
+            if (nextLevel == null) nextLevel = currentLevel.world.connectedLevels.Where(level => level != currentLevel.value).ToArray()[Random.Range(0, 5)];
+            EnterLevel(nextLevel);
+        }
     }
 }

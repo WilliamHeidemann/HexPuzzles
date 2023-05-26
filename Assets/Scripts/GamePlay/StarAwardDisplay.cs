@@ -1,41 +1,43 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
+using ScriptableObjectClasses;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StarAwardDisplay : MonoBehaviour
+namespace GamePlay
 {
-    [SerializeField] private Sprite silver;
-    [SerializeField] private Sprite gold;
-    [SerializeField] private CurrentLevelAsset currentLevel;
-    private void OnEnable()
+    public class StarAwardDisplay : MonoBehaviour
     {
-        var starsAwarded = StepCounter.Instance.StarsToAward();
-        GetComponent<Image>().sprite = starsAwarded == 3 ? gold : silver;
-        UpdateScore(starsAwarded);
-        StartCoroutine(AnimateIn());
-    }
-    
-    private void UpdateScore(int starsAwarded)
-    {
-        var previousBest = PlayerPrefs.GetInt(currentLevel.value.name);
-        var best = Mathf.Max(starsAwarded, previousBest);
-        PlayerPrefs.SetInt(currentLevel.value.name, best);
-    }
-
-    private IEnumerator AnimateIn()
-    {
-        var time = 0f;
-        var rect = GetComponent<RectTransform>();
-        rect.localScale = Vector3.zero;
-        while (time < 1f)
+        [SerializeField] private Sprite silver;
+        [SerializeField] private Sprite gold;
+        [SerializeField] private CurrentLevelAsset currentLevel;
+        private void OnEnable()
         {
-            var scale = Mathf.SmoothStep(0f, 1f, time);
-            rect.localScale = new Vector3(scale, scale, scale);
-            time += Time.deltaTime * 3f;
-            yield return null;
+            var starsAwarded = StepCounter.Instance.StarsToAward();
+            GetComponent<Image>().sprite = starsAwarded == 3 ? gold : silver;
+            UpdateScore(starsAwarded);
+            StartCoroutine(AnimateIn());
         }
-        rect.localScale = Vector3.one;
+    
+        private void UpdateScore(int starsAwarded)
+        {
+            var previousBest = PlayerPrefs.GetInt(currentLevel.value.name);
+            var best = Mathf.Max(starsAwarded, previousBest);
+            PlayerPrefs.SetInt(currentLevel.value.name, best);
+        }
+
+        private IEnumerator AnimateIn()
+        {
+            var time = 0f;
+            var rect = GetComponent<RectTransform>();
+            rect.localScale = Vector3.zero;
+            while (time < 1f)
+            {
+                var scale = Mathf.SmoothStep(0f, 1f, time);
+                rect.localScale = new Vector3(scale, scale, scale);
+                time += Time.deltaTime * 3f;
+                yield return null;
+            }
+            rect.localScale = Vector3.one;
+        }
     }
 }

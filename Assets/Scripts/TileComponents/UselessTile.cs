@@ -1,6 +1,7 @@
-﻿using UnityEngine;
-
-public class UselessTile : TileComponentBase
+﻿namespace TileComponents
 {
+    public class UselessTile : TileComponentBase
+    {
     
+    }
 }

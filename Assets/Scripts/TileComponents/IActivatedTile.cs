@@ -1,4 +1,7 @@
-﻿public interface IActivatedTile
+﻿namespace TileComponents
 {
-    public void Activate();
+    public interface IActivatedTile
+    {
+        public void Activate();
+    }
 }

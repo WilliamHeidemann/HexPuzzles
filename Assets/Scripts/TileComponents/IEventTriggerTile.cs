@@ -1,4 +1,7 @@
-﻿public interface IEventTriggerTile
+﻿namespace TileComponents
 {
-    public void Trigger();
+    public interface IEventTriggerTile
+    {
+        public void Trigger();
+    }
 }

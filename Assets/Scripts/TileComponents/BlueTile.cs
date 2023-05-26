@@ -1,14 +1,17 @@
-﻿using UnityEngine;
+﻿using GamePlay;
 
-public class BlueTile : TileComponentBase, IActivatedTile
+namespace TileComponents
 {
-    public static int BlueTilesInLevel;
-    public void Activate()
+    public class BlueTile : TileComponentBase, IActivatedTile
     {
-        BlueTilesInLevel--;
-        var levelTile = GetComponent<LevelTile>();
-        levelTile.tileType = TileType.Standard;
-        levelTile.UpdateGraphics();
-        Destroy(this);
+        public static int BlueTilesInLevel;
+        public void Activate()
+        {
+            BlueTilesInLevel--;
+            var levelTile = GetComponent<LevelTile>();
+            levelTile.tileType = TileType.Standard;
+            levelTile.UpdateGraphics();
+            Destroy(this);
+        }
     }
 }

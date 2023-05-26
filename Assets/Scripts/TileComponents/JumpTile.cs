@@ -1,26 +1,29 @@
 ﻿using System.Linq;
-using UnityEngine;
+using GamePlay;
 
-public class JumpTile : TileComponentBase, IActivatedTile
+namespace TileComponents
 {
-    private const int JumpLength = 2;
-    
-    public void Activate()
+    public class JumpTile : TileComponentBase, IActivatedTile
     {
-        var movement = PlayerMovement.Instance;
-        var previousQ = movement.previous.q;
-        var currentQ = movement.current.q;
-        var directionQ = Bounded(currentQ - previousQ);
-        var targetQ = currentQ + (directionQ * JumpLength);
+        private const int JumpLength = 2;
+    
+        public void Activate()
+        {
+            var movement = PlayerMovement.Instance;
+            var previousQ = movement.previous.q;
+            var currentQ = movement.current.q;
+            var directionQ = Bounded(currentQ - previousQ);
+            var targetQ = currentQ + (directionQ * JumpLength);
         
-        var previousR = movement.previous.r;
-        var currentR = movement.current.r;
-        var directionR = Bounded(currentR - previousR);
-        var targetR = currentR + (directionR * JumpLength);
+            var previousR = movement.previous.r;
+            var currentR = movement.current.r;
+            var directionR = Bounded(currentR - previousR);
+            var targetR = currentR + (directionR * JumpLength);
 
-        var targetTile = FindObjectsOfType<LevelTile>().First(tile => tile.q == targetQ && tile.r == targetR);
-        movement.MoveRequest(new MoveCommand(targetTile, shouldTriggerTileEvent:false, shouldIncrementStepCount:false, shouldCheckRange:false));
+            var targetTile = FindObjectsOfType<LevelTile>().First(tile => tile.q == targetQ && tile.r == targetR);
+            movement.MoveRequest(new MoveCommand(targetTile, shouldTriggerTileEvent:false, shouldIncrementStepCount:false, shouldCheckRange:false));
+        }
+
+        private static int Bounded(int num) => num < 0 ? -1 : num > 0 ? 1 : 0;
     }
-
-    private static int Bounded(int num) => num < 0 ? -1 : num > 0 ? 1 : 0;
 }

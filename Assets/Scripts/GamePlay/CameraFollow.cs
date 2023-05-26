@@ -1,23 +1,23 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraFollow : MonoBehaviour
+namespace GamePlay
 {
-    [SerializeField] private Transform player;
-    private Transform _cachedTransform;
-    private Vector3 _offset;
-
-    private void Start()
+    public class CameraFollow : MonoBehaviour
     {
-        _cachedTransform = transform;
-        _offset = _cachedTransform.position - player.position;
-    }
+        [SerializeField] private Transform player;
+        private Transform _cachedTransform;
+        private Vector3 _offset;
 
-    void Update()
-    {
-        var playerPosition = player.position;
-        _cachedTransform.position = _offset + new Vector3(playerPosition.x, 0f, playerPosition.z);
+        private void Start()
+        {
+            _cachedTransform = transform;
+            _offset = _cachedTransform.position - player.position;
+        }
+
+        void Update()
+        {
+            var playerPosition = player.position;
+            _cachedTransform.position = _offset + new Vector3(playerPosition.x, 0f, playerPosition.z);
+        }
     }
 }

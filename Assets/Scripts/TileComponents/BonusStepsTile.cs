@@ -1,13 +1,16 @@
-﻿using UnityEngine;
+﻿using GamePlay;
 
-public class BonusStepsTile : TileComponentBase, IActivatedTile
+namespace TileComponents
 {
-    public void Activate()
+    public class BonusStepsTile : TileComponentBase, IActivatedTile
     {
-        StepCounter.Instance.GainBonusSteps(4);
-        var levelTile = GetComponent<LevelTile>();
-        levelTile.tileType = TileType.Standard;
-        levelTile.UpdateGraphics();
-        Destroy(this);
+        public void Activate()
+        {
+            StepCounter.Instance.GainBonusSteps(4);
+            var levelTile = GetComponent<LevelTile>();
+            levelTile.tileType = TileType.Standard;
+            levelTile.UpdateGraphics();
+            Destroy(this);
+        }
     }
 }

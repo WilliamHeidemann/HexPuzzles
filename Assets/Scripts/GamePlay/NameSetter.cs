@@ -1,16 +1,17 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using ScriptableObjectClasses;
 using TMPro;
 using UnityEngine;
 
-public class NameSetter : MonoBehaviour
+namespace GamePlay
 {
-    private TextMeshProUGUI _name;
-    private void Awake()
+    public class NameSetter : MonoBehaviour
     {
-        _name = GetComponent<TextMeshProUGUI>();
-        LevelLoader.EnterLevelEvent += SetLevelName;
+        private TextMeshProUGUI _name;
+        private void Awake()
+        {
+            _name = GetComponent<TextMeshProUGUI>();
+            LevelLoader.EnterLevelEvent += SetLevelName;
+        }
+        private void SetLevelName(GridScriptableObject level) => _name.text = level.name;
     }
-    private void SetLevelName(GridScriptableObject level) => _name.text = level.name;
 }

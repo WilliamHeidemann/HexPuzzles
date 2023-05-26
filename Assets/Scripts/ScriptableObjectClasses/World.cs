@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-[CreateAssetMenu(menuName = "World", fileName = "New World")]
-public class World : ScriptableObject
+namespace ScriptableObjectClasses
 {
-    public GridScriptableObject centerLevel;
-    public GridScriptableObject[] connectedLevels;
-    public int index;
+    [CreateAssetMenu(menuName = "World", fileName = "New World")]
+    public class World : ScriptableObject
+    {
+        public GridScriptableObject centerLevel;
+        public GridScriptableObject[] connectedLevels;
+        public int index;
+    }
 }
