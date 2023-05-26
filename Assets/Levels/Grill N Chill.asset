@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7f572a65b7008a44ea90cde18292faf5, type: 3}
-  m_Name: New Grid
+  m_Name: Grill N Chill
   m_EditorClassIdentifier: 
-  optimalSteps: 20
+  optimalSteps: 11
   tileData:
   - tileType: 1
     Q: -4
@@ -332,4 +332,4 @@ MonoBehaviour:
     teleportQ: 0
     teleportR: 0
     switchOn: 0
-  updatingAllowed: 1
+  updatingAllowed: 0
