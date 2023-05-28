@@ -32,7 +32,6 @@ namespace GamePlay
         {
             previous = null;
             current = LevelTiles.First(tile => tile.q == 0 && tile.r == 0);
-            HideAllTiles();
             DisplayTilesInRange(current);
             transform.position = current.transform.position + new Vector3(0f, 0.25f, 0f);
         }
@@ -70,34 +69,17 @@ namespace GamePlay
             return false;
         }
 
-        private static void HideAllTiles()
-        {
-            foreach (var tile in LevelTiles)
-            {
-                tile.TurnTransparent();
-            }
-        }
-
         private static void DisplayAllTiles()
         {
-            foreach (var tile in LevelTiles)
-            {
-                tile.UpdateGraphics();
-            }
+            foreach (var tile in LevelTiles) tile.UpdateGraphics();
         }
     
         private static void DisplayTilesInRange(LevelTile aroundTile)
         {
             foreach (var tile in LevelTiles)
             {
-                if (InRange(aroundTile, tile, ViewDistance))
-                {
-                    tile.UpdateGraphics();
-                }
-                else
-                {
-                    tile.TurnTransparent();
-                }
+                if (InRange(aroundTile, tile, ViewDistance)) tile.UpdateGraphics();
+                else tile.TurnTransparent();
             }
         }
     
