@@ -2,14 +2,6 @@
 
 namespace GamePlay
 {
-    public enum MoveAnimation
-    {
-        Walk,
-        Jump,
-        Teleport,
-        Rotate
-    }
-
     public class MoveCommand
     {
         public LevelTile Tile { get; }

@@ -1,9 +1,7 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using ScriptableObjectClasses;
 using TileComponents;
-using UnityEditor;
 using UnityEngine;
 
 namespace GamePlay
@@ -43,6 +41,7 @@ namespace GamePlay
     
         [SerializeField] private GameObject bouquet;
         [SerializeField] private GameObject trampoline;
+        [SerializeField] private GameObject teleportRings;
         private void OnValidate()
         {
             UpdateGraphics();
@@ -53,6 +52,7 @@ namespace GamePlay
             UpdateMaterial();
             bouquet.SetActive(tileType == TileType.Blue);
             trampoline.SetActive(tileType == TileType.Jump);
+            teleportRings.SetActive(tileType == TileType.Teleport);
         }
 
         private void UpdateMaterial()
@@ -81,8 +81,9 @@ namespace GamePlay
         public void TurnTransparent()
         {
             MeshRenderer.material = emptyMaterial;
-            bouquet.SetActive(false);
-            trampoline.SetActive(false);
+            if (tileType != TileType.Blue) bouquet.SetActive(false);
+            if (tileType != TileType.Jump) trampoline.SetActive(false);
+            if (tileType != TileType.Teleport) teleportRings.SetActive(false);
         }
 
         public void ApplyTileStruct(AxialHex axialHex)
