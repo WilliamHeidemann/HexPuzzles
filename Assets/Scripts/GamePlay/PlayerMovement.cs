@@ -42,7 +42,6 @@ namespace GamePlay
             if (IsInvalid(command)) return;
             previous = current;
             current = command.Tile;
-            HideAllTiles();
             if (command.ShouldDisplayAllTiles) DisplayAllTiles();
             else DisplayTilesInRange(current);
             // Alternative: Foreach tile in shortest path from previous to current: DisplayTilesInRange(tile)
@@ -94,6 +93,10 @@ namespace GamePlay
                 if (InRange(aroundTile, tile, ViewDistance))
                 {
                     tile.UpdateGraphics();
+                }
+                else
+                {
+                    tile.TurnTransparent();
                 }
             }
         }

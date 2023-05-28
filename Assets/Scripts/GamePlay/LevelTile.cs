@@ -81,9 +81,12 @@ namespace GamePlay
         public void TurnTransparent()
         {
             MeshRenderer.material = emptyMaterial;
-            if (tileType != TileType.Blue) bouquet.SetActive(false);
-            if (tileType != TileType.Jump) trampoline.SetActive(false);
-            if (tileType != TileType.Teleport) teleportRings.SetActive(false);
+            bouquet.SetActive(false);
+            trampoline.SetActive(false);
+            teleportRings.SetActive(false);
+            // if (tileType != TileType.Blue) bouquet.SetActive(false);
+            // if (tileType != TileType.Jump) trampoline.SetActive(false);
+            // if (tileType != TileType.Teleport) teleportRings.SetActive(false);
         }
 
         public void ApplyTileStruct(AxialHex axialHex)
