@@ -49,8 +49,12 @@ namespace GamePlay
             endGameScreen.SetActive(true);
             starImage.SetActive(true);
             nextLevelButton.SetActive(true);
-            if (currentLevel.world.connectedLevels.Where(level => level != null).All(level => level.LevelIsComplete)) 
+            if (currentLevel.world.connectedLevels.Where(level => level != null).All(level => level.LevelIsComplete))
+            {
+                var worldReached = PlayerPrefs.GetInt("World Reached", 0);
+                if (currentLevel.world.index >= worldReached) PlayerPrefs.SetInt("World Reached", currentLevel.world.index + 1);
                 nextWorldButton.SetActive(true);
+            }
         }
     }
 }
