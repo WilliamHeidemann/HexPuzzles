@@ -18,7 +18,7 @@ namespace TileComponents
     
         private void OnValidate()
         {
-            GetComponent<LevelTile>().UpdateGraphics();
+            GetComponent<LevelTile>().ShowTile();
         }
 
         public void Trigger()

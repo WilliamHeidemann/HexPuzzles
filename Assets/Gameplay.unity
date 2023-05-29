@@ -4799,7 +4799,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3299446568310929054, guid: 3bac027ee57520144ad0ecbb69dde9a9, type: 3}
   m_PrefabInstance: {fileID: 283110775}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &283110782
+--- !u!114 &283110786
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -11418,6 +11418,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -4729243777317031718, guid: 3bac027ee57520144ad0ecbb69dde9a9, type: 3}
+      propertyPath: tileType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4729243777317031718, guid: 3bac027ee57520144ad0ecbb69dde9a9, type: 3}
       propertyPath: axialHexData.Q
       value: -5
       objectReference: {fileID: 0}
@@ -11473,6 +11477,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3106198204086296301, guid: 3bac027ee57520144ad0ecbb69dde9a9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3299446568310929054, guid: 3bac027ee57520144ad0ecbb69dde9a9, type: 3}
       propertyPath: m_Name
       value: Q(-5) R(2)
@@ -11494,7 +11502,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3299446568310929054, guid: 3bac027ee57520144ad0ecbb69dde9a9, type: 3}
   m_PrefabInstance: {fileID: 680578793}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &680578800
+--- !u!114 &680578804
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

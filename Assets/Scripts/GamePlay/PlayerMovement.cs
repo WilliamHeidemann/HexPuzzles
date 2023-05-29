@@ -43,7 +43,6 @@ namespace GamePlay
             current = command.Tile;
             if (command.ShouldDisplayAllTiles) DisplayAllTiles();
             else DisplayTilesInRange(current);
-            // Alternative: Foreach tile in shortest path from previous to current: DisplayTilesInRange(tile)
             PlayerMovementAnimation.Instance.MoveTo(command);
         }
     
@@ -71,15 +70,19 @@ namespace GamePlay
 
         private static void DisplayAllTiles()
         {
-            foreach (var tile in LevelTiles) tile.UpdateGraphics();
+            foreach (var tile in LevelTiles)
+            {
+                tile.InRangeOfPlayer = true;
+                tile.UpdateGraphics();
+            }
         }
     
         private static void DisplayTilesInRange(LevelTile aroundTile)
         {
             foreach (var tile in LevelTiles)
             {
-                if (InRange(aroundTile, tile, ViewDistance)) tile.UpdateGraphics();
-                else tile.TurnTransparent();
+                tile.InRangeOfPlayer = InRange(aroundTile, tile, ViewDistance);
+                tile.UpdateGraphics();
             }
         }
     

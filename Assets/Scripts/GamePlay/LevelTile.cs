@@ -26,6 +26,7 @@ namespace GamePlay
         public int r;
         public int s => -q-r;
         public AxialHex axialHexData;
+        public bool InRangeOfPlayer { get; set; }
         private SkinnedMeshRenderer MeshRenderer => GetComponentInChildren<SkinnedMeshRenderer>();
         [SerializeField] private Material emptyMaterial;
         [SerializeField] private Material standardMaterial;
@@ -44,17 +45,37 @@ namespace GamePlay
         [SerializeField] private GameObject teleportRings;
         private void OnValidate()
         {
-            UpdateGraphics();
+            ShowTile();
         }
 
         public void UpdateGraphics()
+        {
+            if (InRangeOfPlayer)
+            {
+                ShowTile();
+            }
+            else
+            {
+                HideTile();
+            }
+        }
+
+        public void ShowTile()
         {
             UpdateMaterial();
             bouquet.SetActive(tileType == TileType.Blue);
             trampoline.SetActive(tileType == TileType.Jump);
             teleportRings.SetActive(tileType == TileType.Teleport);
         }
-
+    
+        private void HideTile()
+        {
+            MeshRenderer.material = emptyMaterial;
+            bouquet.SetActive(false);
+            trampoline.SetActive(false);
+            teleportRings.SetActive(false);
+        }
+        
         private void UpdateMaterial()
         {
             MeshRenderer.material = tileType switch
@@ -76,17 +97,6 @@ namespace GamePlay
         {
             var switchTile = (SwitchTile)GetTileComponent(TileType.Switch);
             return switchTile.on ? switchOnMaterial : switchOffMaterial;
-        }
-    
-        public void TurnTransparent()
-        {
-            MeshRenderer.material = emptyMaterial;
-            bouquet.SetActive(false);
-            trampoline.SetActive(false);
-            teleportRings.SetActive(false);
-            // if (tileType != TileType.Blue) bouquet.SetActive(false);
-            // if (tileType != TileType.Jump) trampoline.SetActive(false);
-            // if (tileType != TileType.Teleport) teleportRings.SetActive(false);
         }
 
         public void ApplyTileStruct(AxialHex axialHex)
