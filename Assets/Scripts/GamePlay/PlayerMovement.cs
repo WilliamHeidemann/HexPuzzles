@@ -9,6 +9,7 @@ namespace GamePlay
 {
     public class PlayerMovement : MonoBehaviour
     {
+        [SerializeField] private AudioSource hopSound;
         public static PlayerMovement Instance;
         public static event Action TriggerTileEvent;
         private static IEnumerable<LevelTile> LevelTiles => FindObjectsOfType<LevelTile>();
@@ -39,6 +40,7 @@ namespace GamePlay
         public void MoveRequest(MoveCommand command)
         {
             if (IsInvalid(command)) return;
+            hopSound.Play();
             previous = current;
             current = command.Tile;
             if (command.ShouldDisplayAllTiles) DisplayAllTiles();
@@ -82,7 +84,7 @@ namespace GamePlay
             foreach (var tile in LevelTiles)
             {
                 tile.InRangeOfPlayer = InRange(aroundTile, tile, ViewDistance);
-                tile.UpdateGraphics();
+                tile.UpdateGraphics(); // If it's already in range, maybe dont update graphics again
             }
         }
     

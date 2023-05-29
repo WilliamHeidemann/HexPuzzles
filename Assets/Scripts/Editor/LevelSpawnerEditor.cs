@@ -140,9 +140,9 @@ public class LevelSpawnerEditor : Editor
             var qPos = qVector * axialHex.Q;
             var rPos = rVector * axialHex.R;
             var position = qPos + rPos;
-            // var tile = Instantiate(_script.tilePrefab, position, Quaternion.identity, _script.container);
-            var tile = (LevelTile)PrefabUtility.InstantiatePrefab(_script.tilePrefab, _script.container);
-            tile.transform.position = position;
+            var tile = Instantiate(_script.tilePrefab, position, Quaternion.identity, _script.container);
+            // var tile = (LevelTile)PrefabUtility.InstantiatePrefab(_script.tilePrefab, _script.container);
+            // tile.transform.position = position;
             tile.ApplyTileStruct(axialHex);
             tile.name = $"Q({axialHex.Q}) R({axialHex.R})";
         }

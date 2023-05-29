@@ -24,14 +24,13 @@ namespace MainMenu
             _start = worlds.anchoredPosition.x * currentLevelAsset.world.index;
             _target = _start;
             
-            scrollLeftButton.SetActive(_worldIndex != 0);
-            scrollRightButton.SetActive(_worldIndex != _worldCount - 1);
-
             var worldReached = PlayerPrefs.GetInt("World Reached", 0);
             for (int i = 0; i < worldReached; i++)
             {
                 Scroll(true);
             }
+            scrollLeftButton.SetActive(_worldIndex != 0);
+            scrollRightButton.SetActive(_worldIndex != _worldCount - 1);
         }
     
         private void Update()
