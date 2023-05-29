@@ -9,6 +9,8 @@ namespace MainMenu
         [SerializeField] private RectTransform worlds;
         [SerializeField] private TextMeshProUGUI worldNumber;
         [SerializeField] private CurrentLevelAsset currentLevelAsset;
+        [SerializeField] private GameObject scrollLeftButton;
+        [SerializeField] private GameObject scrollRightButton;
         private int _worldIndex;
         private int _worldCount;
     
@@ -21,6 +23,9 @@ namespace MainMenu
             _worldCount = worlds.childCount;
             _start = worlds.anchoredPosition.x * currentLevelAsset.world.index;
             _target = _start;
+            
+            scrollLeftButton.SetActive(_worldIndex != 0);
+            scrollRightButton.SetActive(_worldIndex != _worldCount - 1);
 
             var worldReached = PlayerPrefs.GetInt("World Reached", 0);
             for (int i = 0; i < worldReached; i++)
@@ -43,7 +48,9 @@ namespace MainMenu
             if (!goingRight && _worldIndex == 0) return;
             _worldIndex += goingRight ? 1 : -1;
             worldNumber.text = (_worldIndex + 1).ToString();
-        
+            scrollLeftButton.SetActive(_worldIndex != 0);
+            scrollRightButton.SetActive(_worldIndex != _worldCount - 1);
+            
             _start = worlds.anchoredPosition.x;
             var target = goingRight ? -worlds.rect.width : worlds.rect.width;
             _target += target;
