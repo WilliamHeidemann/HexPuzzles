@@ -35,6 +35,7 @@ namespace MainMenu
                     if (PlayerPrefs.GetInt(world.centerLevel.name) == 0)
                     {
                         outerButtons[i].transform.GetChild(1).gameObject.SetActive(true);
+                        outerButtons[i].GetComponent<Button>().interactable = false;
                     }
                 }
             }
