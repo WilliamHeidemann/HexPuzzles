@@ -13,6 +13,7 @@ public class SaveDataModifierEditor : Editor
         var script = (SaveDataModifier)target;
         if (GUILayout.Button("Reset Save Data"))
         {
+            script.worldIndexReached = 0;
             PlayerPrefs.DeleteAll();
         }
         

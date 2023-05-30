@@ -22,7 +22,7 @@ namespace MainMenu
                 var image = GetImage(centerButton.transform);
                 SetStar(image, world.centerLevel.name);
             }
-        
+
             for (int i = 0; i < 6; i++)
             {
                 if (world.connectedLevels[i] == null) outerButtons[i].gameObject.SetActive(false);
@@ -32,6 +32,10 @@ namespace MainMenu
                     outerButtons[i].levelAssignedToButton = world.connectedLevels[i];
                     var image = GetImage(outerButtons[i].transform);
                     SetStar(image, world.connectedLevels[i].name);
+                    if (PlayerPrefs.GetInt(world.centerLevel.name) == 0)
+                    {
+                        outerButtons[i].transform.GetChild(1).gameObject.SetActive(true);
+                    }
                 }
             }
         }

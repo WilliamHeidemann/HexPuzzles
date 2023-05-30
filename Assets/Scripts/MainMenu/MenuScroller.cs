@@ -63,7 +63,7 @@ namespace MainMenu
         private void CorrectButtonImages()
         {
             scrollLeftImage.gameObject.SetActive(_worldIndex != 0);
-            scrollRightImage.gameObject.SetActive(_worldIndex != _worldCount - 1);
+            scrollRightImage.gameObject.SetActive(_worldIndex != _worldCount - 1 && _worldReached != 0);
             scrollRightImage.sprite = _worldIndex + 1 <= _worldReached  ? scrollArrowSprite : scrollLockedSprite;
         }
     }
