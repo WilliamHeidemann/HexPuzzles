@@ -1,6 +1,7 @@
 ﻿using ScriptableObjectClasses;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace MainMenu
 {
@@ -9,8 +10,11 @@ namespace MainMenu
         [SerializeField] private RectTransform worlds;
         [SerializeField] private TextMeshProUGUI worldNumber;
         [SerializeField] private CurrentLevelAsset currentLevelAsset;
-        [SerializeField] private GameObject scrollLeftButton;
-        [SerializeField] private GameObject scrollRightButton;
+        [SerializeField] private Image scrollLeftImage;
+        [SerializeField] private Image scrollRightImage;
+        [SerializeField] private Sprite scrollLockedSprite;
+        [SerializeField] private Sprite scrollArrowSprite;
+        private int _worldReached;
         private int _worldIndex;
         private int _worldCount;
     
@@ -24,13 +28,13 @@ namespace MainMenu
             _start = worlds.anchoredPosition.x * currentLevelAsset.world.index;
             _target = _start;
             
-            var worldReached = PlayerPrefs.GetInt("World Reached", 0);
-            for (int i = 0; i < worldReached; i++)
+            _worldReached = PlayerPrefs.GetInt("World Reached", 0);
+            for (int i = 0; i < _worldReached; i++)
             {
                 Scroll(true);
             }
-            scrollLeftButton.SetActive(_worldIndex != 0);
-            scrollRightButton.SetActive(_worldIndex != _worldCount - 1);
+
+            CorrectButtonImages();
         }
     
         private void Update()
@@ -43,17 +47,24 @@ namespace MainMenu
 
         public void Scroll(bool goingRight)
         {
-            if (goingRight && _worldIndex == _worldCount - 1) return;
+            // if (goingRight && _worldIndex == _worldCount - 1) return;
+            if (goingRight && _worldIndex + 1 > _worldReached) return;
             if (!goingRight && _worldIndex == 0) return;
             _worldIndex += goingRight ? 1 : -1;
             worldNumber.text = (_worldIndex + 1).ToString();
-            scrollLeftButton.SetActive(_worldIndex != 0);
-            scrollRightButton.SetActive(_worldIndex != _worldCount - 1);
+            CorrectButtonImages();
             
             _start = worlds.anchoredPosition.x;
             var target = goingRight ? -worlds.rect.width : worlds.rect.width;
             _target += target;
             _animationTime = 0f;
+        }
+
+        private void CorrectButtonImages()
+        {
+            scrollLeftImage.gameObject.SetActive(_worldIndex != 0);
+            scrollRightImage.gameObject.SetActive(_worldIndex != _worldCount - 1);
+            scrollRightImage.sprite = _worldIndex + 1 <= _worldReached  ? scrollArrowSprite : scrollLockedSprite;
         }
     }
 }
