@@ -32,19 +32,15 @@ namespace GamePlay
         [SerializeField] private Material outOfRangeMaterial;
         [SerializeField] private Material standardMaterial;
         [SerializeField] private Material blueMaterial;
-        [SerializeField] private Material teleportMaterial;
         [SerializeField] private Material bonusStepMaterial;
-        [SerializeField] private Material jumpMaterial;
-        [SerializeField] private Material switchOnMaterial;
-        [SerializeField] private Material switchOffMaterial;
         [SerializeField] private Material oneTimeUseMaterial;
         [SerializeField] private Material rotatingMaterial;
         [SerializeField] private Material waterMaterial;
     
         [SerializeField] private GameObject bouquet;
         [SerializeField] private GameObject trampoline;
-        // [SerializeField] private GameObject teleportRings;
         [SerializeField] private GameObject moleHill;
+        [SerializeField] private GameObject lilyPad;
         private void OnValidate()
         {
             ShowTile();
@@ -67,8 +63,8 @@ namespace GamePlay
             UpdateMaterial();
             bouquet.SetActive(tileType == TileType.Blue);
             trampoline.SetActive(tileType == TileType.Jump);
-            // teleportRings.SetActive(tileType == TileType.Teleport);
             moleHill.SetActive(tileType == TileType.Teleport);
+            lilyPad.SetActive(tileType == TileType.Switch && SwitchTileOn());
         }
     
         private void HideTile()
@@ -76,8 +72,8 @@ namespace GamePlay
             MeshRenderer.material = tileType == TileType.Empty ? emptyMaterial : outOfRangeMaterial;
             bouquet.SetActive(false);
             trampoline.SetActive(false);
-            // teleportRings.SetActive(false);
             moleHill.SetActive(false);
+            lilyPad.SetActive(false);
         }
         
         private void UpdateMaterial()
@@ -86,21 +82,20 @@ namespace GamePlay
             {
                 TileType.Empty => emptyMaterial,
                 TileType.Standard => standardMaterial,
-                TileType.Blue => waterMaterial,
+                TileType.Blue => standardMaterial,
                 TileType.Teleport => emptyMaterial,
                 TileType.BonusSteps => bonusStepMaterial,
                 TileType.Jump => emptyMaterial,
-                TileType.Switch => SwitchMaterial(),
+                TileType.Switch => waterMaterial,
                 TileType.OneTimeUse => oneTimeUseMaterial,
                 TileType.Rotating => rotatingMaterial,
                 _ => throw new ArgumentOutOfRangeException()
             };
         }
-
-        private Material SwitchMaterial()
+        private bool SwitchTileOn()
         {
             var switchTile = (SwitchTile)GetTileComponent(TileType.Switch);
-            return switchTile.on ? switchOnMaterial : switchOffMaterial;
+            return switchTile.on;
         }
 
         public void ApplyTileStruct(AxialHex axialHex)
