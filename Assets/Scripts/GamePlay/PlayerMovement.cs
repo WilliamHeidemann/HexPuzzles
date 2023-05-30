@@ -43,8 +43,7 @@ namespace GamePlay
             hopSound.Play();
             previous = current;
             current = command.Tile;
-            if (command.ShouldDisplayAllTiles) DisplayAllTiles();
-            else DisplayTilesInRange(current);
+            DisplayTilesInRange(current);
             PlayerMovementAnimation.Instance.MoveTo(command);
         }
     

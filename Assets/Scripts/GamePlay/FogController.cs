@@ -6,7 +6,7 @@ namespace GamePlay
     {
         [SerializeField] private Transform player;
         [SerializeField] private ParticleSystem fogParticles;
-        private const float FogRadiusInvisible = 4f;
+        [SerializeField] private float FogRadiusInvisible = 3f;
         private ParticleSystem.Particle[] _particles;
 
         private void Start()
@@ -27,7 +27,7 @@ namespace GamePlay
                 }
                 else
                 {
-                    _particles[i].startSize = distanceToPlayer - FogRadiusInvisible;
+                    _particles[i].startSize = (distanceToPlayer - FogRadiusInvisible) * 10;
                 }
             }
             fogParticles.SetParticles(_particles, numParticles);

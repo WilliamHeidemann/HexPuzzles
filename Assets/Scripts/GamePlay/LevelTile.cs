@@ -29,6 +29,7 @@ namespace GamePlay
         public bool InRangeOfPlayer { get; set; }
         private SkinnedMeshRenderer MeshRenderer => GetComponentInChildren<SkinnedMeshRenderer>();
         [SerializeField] private Material emptyMaterial;
+        [SerializeField] private Material outOfRangeMaterial;
         [SerializeField] private Material standardMaterial;
         [SerializeField] private Material blueMaterial;
         [SerializeField] private Material teleportMaterial;
@@ -45,7 +46,6 @@ namespace GamePlay
         [SerializeField] private GameObject teleportRings;
         private void OnValidate()
         {
-            print("Showing tile");
             ShowTile();
         }
 
@@ -71,7 +71,7 @@ namespace GamePlay
     
         private void HideTile()
         {
-            MeshRenderer.material = emptyMaterial;
+            MeshRenderer.material = tileType == TileType.Empty ? emptyMaterial : outOfRangeMaterial;
             bouquet.SetActive(false);
             trampoline.SetActive(false);
             teleportRings.SetActive(false);

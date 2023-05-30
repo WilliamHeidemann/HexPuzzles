@@ -236,10 +236,4 @@ MonoBehaviour:
     teleportQ: 0
     teleportR: 0
     switchOn: 0
-  - tileType: 2
-    Q: 4
-    R: -7
-    teleportQ: 0
-    teleportR: 0
-    switchOn: 0
   updatingAllowed: 0

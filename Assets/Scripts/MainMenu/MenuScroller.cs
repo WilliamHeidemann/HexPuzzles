@@ -48,7 +48,7 @@ namespace MainMenu
         public void Scroll(bool goingRight)
         {
             // if (goingRight && _worldIndex == _worldCount - 1) return;
-            if (goingRight && _worldIndex + 1 > _worldReached) return;
+            if (goingRight && _worldIndex >= _worldReached - 1) return;
             if (!goingRight && _worldIndex == 0) return;
             _worldIndex += goingRight ? 1 : -1;
             worldNumber.text = (_worldIndex + 1).ToString();

@@ -63,6 +63,7 @@ MonoBehaviour:
     teleportR: 0
     switchOn: 0
   emptyMaterial: {fileID: 2100000, guid: 633654028755cb84eb1c316e71fc71c0, type: 2}
+  outOfRangeMaterial: {fileID: 2100000, guid: 54ff80a67372baa459070f483d10127d, type: 2}
   standardMaterial: {fileID: 2100000, guid: 59e93d432dd003f42865e2a22d1361d7, type: 2}
   blueMaterial: {fileID: 2100000, guid: 62e0f6285c17eb7428cf1e48fb109c04, type: 2}
   teleportMaterial: {fileID: 2100000, guid: 64f31b88dd1dfc54baa1e392442e1951, type: 2}

@@ -10,8 +10,7 @@ namespace GamePlay
         public bool ShouldActivateTile { get; }
         public bool ShouldIncrementStepCount { get; }
         public bool ShouldCheckRange { get; }
-        public bool ShouldDisplayAllTiles { get; }
-        public MoveCommand(LevelTile levelTile, bool shouldTriggerTileEvent = true, bool shouldActivateTile = true, bool shouldIncrementStepCount = true, bool shouldCheckRange = true, bool shouldDisplayAllTiles = false)
+        public MoveCommand(LevelTile levelTile, bool shouldTriggerTileEvent = true, bool shouldActivateTile = true, bool shouldIncrementStepCount = true, bool shouldCheckRange = true)
         {
             Tile = levelTile;
             Position = levelTile.transform.position + new Vector3(0f, 0.25f, 0f);
@@ -19,7 +18,6 @@ namespace GamePlay
             ShouldActivateTile = shouldActivateTile;
             ShouldIncrementStepCount = shouldIncrementStepCount;
             ShouldCheckRange = shouldCheckRange;
-            ShouldDisplayAllTiles = shouldDisplayAllTiles;
         }
     }
 }
