@@ -49,6 +49,11 @@ namespace GamePlay
                 var hexTile = hexTiles.FirstOrDefault(hexTile => hexTile.q == tileStruct.Q && hexTile.r == tileStruct.R);
                 if (hexTile != null) hexTile.ApplyTileStruct(tileStruct);
             }
+
+            foreach (var levelTile in hexTiles)
+            {
+                levelTile.ShowTile();
+            }
         }
     }
 }

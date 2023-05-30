@@ -45,6 +45,7 @@ namespace GamePlay
         [SerializeField] private GameObject teleportRings;
         private void OnValidate()
         {
+            print("Showing tile");
             ShowTile();
         }
 
