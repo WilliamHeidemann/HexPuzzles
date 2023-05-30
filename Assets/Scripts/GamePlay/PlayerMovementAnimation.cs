@@ -34,14 +34,64 @@ namespace GamePlay
             if (movementCommands.Any() && _transition == null)
             {
                 var command = movementCommands[0];
-                _transition = StartCoroutine(WalkTransition(command));
+                _transition = command.AnimationType == AnimationType.Hop
+                    ? StartCoroutine(HopTransition(command))
+                    : StartCoroutine(DigTransition(command));
             }
             else
             {
                 // Play Idle Animation
             }
         }
-        private IEnumerator WalkTransition(MoveCommand command)
+
+        private IEnumerator DigTransition(MoveCommand command)
+        {
+            var blob = transform;
+
+            var mesh = GetComponentInChildren<SkinnedMeshRenderer>();
+            mesh.enabled = false;
+            var time = 0f;
+            var start = blob.position;
+            var target = command.Position;
+            blob.rotation = Quaternion.LookRotation(target - start);
+            while (!WithinRange)
+            {
+                time += Time.deltaTime * 3;
+                blob.position = Vector3.Lerp(start, target, time);
+                yield return null;
+            }
+
+            mesh.enabled = true;
+            time = 0f;
+            var interpolation = 0f;
+            const float startSpeed = 0.07f;
+            var airTarget = command.Position + Vector3.up * 2;
+            while (interpolation < 1)
+            {
+                time += Time.deltaTime * 2;
+                var speed = Mathf.Lerp(startSpeed, 0, time);
+                interpolation += speed;
+                blob.position = Vector3.Lerp(target, airTarget, interpolation);
+                yield return null;
+            }
+            
+            time = 0f;
+            interpolation = 0f;
+            while (interpolation < 1)
+            {
+                time += Time.deltaTime * 2;
+                var speed = Mathf.Lerp(0, startSpeed, time);
+                interpolation += speed;
+                blob.position = Vector3.Lerp(airTarget, target, interpolation);
+                yield return null;
+            }
+            
+            movementCommands.Remove(command);
+            _transition = null;
+            PlayerMovement.MoveRequestCompleted(command);
+        }
+
+        private IEnumerator HopTransition(MoveCommand command)
         {
             var blob = transform;
 
@@ -59,7 +109,7 @@ namespace GamePlay
             while (!WithinRange)
             {
                 time += Time.deltaTime * 3;
-                transform.position = Vector3.Slerp(start, target, time) + centerPivot;
+                blob.position = Vector3.Slerp(start, target, time) + centerPivot;
                 blob.rotation = Quaternion.Slerp(startRotation, targetRotation, time);
                 yield return null;
             }

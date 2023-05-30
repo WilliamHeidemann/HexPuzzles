@@ -35,6 +35,7 @@ namespace GamePlay
             current = LevelTiles.First(tile => tile.q == 0 && tile.r == 0);
             DisplayTilesInRange(current);
             transform.position = current.transform.position + new Vector3(0f, 0.25f, 0f);
+            transform.rotation = Quaternion.Euler(0, 180, 0);
         }
     
         public void MoveRequest(MoveCommand command)

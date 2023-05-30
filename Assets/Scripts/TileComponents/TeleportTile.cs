@@ -9,7 +9,7 @@ namespace TileComponents
         public void Activate()
         {
             // GetComponent<AudioSource>().Play();
-            PlayerMovement.Instance.MoveRequest(new MoveCommand(connectedTile, shouldTriggerTileEvent: false, shouldActivateTile: false, shouldIncrementStepCount: false, shouldCheckRange:false));
+            PlayerMovement.Instance.MoveRequest(new MoveCommand(connectedTile, AnimationType.Dig, shouldTriggerTileEvent: false, shouldActivateTile: false, shouldIncrementStepCount: false, shouldCheckRange:false));
         }
 
         private void OnDrawGizmos()

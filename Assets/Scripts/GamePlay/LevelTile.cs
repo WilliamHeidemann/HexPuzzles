@@ -43,7 +43,8 @@ namespace GamePlay
     
         [SerializeField] private GameObject bouquet;
         [SerializeField] private GameObject trampoline;
-        [SerializeField] private GameObject teleportRings;
+        // [SerializeField] private GameObject teleportRings;
+        [SerializeField] private GameObject moleHill;
         private void OnValidate()
         {
             ShowTile();
@@ -66,7 +67,8 @@ namespace GamePlay
             UpdateMaterial();
             bouquet.SetActive(tileType == TileType.Blue);
             trampoline.SetActive(tileType == TileType.Jump);
-            teleportRings.SetActive(tileType == TileType.Teleport);
+            // teleportRings.SetActive(tileType == TileType.Teleport);
+            moleHill.SetActive(tileType == TileType.Teleport);
         }
     
         private void HideTile()
@@ -74,7 +76,8 @@ namespace GamePlay
             MeshRenderer.material = tileType == TileType.Empty ? emptyMaterial : outOfRangeMaterial;
             bouquet.SetActive(false);
             trampoline.SetActive(false);
-            teleportRings.SetActive(false);
+            // teleportRings.SetActive(false);
+            moleHill.SetActive(false);
         }
         
         private void UpdateMaterial()
@@ -84,7 +87,7 @@ namespace GamePlay
                 TileType.Empty => emptyMaterial,
                 TileType.Standard => standardMaterial,
                 TileType.Blue => waterMaterial,
-                TileType.Teleport => teleportMaterial,
+                TileType.Teleport => emptyMaterial,
                 TileType.BonusSteps => bonusStepMaterial,
                 TileType.Jump => emptyMaterial,
                 TileType.Switch => SwitchMaterial(),
