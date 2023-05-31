@@ -1857,6 +1857,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cf4b0baa3bc63244295014e1367b5879, type: 2}
   - {fileID: 11400000, guid: 38d9774084e1c744aa842f986d0e39e5, type: 2}
   worldIndexReached: 0
+  worldToComplete: {fileID: 11400000, guid: 6f70f79b6c3315846b6bf83ae3a8c88b, type: 2}
 --- !u!1 &2053429600
 GameObject:
   m_ObjectHideFlags: 0

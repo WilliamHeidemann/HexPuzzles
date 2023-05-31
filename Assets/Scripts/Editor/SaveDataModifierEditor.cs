@@ -38,5 +38,17 @@ public class SaveDataModifierEditor : Editor
                 PlayerPrefs.SetInt(level.name, stars);
             }
         }
+        
+        if (GUILayout.Button("Complete World"))
+        {
+            var world = script.worldToComplete;
+            var center = world.centerLevel;
+            var outer = world.connectedLevels;
+            var levels = new List<GridScriptableObject> { center };
+            levels.AddRange(outer);
+            levels.ForEach(level => PlayerPrefs.SetInt(level.name, 3));
+            PlayerPrefs.SetInt("World Reached", world.index + 1);
+            script.worldIndexReached = world.index + 1;
+        }
     }
 }

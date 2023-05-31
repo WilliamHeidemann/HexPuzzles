@@ -7,5 +7,6 @@ namespace MainMenu
     {
         public GridScriptableObject[] levels;
         public int worldIndexReached;
+        public World worldToComplete;
     }
 }
