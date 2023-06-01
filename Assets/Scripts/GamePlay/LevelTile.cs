@@ -83,7 +83,7 @@ namespace GamePlay
                 TileType.Empty => emptyMaterial,
                 TileType.Standard => standardMaterial,
                 TileType.Blue => standardMaterial,
-                TileType.Teleport => emptyMaterial,
+                TileType.Teleport => standardMaterial,
                 TileType.BonusSteps => bonusStepMaterial,
                 TileType.Jump => emptyMaterial,
                 TileType.Switch => waterMaterial,

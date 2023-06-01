@@ -33,7 +33,7 @@ namespace GamePlay
         {
             _stepCount = 0;
             _optimalSteps = level.optimalSteps;
-            _availableSteps = Mathf.RoundToInt(_optimalSteps * 1.25f);
+            _availableSteps = Mathf.RoundToInt(_optimalSteps * 2f);
             stepCountText.text = RemainingSteps.ToString();
         }
 
