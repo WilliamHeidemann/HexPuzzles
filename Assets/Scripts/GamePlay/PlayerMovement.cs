@@ -13,7 +13,7 @@ namespace GamePlay
         public static PlayerMovement Instance;
         public static event Action TriggerTileEvent;
         private static IEnumerable<LevelTile> LevelTiles => FindObjectsOfType<LevelTile>();
-        private const int ViewDistance = 2;
+        private const int ViewDistance = 5;
         [HideInInspector] public LevelTile previous;
         [HideInInspector] public LevelTile current;
 
@@ -40,14 +40,18 @@ namespace GamePlay
     
         public void MoveRequest(MoveCommand command)
         {
-            if (IsInvalid(command)) return;
+            if (IsInvalid(command))
+            {
+                ShowWherePlayerCanGo();
+                return;
+            }
             hopSound.Play();
             previous = current;
             current = command.Tile;
             DisplayTilesInRange(current);
             PlayerMovementAnimation.Instance.MoveTo(command);
         }
-    
+
         public static void MoveRequestCompleted(MoveCommand command)
         {
             if (command.ShouldTriggerTileEvent) TriggerTileEvent?.Invoke();
@@ -57,7 +61,7 @@ namespace GamePlay
             if (command.ShouldIncrementStepCount) StepCounter.Instance.IncrementStepCount();
             ObjectiveManager.instance.ProgressionCheck();
         }
-    
+
         private static bool IsInvalid(MoveCommand command)
         {
             if (StepCounter.Instance.IsOutOfSteps) return true;
@@ -68,6 +72,18 @@ namespace GamePlay
             if (command.ShouldCheckRange)
                 if (!InRange(Instance.current, command.Tile, 1)) return true;
             return false;
+        }
+        
+        private static void ShowWherePlayerCanGo()
+        {
+            foreach (var tile in LevelTiles)
+            {
+                if (!InRange(Instance.current, tile, 1)) continue;
+                if (tile.tileType == TileType.Empty) continue;
+                if (tile.tileType == TileType.Switch && !tile.GetComponent<SwitchTile>().on) continue;
+                if (tile == Instance.current) continue;
+                tile.PlayParticles();
+            }
         }
 
         private static void DisplayAllTiles()

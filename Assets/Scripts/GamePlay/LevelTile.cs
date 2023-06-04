@@ -41,6 +41,8 @@ namespace GamePlay
         [SerializeField] private GameObject trampoline;
         [SerializeField] private GameObject moleHill;
         [SerializeField] private GameObject lilyPad;
+
+        [SerializeField] private ParticleSystem availableTileParticleSystem;
         private void OnValidate()
         {
             ShowTile();
@@ -92,6 +94,12 @@ namespace GamePlay
                 _ => throw new ArgumentOutOfRangeException()
             };
         }
+        
+        public void PlayParticles()
+        {
+            availableTileParticleSystem.Play();
+        }
+        
         private bool SwitchTileOn()
         {
             var switchTile = (SwitchTile)GetTileComponent(TileType.Switch);
