@@ -1,12 +1,14 @@
 ﻿using GamePlay;
+using ScriptableObjectClasses;
 
 namespace TileComponents
 {
-    public class BonusStepsTile : TileComponentBase, IActivatedTile
+    public class BlueTile : TileComponentBase, IActivatedTile
     {
+        public static int BlueTilesInLevel;
         public void Activate()
         {
-            StepCounter.Instance.GainBonusSteps(4);
+            BlueTilesInLevel--;
             var levelTile = GetComponent<LevelTile>();
             levelTile.tileType = TileType.Standard;
             levelTile.UpdateGraphics();

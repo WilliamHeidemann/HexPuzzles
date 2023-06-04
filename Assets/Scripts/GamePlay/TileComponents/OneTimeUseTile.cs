@@ -1,4 +1,5 @@
 ﻿using GamePlay;
+using ScriptableObjectClasses;
 
 namespace TileComponents
 {

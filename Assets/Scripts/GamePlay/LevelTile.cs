@@ -6,18 +6,7 @@ using UnityEngine;
 
 namespace GamePlay
 {
-    public enum TileType
-    {
-        Empty,
-        Standard,
-        Blue,
-        Teleport,
-        BonusSteps,
-        Jump,
-        Switch,
-        OneTimeUse,
-        Rotating
-    }
+    
 
     public class LevelTile : MonoBehaviour
     {
@@ -25,7 +14,7 @@ namespace GamePlay
         public int q;
         public int r;
         public int s => -q-r;
-        public AxialHex axialHexData;
+        // public AxialHex axialHexData;
         public bool InRangeOfPlayer { get; set; }
         private SkinnedMeshRenderer MeshRenderer => GetComponentInChildren<SkinnedMeshRenderer>();
         [SerializeField] private Material emptyMaterial;
@@ -108,7 +97,7 @@ namespace GamePlay
 
         public void ApplyTileStruct(AxialHex axialHex)
         {
-            axialHexData = axialHex;
+            // axialHexData = axialHex;
             tileType = axialHex.tileType;
             q = axialHex.Q;
             r = axialHex.R;

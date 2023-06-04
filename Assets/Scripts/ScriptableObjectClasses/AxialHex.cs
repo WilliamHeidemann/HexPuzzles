@@ -1,8 +1,20 @@
 ﻿using System;
-using GamePlay;
 
 namespace ScriptableObjectClasses
 {
+    public enum TileType
+    {
+        Empty,
+        Standard,
+        Blue,
+        Teleport,
+        BonusSteps,
+        Jump,
+        Switch,
+        OneTimeUse,
+        Rotating
+    }
+    
     [Serializable]
     public struct AxialHex
     {
