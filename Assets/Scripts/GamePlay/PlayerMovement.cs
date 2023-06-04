@@ -49,7 +49,7 @@ namespace GamePlay
             previous = current;
             current = command.Tile;
             DisplayTilesInRange(current);
-            PlayerMovementAnimation.Instance.MoveTo(command);
+            PlayerMovementAnimation.instance.MoveTo(command);
         }
 
         public static void MoveRequestCompleted(MoveCommand command)

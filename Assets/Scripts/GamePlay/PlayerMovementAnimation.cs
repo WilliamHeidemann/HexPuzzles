@@ -8,14 +8,14 @@ namespace GamePlay
 {
     public class PlayerMovementAnimation : MonoBehaviour
     {
-        public static PlayerMovementAnimation Instance;
-        private readonly List<MoveCommand> movementCommands = new();
-        private bool WithinRange => Vector3.Distance(transform.position, movementCommands[0].Position) < 0.05f;
+        public static PlayerMovementAnimation instance;
+        private readonly List<MoveCommand> _movementCommands = new();
+        private bool WithinRange => Vector3.Distance(transform.position, _movementCommands[0].Position) < 0.05f;
         private Coroutine _transition;
         private void Awake()
         {
-            if (Instance != null) Destroy(this);
-            Instance = this;
+            if (instance != null) Destroy(this);
+            instance = this;
             LevelLoader.EnterLevelEvent += ResetMovementAnimation;
         }
 
@@ -26,14 +26,14 @@ namespace GamePlay
 
         public void MoveTo(MoveCommand moveCommand)
         {
-            movementCommands.Add(moveCommand);
+            _movementCommands.Add(moveCommand);
         }
     
         private void Update()
         {
-            if (movementCommands.Any() && _transition == null)
+            if (_movementCommands.Any() && _transition == null)
             {
-                var command = movementCommands[0];
+                var command = _movementCommands[0];
                 _transition = command.AnimationType == AnimationType.Hop
                     ? StartCoroutine(HopTransition(command))
                     : StartCoroutine(DigTransition(command));
@@ -66,7 +66,6 @@ namespace GamePlay
             var interpolation = 0f;
             const float startSpeed = 0.07f;
             var airTarget = command.Position + Vector3.up * 2;
-            print("Going up");
             while (interpolation < 1)
             {
                 time += Time.deltaTime * 2;
@@ -75,7 +74,7 @@ namespace GamePlay
                 blob.position = Vector3.Lerp(target, airTarget, interpolation);
                 yield return null;
             }
-            print("Going down");
+            
             time = 0f;
             interpolation = 0f;
             while (interpolation < 1)
@@ -86,10 +85,8 @@ namespace GamePlay
                 blob.position = Vector3.Lerp(airTarget, target, interpolation);
                 yield return null;
             }
-
-            print("Landed");
             
-            movementCommands.Remove(command);
+            _movementCommands.Remove(command);
             _transition = null;
             PlayerMovement.MoveRequestCompleted(command);
         }
@@ -116,14 +113,14 @@ namespace GamePlay
                 blob.rotation = Quaternion.Slerp(startRotation, targetRotation, time);
                 yield return null;
             }
-            movementCommands.Remove(command);
+            _movementCommands.Remove(command);
             _transition = null;
             PlayerMovement.MoveRequestCompleted(command);
         }
 
         private void ResetMovementAnimation(GridScriptableObject level)
         {
-            movementCommands.Clear();
+            _movementCommands.Clear();
             if (_transition != null)
             {
                 StopCoroutine(_transition);
