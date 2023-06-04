@@ -592,6 +592,7 @@ GameObject:
   m_Component:
   - component: {fileID: 642338934}
   - component: {fileID: 642338935}
+  - component: {fileID: 642338936}
   m_Layer: 5
   m_Name: Scroller
   m_TagString: Untagged
@@ -638,6 +639,18 @@ MonoBehaviour:
   scrollRightImage: {fileID: 829272803}
   scrollLockedSprite: {fileID: 21300000, guid: b92630cfc60516648b1331b4f0e5214f, type: 3}
   scrollArrowSprite: {fileID: 21300000, guid: 21556800a2c28cd4e99b60fc28fc359a, type: 3}
+--- !u!114 &642338936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642338933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e53a0602508a2b748b023c9877bc57b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &710488151
 GameObject:
   m_ObjectHideFlags: 0

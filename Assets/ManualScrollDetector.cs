@@ -6,8 +6,8 @@ using UnityEngine;
 
 public class ManualScrollDetector : MonoBehaviour
 {
-    private const float MinSwipeDistance = 60f;
-    private Vector2 _startPos;
+    private const float MinSwipeDistance = 100f;
+    private float _startX;
     private MenuScroller _menuScroller;
 
     private void Start() => _menuScroller = GetComponent<MenuScroller>();
@@ -16,24 +16,12 @@ public class ManualScrollDetector : MonoBehaviour
     {
         if (Input.touchCount <= 0) return;
         var touch = Input.GetTouch(0);
-        if (touch.phase == TouchPhase.Began) _startPos = touch.position;
+        if (touch.phase == TouchPhase.Began) _startX = touch.position.x;
         if (touch.phase == TouchPhase.Ended)
         {
-            var swipeDelta = touch.position - _startPos;
-            if (!(swipeDelta.magnitude > MinSwipeDistance)) return;
-            var swipeAngle = Mathf.Atan2(swipeDelta.y, swipeDelta.x) * Mathf.Rad2Deg;
-            if (swipeAngle < 0) swipeAngle += 360;
-            if (swipeAngle is < 45 or > 315)
-            {
-                // Swipe right
-                print(swipeDelta.magnitude);
-                _menuScroller.Scroll(false);
-            }
-            else if (swipeAngle is > 135 and < 225)
-            {
-                // Swipe left
-                _menuScroller.Scroll(true);
-            }
+            var swipeDelta = touch.position.x - _startX;
+            if (!(Mathf.Abs(swipeDelta) > MinSwipeDistance)) return;
+            _menuScroller.Scroll(!(swipeDelta > 0));
         }
     }
 }

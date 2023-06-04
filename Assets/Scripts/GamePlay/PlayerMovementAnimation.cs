@@ -16,12 +16,12 @@ namespace GamePlay
         {
             if (Instance != null) Destroy(this);
             Instance = this;
-            LevelLoader.EnterLevelEvent += ClearMoveCommands;
+            LevelLoader.EnterLevelEvent += ResetMovementAnimation;
         }
 
         private void OnDestroy()
         {
-            LevelLoader.EnterLevelEvent -= ClearMoveCommands;
+            LevelLoader.EnterLevelEvent -= ResetMovementAnimation;
         }
 
         public void MoveTo(MoveCommand moveCommand)
@@ -66,25 +66,28 @@ namespace GamePlay
             var interpolation = 0f;
             const float startSpeed = 0.07f;
             var airTarget = command.Position + Vector3.up * 2;
+            print("Going up");
             while (interpolation < 1)
             {
                 time += Time.deltaTime * 2;
-                var speed = Mathf.Lerp(startSpeed, 0, time);
+                var speed = Mathf.Lerp(startSpeed, 0.01f, time);
                 interpolation += speed;
                 blob.position = Vector3.Lerp(target, airTarget, interpolation);
                 yield return null;
             }
-            
+            print("Going down");
             time = 0f;
             interpolation = 0f;
             while (interpolation < 1)
             {
                 time += Time.deltaTime * 2;
-                var speed = Mathf.Lerp(0, startSpeed, time);
+                var speed = Mathf.Lerp(0f, startSpeed, time);
                 interpolation += speed;
                 blob.position = Vector3.Lerp(airTarget, target, interpolation);
                 yield return null;
             }
+
+            print("Landed");
             
             movementCommands.Remove(command);
             _transition = null;
@@ -118,9 +121,16 @@ namespace GamePlay
             PlayerMovement.MoveRequestCompleted(command);
         }
 
-        private void ClearMoveCommands(GridScriptableObject level)
+        private void ResetMovementAnimation(GridScriptableObject level)
         {
             movementCommands.Clear();
+            if (_transition != null)
+            {
+                StopCoroutine(_transition);
+                _transition = null;
+            }
+            var mesh = GetComponentInChildren<SkinnedMeshRenderer>();
+            mesh.enabled = true;
         }
     }
 }
