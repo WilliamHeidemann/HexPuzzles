@@ -9,6 +9,7 @@ namespace MainMenu
     {
         public static ScreenFader instance;
         [SerializeField] private Image blackScreen;
+        private const float FadeTimeInSeconds = .2f;
         private void Awake()
         {
             instance = this;
@@ -22,13 +23,13 @@ namespace MainMenu
         private IEnumerator FadeIn()
         {
             var color = blackScreen.color;
-            var alpha = 1f;
-            color.a = alpha;
+            color.a = 1f;
             blackScreen.color = color;
-            while (alpha > 0f)
+            var time = 0f;
+            while (time < FadeTimeInSeconds)
             {
-                alpha -= Time.deltaTime;
-                color.a = alpha;
+                time += Time.deltaTime;
+                color.a = 1f - time / FadeTimeInSeconds;
                 blackScreen.color = color;
                 yield return null;
             }
@@ -43,14 +44,18 @@ namespace MainMenu
         private IEnumerator FadeOut(string scene)
         {
             var color = blackScreen.color;
-            var alpha = 0f;
-            while (alpha < 1f)
+            var time = 0f;
+            while (time < FadeTimeInSeconds)
             {
-                alpha += Time.deltaTime;
-                color.a = alpha;
+                time += Time.deltaTime;
+                color.a = time / FadeTimeInSeconds;
                 blackScreen.color = color;
                 yield return null;
             }
+
+            // var sceneAsync = SceneManager.LoadSceneAsync(scene, LoadSceneMode.Additive);
+            // yield return new WaitUntil(() => sceneAsync.isDone);
+            // SceneManager.UnloadSceneAsync(0);
             SceneManager.LoadScene(scene);
         }
     }
