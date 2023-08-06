@@ -296,7 +296,7 @@ MonoBehaviour:
     teleportQ: 0
     teleportR: 0
     switchOn: 0
-  - tileType: 4
+  - tileType: 1
     Q: 4
     R: 3
     teleportQ: 0
@@ -368,7 +368,7 @@ MonoBehaviour:
     teleportQ: 0
     teleportR: 0
     switchOn: 0
-  - tileType: 4
+  - tileType: 1
     Q: 7
     R: -2
     teleportQ: 0

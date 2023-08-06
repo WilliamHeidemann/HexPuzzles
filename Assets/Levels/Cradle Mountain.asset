@@ -14,159 +14,94 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   optimalSteps: 11
   tileData:
-  - tileType: 3
-    Q: -6
-    R: 4
-    teleportQ: -2
-    teleportR: 5
   - tileType: 1
-    Q: -5
-    R: 3
-    teleportQ: 0
-    teleportR: 0
-  - tileType: 1
-    Q: -5
-    R: 4
-    teleportQ: 0
-    teleportR: 0
-  - tileType: 1
-    Q: -4
+    Q: -2
     R: 1
     teleportQ: 0
     teleportR: 0
-  - tileType: 1
-    Q: -4
-    R: 2
-    teleportQ: 0
-    teleportR: 0
-  - tileType: 2
-    Q: -4
-    R: 3
-    teleportQ: 0
-    teleportR: 0
-  - tileType: 1
-    Q: -4
-    R: 4
-    teleportQ: 0
-    teleportR: 0
-  - tileType: 1
-    Q: -3
-    R: 0
-    teleportQ: 0
-    teleportR: 0
-  - tileType: 1
-    Q: -2
-    R: 0
-    teleportQ: 0
-    teleportR: 0
-  - tileType: 5
+    switchOn: 0
+  - tileType: 3
     Q: -2
     R: 2
     teleportQ: 0
     teleportR: 0
+    switchOn: 0
   - tileType: 1
-    Q: -2
-    R: 3
-    teleportQ: 0
-    teleportR: 0
-  - tileType: 1
-    Q: -2
-    R: 4
-    teleportQ: 0
-    teleportR: 0
-  - tileType: 3
-    Q: -2
-    R: 5
-    teleportQ: -6
-    teleportR: 4
-  - tileType: 1
-    Q: -1
-    R: 0
-    teleportQ: 0
-    teleportR: 0
-  - tileType: 1
-    Q: -1
-    R: 1
-    teleportQ: 0
-    teleportR: 0
-  - tileType: 3
-    Q: -1
-    R: 2
-    teleportQ: 0
-    teleportR: -2
-  - tileType: 1
-    Q: -1
-    R: 4
-    teleportQ: 0
-    teleportR: 0
-  - tileType: 3
     Q: 0
     R: -2
     teleportQ: -1
     teleportR: 2
+    switchOn: 0
+  - tileType: 5
+    Q: 0
+    R: -1
+    teleportQ: 0
+    teleportR: 0
+    switchOn: 0
   - tileType: 1
     Q: 0
     R: 0
     teleportQ: 0
     teleportR: 0
+    switchOn: 0
   - tileType: 1
     Q: 0
     R: 3
     teleportQ: 0
     teleportR: 0
-  - tileType: 1
-    Q: 1
-    R: -3
-    teleportQ: 0
-    teleportR: 0
-  - tileType: 5
-    Q: 1
-    R: -1
-    teleportQ: 0
-    teleportR: 0
-  - tileType: 1
-    Q: 1
-    R: 0
-    teleportQ: 0
-    teleportR: 0
-  - tileType: 1
-    Q: 1
-    R: 1
-    teleportQ: 0
-    teleportR: 0
+    switchOn: 0
   - tileType: 2
+    Q: 0
+    R: 5
+    teleportQ: 0
+    teleportR: 0
+    switchOn: 0
+  - tileType: 1
     Q: 1
-    R: 2
-    teleportQ: 0
-    teleportR: 0
-  - tileType: 2
-    Q: 2
-    R: -3
-    teleportQ: 0
-    teleportR: 0
-  - tileType: 1
-    Q: 2
-    R: 1
-    teleportQ: 0
-    teleportR: 0
-  - tileType: 1
-    Q: 3
-    R: -3
-    teleportQ: 0
-    teleportR: 0
-  - tileType: 1
-    Q: 3
     R: -2
     teleportQ: 0
     teleportR: 0
-  - tileType: 4
+    switchOn: 0
+  - tileType: 3
+    Q: 1
+    R: 4
+    teleportQ: 0
+    teleportR: 0
+    switchOn: 0
+  - tileType: 1
+    Q: 2
+    R: -2
+    teleportQ: 0
+    teleportR: 0
+    switchOn: 0
+  - tileType: 1
+    Q: 2
+    R: -1
+    teleportQ: 0
+    teleportR: 0
+    switchOn: 0
+  - tileType: 1
+    Q: 2
+    R: 0
+    teleportQ: 0
+    teleportR: 0
+    switchOn: 0
+  - tileType: 3
+    Q: 2
+    R: 1
+    teleportQ: 0
+    teleportR: 0
+    switchOn: 0
+  - tileType: 1
+    Q: 3
+    R: -4
+    teleportQ: 0
+    teleportR: 0
+    switchOn: 0
+  - tileType: 1
     Q: 3
     R: -1
     teleportQ: 0
     teleportR: 0
-  - tileType: 1
-    Q: 3
-    R: 0
-    teleportQ: 0
-    teleportR: 0
+    switchOn: 0
   updatingAllowed: 0
