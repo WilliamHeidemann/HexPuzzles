@@ -54,7 +54,7 @@ namespace GamePlay
             var start = blob.position;
             var target = command.Position;
             blob.rotation = Quaternion.LookRotation(target - start);
-            while (!WithinRange)
+            while (!WithinRange) // Travel to other hole invisible
             {
                 time += Time.deltaTime * 3;
                 blob.position = Vector3.Lerp(start, target, time);
@@ -62,22 +62,19 @@ namespace GamePlay
             }
 
             mesh.enabled = true;
-            time = 0f;
             var interpolation = 0f;
             const float startSpeed = 0.07f;
             var airTarget = command.Position + Vector3.up * 2;
-            while (interpolation < 1)
+            while (interpolation < 1) // Jump upwards
             {
-                time += Time.deltaTime * 2;
-                var speed = Mathf.Lerp(startSpeed, 0.01f, time);
-                interpolation += speed;
+                interpolation += startSpeed;
                 blob.position = Vector3.Lerp(target, airTarget, interpolation);
                 yield return null;
             }
             
             time = 0f;
             interpolation = 0f;
-            while (interpolation < 1)
+            while (interpolation < 1) // Jump downwards
             {
                 time += Time.deltaTime * 2;
                 var speed = Mathf.Lerp(0f, startSpeed, time);
