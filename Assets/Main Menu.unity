@@ -273,7 +273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ffd12ebb8dc60b43add161b24acfcc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testMode: 1
+  testMode: 0
 --- !u!1 &503858813
 GameObject:
   m_ObjectHideFlags: 0
@@ -1903,7 +1903,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 00ac394840e93f548a4154e458fd5901, type: 2}
   - {fileID: 11400000, guid: cf4b0baa3bc63244295014e1367b5879, type: 2}
   - {fileID: 11400000, guid: 38d9774084e1c744aa842f986d0e39e5, type: 2}
-  worldIndexReached: 4
+  worldIndexReached: 0
   worldToComplete: {fileID: 11400000, guid: 3e12912857de30548aa4afdcb31cce0b, type: 2}
 --- !u!1 &2053429600
 GameObject:
