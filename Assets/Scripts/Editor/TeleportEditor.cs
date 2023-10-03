@@ -1,4 +1,6 @@
-﻿using GamePlay;
+﻿#if UNITY_EDITOR
+
+using GamePlay;
 using TileComponents;
 using UnityEditor;
 using UnityEngine;
@@ -20,3 +22,5 @@ public class TeleportEditor : Editor
         }
     }
 }
+
+#endif

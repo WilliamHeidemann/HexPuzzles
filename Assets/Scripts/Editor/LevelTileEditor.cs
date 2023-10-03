@@ -1,4 +1,6 @@
-﻿using System;
+﻿#if UNITY_EDITOR
+
+using System;
 using GamePlay;
 using TileComponents;
 using UnityEditor;
@@ -30,3 +32,5 @@ public class LevelTileEditor : Editor
         }
     }
 }
+
+#endif

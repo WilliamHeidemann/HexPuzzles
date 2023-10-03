@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿#if UNITY_EDITOR
+
+using System.Collections.Generic;
 using MainMenu;
 using ScriptableObjectClasses;
 using UnityEditor;
@@ -52,3 +54,5 @@ public class SaveDataModifierEditor : Editor
         }
     }
 }
+
+#endif
